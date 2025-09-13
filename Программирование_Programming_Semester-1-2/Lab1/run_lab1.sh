@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lab1 Automation Script for Helios
+# Lab1 Automation Script – Using Existing Folders
 
 # Variables
 JAVA_FILE="Lab1.java"
@@ -7,13 +7,13 @@ CLASS_FILE="Lab1.class"
 JAR_FILE="app.jar"
 MANIFEST_FILE="MANIFEST.mf"
 
-# Check if Java file exists
-if [ ! -f "$JAVA_FILE" ]; then
-    echo "Error: $JAVA_FILE not found in the current directory."
-    exit 1
+# Move Java source file to src/ if not already there
+if [ -f "$JAVA_FILE" ]; then
+    mv "$JAVA_FILE" src/
 fi
 
-# Compile the Java program
+# Compile the Java program inside src/
+cd src/
 echo "Compiling $JAVA_FILE..."
 javac "$JAVA_FILE"
 if [ $? -ne 0 ]; then
@@ -22,20 +22,23 @@ if [ $? -ne 0 ]; then
 fi
 echo "Compilation successful."
 
-# Create the manifest file
-echo "Creating $MANIFEST_FILE..."
-echo "Main-Class: Lab1" > "$MANIFEST_FILE"
+# Move compiled class to bin/
+mv "$CLASS_FILE" ../bin/
 
-# Create the JAR file
-echo "Creating JAR file $JAR_FILE..."
-jar -cfm "$JAR_FILE" "$MANIFEST_FILE" "$CLASS_FILE"
-if [ $? -ne 0 ]; then
-    echo "Failed to create JAR file."
-    exit 1
-fi
-echo "JAR file created successfully."
+# Return to project root
+cd ..
+
+# Create manifest file
+echo "Creating $MANIFEST_FILE..."
+echo -e "Main-Class: Lab1\n" > "$MANIFEST_FILE"
+
+# Create the JAR file from bin/
+jar -cfm "$JAR_FILE" "$MANIFEST_FILE" -C bin/ "$CLASS_FILE"
+
+# Move JAR to jar/ folder
+mv "$JAR_FILE" jar/
+echo "JAR file created successfully in jar/"
 
 # Run the JAR file
 echo "Running $JAR_FILE..."
-java -jar "$JAR_FILE"
-
+java -jar jar/"$JAR_FILE"
