@@ -13,7 +13,7 @@ public class Lab1 {
     // Size for 2D Array№3
     final static int array3_col = 10;
     final static int array3_row = 18;
-    final static int DECIMAL = 3;
+    final static int DECIMAL = 2;
     public static void main(String[] args) {
         var array1 = makeArray1(arr1_starting, arr1_ending);
         System.out.println("First array:\n" + Arrays.toString(array1) + "\n");
