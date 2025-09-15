@@ -60,7 +60,10 @@ Inside MANIFEST.mf, add:
 Main-Class: Lab1
 
 
-Save and exit.
+Save and exit. => 
+```bash 
+:wq
+```
 
 Package into a .jar file:
 ```bash
