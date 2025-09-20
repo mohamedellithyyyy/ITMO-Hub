@@ -12,7 +12,7 @@ Here’s a clean README.md draft for your Лабораторная работа 
 В качестве корня дерева использовать каталог `lab0` своего домашнего каталога.  
 
 Использовать команды:  
-```bash
+
 mkdir, echo, cat, touch, ls, pwd, cd, more, cp, rm, rmdir, mv
 ![Задание](./docs/imges/task.png)
 
