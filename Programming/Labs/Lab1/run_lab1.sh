@@ -2,8 +2,8 @@
 # Lab1 Automation Script – Using Existing Folders
 
 # Variables
-JAVA_FILE="Lab1.java"
-CLASS_FILE="Lab1.class"
+JAVA_FILE="lab1.java"
+CLASS_FILE="lab1.class"
 JAR_FILE="app.jar"
 MANIFEST_FILE="MANIFEST.mf"
 
@@ -30,7 +30,7 @@ cd ..
 
 # Create manifest file
 echo "Creating $MANIFEST_FILE..."
-echo -e "Main-Class: Lab1\n" > "$MANIFEST_FILE"
+echo -e "Main-Class: lab1\n" > "$MANIFEST_FILE"
 
 # Create the JAR file from bin/
 jar -cfm "$JAR_FILE" "$MANIFEST_FILE" -C bin/ "$CLASS_FILE"
