@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Arrays;
+import java.lang.Math;
 
 public class FinalTask {
     // 1D Array №1
@@ -26,6 +27,11 @@ public class FinalTask {
         float[] x = createXArray(X_SIZE, xStarting, xEnding);
         System.out.println("Second array:\n" + Arrays.toString(x));
         System.out.println("#".repeat(40) + "\n" + "✅✅✅ The 2nd array is done\n\n");
+        // Print Matrix
+        short[] p = Arrays.stream(w).asLongStream().toArray();
+        var matrix = create2DArray(array3_col, array3_row, p, x);
+        System.out.println("Resulting 2D matrix:");
+        printMatrix(matrix, DECIMAL);
     }
 // to create w array 
     private static short[] createWArray(short start, short end) {
@@ -46,5 +52,35 @@ public class FinalTask {
         }
         return result;
     }
-    
+//  
+    private static double[][] create2DArray(int columnsSize, int rowsSize, short[] p, float[] x) {
+        var result = new double[columnsSize][rowsSize];
+        for (int i = 0; i < columnsSize; i++) {
+            for (int j = 0; j < rowsSize; j++) {
+                result[i][j] = calculateElement(p[i], x[j]);
+            }
+        }
+        return result;
+    }
+// to create calculateElement
+    private static double calculateElement(short p, float x) {
+    if (p == 18) {
+        float value = (float)Math.pow(Math.atan(Math.pow(x / (3 * Math.E) + 1, 2)),  2 - Math.pow(x, (x + 3) / 4.0) / (Math.cos(Math.tan(x)) - 1) );
+        return  value;
+    }
+    if (p == 4 || p == 12 || p == 14 || p == 20 || p == 22) {
+        return Math.log(Math.pow(Math.PI * (Math.sqrt(Math.abs(x)) + 1),Math.sin(Math.log(Math.abs(x)))));
+    }
+    return Math.log(Math.pow(Math.cos(Math.pow(Math.E, Math.cos(x))),2 * Math.cos(Math.sin(x))));
+    }
+// Print matrix with given decimal places
+    private static void printMatrix(double[][] matrix, int decimalPlaces) {
+        String format = "%." + decimalPlaces + "f ";
+        for (double[] row : matrix) {
+            for (double value : row) {
+                System.out.printf(format, value);
+            }
+            System.out.println();
+        }
+    }
 }
