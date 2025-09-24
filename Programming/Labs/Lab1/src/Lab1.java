@@ -65,7 +65,6 @@ public class lab1 {
     private static float calculateElement(short p, float x) {
         if (p == 18) {
             return  (float) Math.pow(Math.atan(Math.pow((x/3)*Math.E + 1, 2)), 2 - Math.pow(x, (x+3)/4)/(Math.cos(Math.tan(x)) - 1));
-            // return 0;
         }
         if (p == 4 || p == 12 || p == 14 || p == 20 || p == 22) {
             return (float) Math.cbrt(Math.log(Math.acos((x / 3) * Math.E + 1))); // Domain of the function: x ∈ [-6/Math.E, 0)
