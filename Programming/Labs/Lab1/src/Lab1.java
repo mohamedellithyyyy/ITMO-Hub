@@ -52,8 +52,8 @@ public class lab1 {
         return result;
     }
 //  
-    private static double[][] create2DArray(int columnsSize, int rowsSize, short[] p, float[] x) {
-        var result = new double[columnsSize][rowsSize];
+    private static float[][] create2DArray(int columnsSize, int rowsSize, short[] p, float[] x) {
+        var result = new float[columnsSize][rowsSize];
         for (int i = 0; i < columnsSize; i++) {
             for (int j = 0; j < rowsSize; j++) {
                 result[i][j] = calculateElement(p[i], x[j]);
@@ -62,21 +62,22 @@ public class lab1 {
         return result;
     }
 // to create calculateElement
-    private static double calculateElement(short p, float x) {
-    if (p == 18) {
-        float value =(float) Math.pow(Math.atan(Math.pow((x/3.0)*Math.E + 1, 2)), 2 - Math.pow(x, (x+3)/4.0)/(Math.cos(Math.tan(x)) - 1));
-        return  value;
-    }
-    if (p == 4 || p == 12 || p == 14 || p == 20 || p == 22) {
-        return Math.cbrt(Math.log(Math.acos((x / 3) * Math.E + 1))); // Domain of the function: x ∈ [-6/Math.E, 0)
-    }
-    return Math.sin(Math.cbrt(Math.pow(Math.tan(x), (x + 1) / 12)));
+    private static float calculateElement(short p, float x) {
+        if (p == 18) {
+            return  (float) Math.pow(Math.atan(Math.pow((x/3)*Math.E + 1, 2)), 2 - Math.pow(x, (x+3)/4)/(Math.cos(Math.tan(x)) - 1));
+            // return 0;
+        }
+        if (p == 4 || p == 12 || p == 14 || p == 20 || p == 22) {
+            return (float) Math.cbrt(Math.log(Math.acos((x / 3) * Math.E + 1))); // Domain of the function: x ∈ [-6/Math.E, 0)
+        }
+        return (float) Math.sin(Math.cbrt(Math.pow(Math.tan(x), (x + 1) / 12)));
     }
 // Print matrix with given decimal places
-    private static void printMatrix(double[][] matrix, int decimalPlaces) {
+    private static void printMatrix(float[][] matrix, int decimalPlaces) {
         String format = "%." + decimalPlaces + "f ";
-        for (double[] row : matrix) {
-            for (double value : row) {
+
+        for (float[] row : matrix) {
+            for (float value : row) {
                 System.out.printf(format, value);
             }
             System.out.println();
