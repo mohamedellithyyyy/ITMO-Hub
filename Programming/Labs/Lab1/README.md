@@ -1,7 +1,3 @@
-Perfect! We can replace the formulas in the README with a **link to the image** instead of writing them as text. Here’s the updated version:
-
----
-
 # Лабораторная работа №1 | Вариант №51671
 
 ## Содержание
