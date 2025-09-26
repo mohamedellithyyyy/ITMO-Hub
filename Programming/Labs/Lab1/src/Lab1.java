@@ -21,10 +21,12 @@ public class lab1 {
     public static void main(String[] args) {
         // Print first Array (w)
         short[] w = createWArray(wStarting, wEnding);
+        System.out.println("#".repeat(40));
         System.out.println("First array:\n" + Arrays.toString(w));
         System.out.println("#".repeat(40) + "\n" + "✅✅✅ The First array is done\n\n");
         // Print second Array (x)
         float[] x = createXArray(X_SIZE, xStarting, xEnding);
+        System.out.println("#".repeat(40));
         System.out.println("Second array:\n" + Arrays.toString(x));
         System.out.println("#".repeat(40) + "\n" + "✅✅✅ The 2nd array is done\n\n");
         // Print Matrix
@@ -47,7 +49,7 @@ public class lab1 {
         var result = new float[size];
         var rand = new Random();
         for (int i = 0; i < size; i++) {
-            result[i] = (float) (rand.nextDouble() * (end - start) + start);
+            result[i] = (float) (rand.nextFloat() * (end - start) + start);
         }
         return result;
     }
@@ -67,17 +69,20 @@ public class lab1 {
             return  (float) Math.pow(Math.atan(Math.pow((x/3)*Math.E + 1, 2)), 2 - Math.pow(x, (x+3)/4)/(Math.cos(Math.tan(x)) - 1));
         }
         if (p == 4 || p == 12 || p == 14 || p == 20 || p == 22) {
-            return (float) Math.cbrt(Math.log(Math.acos((x / 3) * Math.E + 1))); // Domain of the function: x ∈ [-6/Math.E, 0)
+            return (float) Math.cbrt(Math.log(Math.acos((x / 3) * Math.E + 1))); 
         }
         return (float) Math.sin(Math.cbrt(Math.pow(Math.tan(x), (x + 1) / 12)));
     }
 // Print matrix with given decimal places
     private static void printMatrix(float[][] matrix, int decimalPlaces) {
-        String format = "%." + decimalPlaces + "f ";
-
+        String format = "%10." + decimalPlaces + "f ";
         for (float[] row : matrix) {
             for (float value : row) {
+            if (Float.isNaN(value)) {
+                System.out.printf("%10s ", "+"); 
+            } else {
                 System.out.printf(format, value);
+            }
             }
             System.out.println();
         }
