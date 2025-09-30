@@ -45,7 +45,7 @@
 ## Вариант 3874
 
 **Ваши покемоны:**
-[Покемоны](https://github.com/mohamedellithyyyy/ITMO-Hub/blob/main/Programming/Labs/Lab2/docs/imges/покемоны.jpg)
+![Покемоны](https://github.com/mohamedellithyyyy/ITMO-Hub/blob/main/Programming/Labs/Lab2/docs/imges/покемоны.jpg)
 
 
 ---
