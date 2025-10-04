@@ -1,32 +1,30 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class lab1 {
-    public static int factorial(int n) {
-        int fact = 1;
-        for (int i = 2; i <= n; i++) {
-            fact *= i;
+    public static ArrayList<Integer> generateFibonacciUpTo(int number) {
+        ArrayList<Integer> fibs = new ArrayList<>();
+        fibs.add(1); // F1
+        fibs.add(2); // F2
+        while (true) {
+            int next = fibs.get(fibs.size() - 1) + fibs.get(fibs.size() - 2);
+            if (next > number) break;
+            fibs.add(next);
         }
-        return fact;
+        return fibs;
     }
-    public static String decimalToFactorial(int number) {
-        ArrayList<Integer> digits = new ArrayList<>();
-        int n = 1;
-        while (factorial(n) <= number) {
-            n++;
-        }
-        n--;
-        int remaining = number;
-        // Compute digits
-        for (int i = n; i >= 1; i--) {
-            int f = factorial(i);
-            int digit = remaining / f;
-            remaining = remaining % f;
-            digits.add(digit);
-        }
-        // Convert to string
+    public static String decimalToFibonacci(int number) {
+        ArrayList<Integer> fibs = generateFibonacciUpTo(number);
         StringBuilder sb = new StringBuilder();
-        for (int d : digits) {
-            sb.append(d);
+        int remaining = number;
+        for (int i = fibs.size() - 1; i >= 0; i--) {
+            int f = fibs.get(i);
+            if (f <= remaining) {
+                sb.append("1");
+                remaining -= f;
+            } else {
+                if (sb.length() > 0) sb.append("0");
+            }
         }
         return sb.toString();
     }
@@ -38,17 +36,17 @@ public class lab1 {
             System.out.print("Введите десятичное число: ");
             if (sc.hasNextInt()) {
                 number = sc.nextInt();
-                valid = true; // valid integer
+                valid = true;
             } else {
                 System.out.println("Некорректный ввод! Пожалуйста, введите целое число.");
-                sc.next(); // discard invalid input
+                sc.next(); 
             }
         }
         return number;
     }
     public static void main(String[] args) {
         int number = readNumber();
-        String factorialBase = decimalToFactorial(number);
-        System.out.println("Число в факториальной системе: " + factorialBase);
+        String fibonacciBase = decimalToFibonacci(number);
+        System.out.println("Число в Фибоначчиевой системе: " + fibonacciBase);
     }
 }
