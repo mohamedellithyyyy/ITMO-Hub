@@ -1,0 +1,57 @@
+// Tamplet
+Name of Pekomob
+
+Attacks:
+- XXXXXXXXXX (Type) (Power,Accuracy)
+- XXXXXXXXXX (Type) (Power,Accuracy)
+- XXXXXXXXXX (Type) (Power,Accuracy)
+- XXXXXXXXXX (Type) (Power,Accuracy)
+----------------------------
+Pachirisu
+
+Attacks:  
+- Charge Beam (Special) (50,90)
+- Nuzzle (Physical) (20,100)
+- Thunder Wave (Status) (—,90)
+- Double Team (Status) (-,-)
+
+Sandshrew
+Attacks:
+- Double Team (Status) (-,-)
+- Crush Claw (Physical) (75,95)
+- Facade (Physical) (70,100)
+
+Sandslash
+Attacks:
+- Double Team (Status) (-,-)
+- Crush Claw (Physical) (75,95)
+- Facade (Physical) (70,100)
+- Stone Edge (Physical) (100,80)
+ 
+Igglybuff
+
+Attacks:
+- Psychic (Special) (90,100)
+- Fire Blast (Special) (110,85)
+
+Jigglypuff
+Attacks:
+- Psychic (Special) (90,100)
+- Fire Blast (Special) (110,85)
+- Body Slam (Physical) (85,100)
+
+Wigglytuff
+Attacks:
+- Psychic (Special) (90,100)
+- Fire Blast (Special) (110,85)
+- Body Slam (Physical) (85,100)
+- Dream Eater (Special) (100,100)
+
+physical
+
+
+// touch app/src/attacks/status/ThunderWave.java app/src/attacks/status/DoubleTeam.java
+
+// touch app/src/attacks/physical/Nuzzle.java app/src/attacks/physical/CrushClaw.java app/src/attacks/physical/Facade.java app/src/attacks/physical/StoneEdge.java app/src/attacks/physical/BodySlam.java
+
+// touch app/src/attacks/special/ChargeBeam.java app/src/attacks/special/Psychic.java  app/src/attacks/special/FireBlast.java app/src/attacks/special/DreamEater.java
