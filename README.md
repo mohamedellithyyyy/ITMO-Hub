@@ -64,4 +64,3 @@ For questions, suggestions or general feedback you can reach me through [GitHub 
 
 Thank you for taking a look at ITMO-Hub. I hope the contents are useful!
 
-```
