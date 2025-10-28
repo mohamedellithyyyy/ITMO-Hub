@@ -1,4 +1,4 @@
-````markdown
+
 # ITMO-Hub
 
 A central repository for the coursework, projects and programming exercises of the ITMO University curriculum.  
@@ -36,7 +36,7 @@ Feel free to browse through the folders to see specific examples and implementat
 1. Clone the repository:  
    ```bash
    git clone https://github.com/mohamedellithyyyy/ITMO-Hub.git
-````
+   ```
 
 2. Navigate to the topic or folder of interest, e.g.:
 
