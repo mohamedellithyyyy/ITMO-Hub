@@ -24,10 +24,9 @@ It is intended for:
 
 This repository contains code in multiple languages including:
 
-- Shell scripts  
+- Shell scripts  (Linux)
 - Java  
 - Python  
-- Rich Text Format documents  
 
 Feel free to browse through the folders to see specific examples and implementations.
 
