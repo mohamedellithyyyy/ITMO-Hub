@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mkdir lab0
 cd lab0
 # 1. Создать приведенное в варианте дерево каталогов и файлов с содержимым. В качестве корня дерева использовать каталог lab0 своего домашнего каталога. Для создания и навигации по дереву использовать команды: mkdir, echo, cat, touch, ls, pwd, cd, more, cp, rm, rmdir, mv.
@@ -120,7 +120,7 @@ ls jigglypuff3 | sort
 find . -type f -name "s*" -exec cat -n {} + | sort
 # 4.6 | Вывести рекурсивно список имен и атрибутов файлов в директории lab0, заканчивающихся на символ 'a', список отсортировать по возрастанию размера, подавить вывод ошибок доступа
 find . -type f -name "*a" -ls 2>/dev/null | sort -n -k7
-    # Restore original perms
+# Restore original perms
 chmod 311 jigglypuff3/cleffa
 chmod 311 zorua9
 chmod 337 zorua9/mandibuzz

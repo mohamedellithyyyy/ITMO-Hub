@@ -2,54 +2,54 @@
 Name of Pekomob
 
 Attacks:
-- XXXXXXXXXX (Type) (Power,Accuracy)
-- XXXXXXXXXX (Type) (Power,Accuracy)
-- XXXXXXXXXX (Type) (Power,Accuracy)
-- XXXXXXXXXX (Type) (Power,Accuracy)
+- XXXXXXXXXX (Category) (Power,Accuracy) (Type)
+- XXXXXXXXXX (Category) (Power,Accuracy) (Type)
+- XXXXXXXXXX (Category) (Power,Accuracy) (Type)
+- XXXXXXXXXX (Category) (Power,Accuracy) (Type)
 ----------------------------
 Pachirisu
 
 Attacks:  
-- Charge Beam (Special) (50,90)
-- Nuzzle (Physical) (20,100)
-- Thunder Wave (Status) (—,90)
-- Double Team (Status) (-,-)
+- Charge Beam (Special) (50,90) (ELECTRIC)
+- Nuzzle (Physical) (20,100) (ELECTRIC)
+- Thunder Wave (Status) (—,90) (ELECTRIC)
+- Double Team (Status) (0,0) (NORMAL)
 
 Sandshrew
 Attacks:
-- Double Team (Status) (-,-)
-- Crush Claw (Physical) (75,95)
-- Facade (Physical) (70,100)
+- Double Team (Status) (0,0) (NORMAL)
+- Crush Claw (Physical) (75,95) (NORMAL)
+- Facade (Physical) (70,100) (NORMAL)
 
 Sandslash
 Attacks:
-- Double Team (Status) (-,-)
-- Crush Claw (Physical) (75,95)
-- Facade (Physical) (70,100)
-- Stone Edge (Physical) (100,80)
+- Double Team (Status) (0,0) (NORMAL)
+- Crush Claw (Physical) (75,95) (NORMAL)
+- Facade (Physical) (70,100) (NORMAL)
+- Stone Edge (Physical) (100,80) (ROCK)
  
 Igglybuff
 
 Attacks:
-- Psychic (Special) (90,100)
-- Fire Blast (Special) (110,85)
+- Psychic (Special) (90,100) (PSYCHIC)
+- Fire Blast (Special) (110,85) (FIRE)
 
 Jigglypuff
 Attacks:
-- Psychic (Special) (90,100)
-- Fire Blast (Special) (110,85)
-- Body Slam (Physical) (85,100)
+- Psychic (Special) (90,100) (PSYCHIC)
+- Fire Blast (Special) (110,85) (FIRE)
+- Body Slam (Physical) (85,100) (NORMAL)
 
 Wigglytuff
 Attacks:
-- Psychic (Special) (90,100)
-- Fire Blast (Special) (110,85)
-- Body Slam (Physical) (85,100)
-- Dream Eater (Special) (100,100)
-
-physical
+- Psychic (Special) (90,100) (PSYCHIC)
+- Fire Blast (Special) (110,85) (FIRE)
+- Body Slam (Physical) (85,100) (NORMAL)
+- Dream Eater (Special) (100,100) (PSYCHIC)
 
 
+
+// touch 
 // touch app/src/attacks/status/ThunderWave.java app/src/attacks/status/DoubleTeam.java
 
 // touch app/src/attacks/physical/Nuzzle.java app/src/attacks/physical/CrushClaw.java app/src/attacks/physical/Facade.java app/src/attacks/physical/StoneEdge.java app/src/attacks/physical/BodySlam.java

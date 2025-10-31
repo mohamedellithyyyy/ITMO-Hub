@@ -31,4 +31,3 @@ jar cfm "$OUTPUT_JAR" "$MANIFEST" -C "$BIN_DIR" .
 # 5. Run the program
 echo "Running Lab2..."
 java -cp "$OUTPUT_JAR:$VENDOR_JAR" Main
-

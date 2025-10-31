@@ -84,7 +84,7 @@ public class lab1 {
                 System.out.printf(format, value);
             }
             }
-            System.out.println();
+            // System.out.println();
         }
     }
 }

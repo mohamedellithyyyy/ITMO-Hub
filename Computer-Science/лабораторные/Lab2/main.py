@@ -89,7 +89,6 @@ def main():
         if user_input is False:  # Невалидный ввод
             continue
         
-        # Декодирование сообщения
         result = hamming_7_4_decode(user_input)
         
         if 'error' in result:
