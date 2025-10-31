@@ -6,10 +6,10 @@ This repo is maintained by [@mohamedellithyyyy](https://github.com/mohamedellith
 
 ## 📚 Contents
 
-- **Computer-Science/** — Various CS topics and assignments  
-- **OPD/** — Operations & Process Design folder  
-- **Programming/** — Programming exercises (Python, Java, Shell scripts etc.)  
-- **README.md** — This overview file  
+- **Computer-Science/** 
+- **OPD/** 
+- **Programming/**  
+- **README.md**  
 
 ## 🎯 Purpose
 
