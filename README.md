@@ -1,5 +1,5 @@
 
-# ITMO-Hub
+[# ITMO-Hub](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main)
 
 A central repository for the coursework, projects and programming exercises of the ITMO University curriculum.  
 This repo is maintained by [@mohamedellithyyyy](https://github.com/mohamedellithyyyy).
