@@ -6,9 +6,9 @@ This repo is maintained by [@mohamedellithyyyy](https://github.com/mohamedellith
 
 ## 📚 Contents
 
-- **Computer-Science/** 
-- **OPD/** 
-- **Programming/**  
+- [**Computer-Science/**](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/Computer-Science)
+- [**OPD/** ](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/OPD)
+- [**Programming/**](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/Programming) 
 - **README.md**  
 
 ## 🎯 Purpose
