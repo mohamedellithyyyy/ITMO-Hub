@@ -1,17 +1,69 @@
+# Informatics_Lab3_Task1.py
 # Author = Эллити Мохамед Эмад Ахмед Авад
 # Group = P3131
 # Date = 05.10.2025
 
 import re
 def solve(text):
-    # Regex to match surnames followed by initials
-    pattern = r'\b([A-ZА-ЯЁ][a-zа-яё]+(?:-[A-ZА-ЯЁ][a-zа-яё]+)?)\s+[A-ZА-ЯЁ]\.[A-ZА-ЯЁ]\.'
-    # Find all surnames
+    pattern = r'([А-Я][а-я]+(?:-[А-Я][а-я]+)?)\s+[А-Я]\.[А-Я]\.'
+    
+    # Find all matches
     surnames = re.findall(pattern, text)
-    # Remove duplicates, if any
+    
+    # Remove duplicates
     surnames = list(set(surnames))
+    
     # Sort alphabetically
     surnames.sort()
-    # if (surnames.isnull()):
-    #     return "Can't find surnames"
+    
     return surnames
+
+# ====== Tests ======
+tests = [
+    {
+        "text": """
+Студент Вася вспомнил, что на своей
+лекции Балакшин П.В. упоминал про
+старшекурсников, которые будут ему
+помогать: Анищенко А.А., Машина Е.А.
+и Голованова-Иванова Д.В.
+""",
+        "expected": ['Анищенко', 'Балакшин', 'Голованова-Иванова', 'Машина']
+    },
+    {
+        "text": """
+На уроке информатики преподаватель Иванов И.И.
+попросил студентов обратить внимание на лабораторные работы Петров П.П. и Сидорова С.С.
+""",
+        "expected": ['Иванов', 'Петров', 'Сидорова']
+    },
+    {
+        "text": """
+Во время семинара преподаватели Смирнов А.Б. и Кузнецова В.Г.
+объяснили задания, а старшекурсник Новиков-Семенов С.Е. помогал студентам.
+""",
+        "expected": ['Кузнецова', 'Новиков-Семенов', 'Смирнов']
+    },
+    {
+        "text": """
+На собрании факультета присутствовали Орлов О.О., Михайлова М.М.
+и Федоров Ф.Ф., которые обсудили организационные вопросы.
+""",
+        "expected": ['Михайлова', 'Орлов', 'Федоров']
+    },
+    {
+        "text": """
+Список ассистентов на практику: Беляев Б.Б., Григорьева Г.Г.
+и Зайцев-Иванов З.И. помогали новым студентам.
+""",
+        "expected": ['Беляев', 'Григорьева', 'Зайцев-Иванов']
+    }
+]
+
+# Run tests
+for i, test in enumerate(tests, start=1):
+    result = solve(test["text"])
+    print(f"Test {i}: {'Passed' if result == test['expected'] else 'Failed'}")
+    print(f"Expected: {test['expected']}")
+    print(f"Result:   {result}\n")
+

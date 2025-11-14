@@ -14,7 +14,6 @@ def is_valid_input(bits):
     return True, "Валидные данные"
 
 def calculate_syndromes(received):
-    
     s1 = received[0] ^ received[2] ^ received[4] ^ received[6]
     s2 = received[1] ^ received[2] ^ received[5] ^ received[6] 
     s3 = received[3] ^ received[4] ^ received[5] ^ received[6] 

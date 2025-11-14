@@ -15,8 +15,8 @@ def solve(text, word_number):
 
     token_re = re.compile(r"\b[\w-]+\b", re.UNICODE)
 
-    groups = {}  # base -> list of forms in encounter order
-    tokens = []  # list of (start, end, token)
+    groups = {}  
+    tokens = []  
     for m in token_re.finditer(text):
         tok = m.group(0)
         tokens.append((m.start(), m.end(), tok))
@@ -56,3 +56,29 @@ def solve(text, word_number):
 
     result_parts.append(text[last:])
     return "".join(result_parts)
+
+# tests
+tests = [
+    ("Футбольный клуб «Реал Мадрид» является 15-кратным обладателем "
+    "главного футбольного европейского трофея – Лиги Чемпионов. "
+    "Данный турнир организован Союзом европейских футбольных ассоциаций (УЕФА). "
+    "Идея о континентальном футбольном турнире пришла к журналисту Габриэлю Ано в 1955 году.", 2),
+    
+    ("Маленький мальчик играл на маленьком дворе. "
+    "Его мама наблюдала за маленьким ребенком из окна.", 2),
+    
+    ("Старый профессор читал лекцию в старой аудитории. "
+    "Студенты уважали старого учителя за его знания.", 2),
+    
+    ("Красивый сад расположен рядом с красивым прудом. "
+    "Посетители наслаждались красивым ландшафтом.", 2),
+    
+    ("Новый музей открылся в новом здании. "
+    "Экспозиции в новом музее привлекали много туристов.", 2)
+]
+for i, (text, word_number) in enumerate(tests, 1):
+    print(f"\n=== Test {i} ===")
+    print("Original text:")
+    print(text)
+    print("\nProcessed text:")
+    print(solve(text, word_number))
