@@ -1,3 +1,0 @@
-MyVar="Hello"
-:wq
-
