@@ -16,9 +16,6 @@ public class Main {
         b.addAlly(new Sandslash("Slash", 40));
         // Team№2
         b.addFoe(new Igglybuff("Iggy", 20));
-        b.addFoe(new Jigglypuff("Jiggly", 30));
-        b.addFoe(new Wigglytuff("Wiggly", 40));
-
         b.go();
     }
 }

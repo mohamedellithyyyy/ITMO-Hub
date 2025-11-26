@@ -6,3 +6,12 @@ mkdir -p build
 echo -e "Main-Class: Main\nClass-Path: Pokemon.jar" > MANIFEST.mf
 jar cfm build/Lab2.jar MANIFEST.mf -C app/bin .
 java -cp build/Lab2.jar:app/vendor/Pokemon.jar Main
+
+
+
+# on helios
+#mkdir -p bin
+#javac -cp Pokemon.jar -d bin $(find lab2 -name "*.java")
+#echo -e 'Main-Class: Main\nClass-Path: Pokemon.jar' > MANIFEST.mf
+#jar cfm Lab2.jar MANIFEST.mf -C bin .
+#java -jar Lab2.jar

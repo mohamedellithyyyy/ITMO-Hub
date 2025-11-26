@@ -1,84 +1,81 @@
-# Informatics_Lab3_Task3.py
 import re
+from collections import Counter
 
-def solve(text, word_number):
-    if word_number <= 0:
-        return "Invalid word number."
-    endings = [
-        "ого","его","ому","ему","ыми","ими", 
-        "ая","яя","ое","ее","ые","ие",
-        "ый","ий","ой","ых","их","ым","им","ом","ем","ую"
-    ]
-    endings = sorted(set(endings), key=lambda s: -len(s))
-    endings_pat = "(" + "|".join(re.escape(e) for e in endings) + r")$"
-    adj_re = re.compile(endings_pat, re.IGNORECASE)
-
-    token_re = re.compile(r"\b[\w-]+\b", re.UNICODE)
-
-    groups = {}  
-    tokens = []  
-    for m in token_re.finditer(text):
-        tok = m.group(0)
-        tokens.append((m.start(), m.end(), tok))
-        em = adj_re.search(tok)
-        if em:
-            ending = em.group(1)
-            base = tok[:-len(ending)].lower() 
-            groups.setdefault(base, []).append(tok)
-
-    replacements = {}  # base -> template_form (as-is from text)
-    k = word_number
-    for base, occ_list in groups.items():
-        if len(occ_list) >= k:
-            replacements[base] = occ_list[k-1]  
-
-    result_parts = []
-    last = 0
-    for start, end, tok in tokens:
-        result_parts.append(text[last:start])  
-        em = adj_re.search(tok)
-        if em:
-            ending = em.group(1)
-            base = tok[:-len(ending)].lower()
-            if base in replacements:
-                template = replacements[base]
-        
-                if tok[0].isupper():
-                    repl = template[0].upper() + template[1:] if template else template
-                else:
-                    repl = template
-                result_parts.append(repl)
-            else:
-                result_parts.append(tok)
-        else:
-            result_parts.append(tok)
-        last = end
-
-    result_parts.append(text[last:])
-    return "".join(result_parts)
-
-# tests
-tests = [
-    ("Футбольный клуб «Реал Мадрид» является 15-кратным обладателем "
-    "главного футбольного европейского трофея – Лиги Чемпионов. "
-    "Данный турнир организован Союзом европейских футбольных ассоциаций (УЕФА). "
-    "Идея о континентальном футбольном турнире пришла к журналисту Габриэлю Ано в 1955 году.", 2),
-    
-    ("Маленький мальчик играл на маленьком дворе. "
-    "Его мама наблюдала за маленьким ребенком из окна.", 2),
-    
-    ("Старый профессор читал лекцию в старой аудитории. "
-    "Студенты уважали старого учителя за его знания.", 2),
-    
-    ("Красивый сад расположен рядом с красивым прудом. "
-    "Посетители наслаждались красивым ландшафтом.", 2),
-    
-    ("Новый музей открылся в новом здании. "
-    "Экспозиции в новом музее привлекали много туристов.", 2)
+adjective_endings = [
+    'ый', 'ий', 'ой', 'ая', 'яя', 'ое', 'ее', 'ого', 'его', 'ой', 'ей',
+    'ому', 'ему', 'ую', 'юю', 'ым', 'им', 'ыми', 'ими', 'ых', 'их', 'ые', 'ие', 'ом', 'ем'
 ]
+
+def solve(text, number):
+    pattern = fr"\b(\w+)(?:{'|'.join(adjective_endings)})\b"
+    words = re.findall(pattern, text.lower())
+    
+    if not words:
+        return None
+
+    most_common_root = Counter(words).most_common(1)[0][0]
+
+    full_pattern = fr"\b{most_common_root}(\w*)\b"
+    matches = re.findall(full_pattern, text, flags=re.IGNORECASE)
+    
+    if len(matches) < number or number < 1:
+        return None
+    
+    target_ending = matches[number - 1]
+
+    def replacer(match):
+        word = match.group(0)
+        new_word = most_common_root + target_ending
+        # if word[0].isupper():
+        #     new_word = 
+        # if word.isupper():
+        #     new_word = new_word.upper()
+        return new_word.capitalize()
+
+    result = re.sub(full_pattern, replacer, text, flags=re.IGNORECASE)
+    return result
+
+
+
+tests = [
+    ("Футбольный клуб «Реал Мадрид» является 15-кратным обладателем главного футбольного европейского трофея – Лиги Чемпионов. Данный турнир организован Союзом европейских футбольных ассоциаций (УЕФА). Идея о континентальном футбольном турнире пришла к журналисту Габриэлю Ано в 1955 году.", 2),
+    ("Маленький мальчик играл на маленьком дворе. Его мама наблюдала за маленьким ребенком из окна.", 3),
+    ("Старый профессор читал лекцию в старой аудитории. Студенты уважали старого учителя за его знания.", 3),
+    ("Красивый сад расположен рядом с красивым прудом.Посетители наслаждались красивым ландшафтом.", 1),
+    ("Новый музей открылся в новом здании. Экспозиции в новом музее привлекали много туристов.", 2),
+]
+expectTests = [
+    # Test 1
+    "Футбольного клуб «Реал Мадрид» является 15-кратным обладателем главного футбольного европейского трофея – Лиги Чемпионов. Данный турнир организован Союзом европейских футбольного ассоциаций (УЕФА). Идея о континентальном футбольного турнире пришла к журналисту Габриэлю Ано в 1955 году.",
+    
+    # Test 2
+    "Маленьким мальчик играл на маленьким дворе. Его мама наблюдала за маленьким ребенком из окна.",
+    
+    # Test 3
+    "Старого профессор читал лекцию в старого аудитории. Студенты уважали старого учителя за его знания.",
+    
+    # Test 4
+    "Красивый сад расположен рядом с Красивый прудом.Посетители наслаждались Красивый ландшафтом.",
+    
+    # Test 5
+    "Новом музей открылся в новом здании. Экспозиции в новом музее привлекали много туристов."
+]
+
 for i, (text, word_number) in enumerate(tests, 1):
     print(f"\n=== Test {i} ===")
     print("Original text:")
     print(text)
+    
+    processed_text = solve(text, word_number)  # <-- use correct function
+    
     print("\nProcessed text:")
-    print(solve(text, word_number))
+    print(processed_text)
+    
+    expected_text = expectTests[i-1]
+    print("\nExpected text:")
+    print(expected_text)
+    
+    if processed_text == expected_text:
+        print("\n✅ Test passed")
+    else:
+        print("\n❌ Test failed")

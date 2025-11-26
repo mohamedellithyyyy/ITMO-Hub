@@ -1,5 +1,4 @@
-// Tamplet
-Name of Pekomob
+Name of Pekomon
 
 Attacks:
 - XXXXXXXXXX (Category) (Power,Accuracy) (Type)

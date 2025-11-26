@@ -1,0 +1,30 @@
+<Schedule>
+  <wednesday>
+      <lesson1_time>11:30-13:00</lesson1_time>
+      <lesson1_weeks>2,4,6,8,10,14,16</lesson1_weeks>
+      <lesson1_group>ПРОГ КСиТ 2</lesson1_group>
+      <lesson1_place>1216/0 (усл) ауд. ул.Ломоносова, д.9, лит. М</lesson1_place>
+      <lesson1_subject>ИНФОРМАТИКА (ЛЕК)</lesson1_subject>
+      <lesson1_format>Очно - дистанционный</lesson1_format>
+      <lesson2_time>13:30-15:30</lesson2_time>
+      <lesson2_weeks>2,4,6,8,10,14,16</lesson2_weeks>
+      <lesson2_group>ПРОГ КСиТ 2</lesson2_group>
+      <lesson2_place>1216/0 (усл) ауд. ул.Ломоносова, д.9, лит. М</lesson2_place>
+      <lesson2_subject>Основы профессиональной деятельности (ЛЕК)</lesson2_subject>
+      <lesson2_format>Очно - дистанционный</lesson2_format>
+  </wednesday>
+  <friday>
+      <lesson1_time>09:50-11:20</lesson1_time>
+      <lesson1_weeks>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17</lesson1_weeks>
+      <lesson1_group>ОДМ баз 3</lesson1_group>
+      <lesson1_place>2337 ауд. Кронверкский пр., д.49, лит.А</lesson1_place>
+      <lesson1_subject>Основы дискретной математики (базовый уровень) (Лек)</lesson1_subject>
+      <lesson1_format>Очно - дистанционный</lesson1_format>
+      <lesson2_time>11:30-13:00</lesson2_time>
+      <lesson2_weeks>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17</lesson2_weeks>
+      <lesson2_group>ОДМ баз 3</lesson2_group>
+      <lesson2_place>2337 ауд. Кронверкский пр., д.49, лит.А</lesson2_place>
+      <lesson2_subject>Основы дискретной математики (базовый уровень) (Прак)</lesson2_subject>
+      <lesson2_format>Очно - дистанционный</lesson2_format>
+  </friday>
+</Schedule>

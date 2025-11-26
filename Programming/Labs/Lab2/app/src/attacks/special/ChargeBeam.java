@@ -17,3 +17,5 @@ public final class ChargeBeam extends SpecialMove {
         return "использует Charge Beam — электрический луч, повышающий спец. атаку";
     }
 }
+
+
