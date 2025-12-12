@@ -16,6 +16,6 @@ public class test extends SpecialMove {
     }
     @Override
     protected String describe(){
-        return("TEst");
+        return("Test | Special Attack");
     }
 }
