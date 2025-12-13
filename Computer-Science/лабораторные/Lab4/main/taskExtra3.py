@@ -1,41 +1,34 @@
-# taskExtra3.py
-import pickle
 
-def dict_to_xml(data, root_tag="Schedule", indent=0):
-    """
-    Convert dictionary to XML manually.
-    - root_tag: root element name
-    - indent: for pretty printing
-    """
-    xml_lines = []
-    prefix = "  " * indent
-    if indent == 0:
-        xml_lines.append(f"<{root_tag}>")
+from task1 import parse
 
-    for key, value in data.items():
+def dict_to_xml(d, root_name="root", indent=0):
+    """Convert dictionary to XML string"""
+    xml = "  " * indent + f"<{root_name}>\n"
+    for key, value in d.items():
+        key_sanitized = str(key).replace(" ", "_")  
         if isinstance(value, dict):
-            xml_lines.append(f"{prefix}  <{key}>")
-            xml_lines.extend(dict_to_xml(value, root_tag="", indent=indent+2))
-            xml_lines.append(f"{prefix}  </{key}>")
+            xml += dict_to_xml(value, key_sanitized, indent + 1)
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    xml += dict_to_xml(item, key_sanitized, indent + 1)
+                else:
+                    xml += "  " * (indent + 1) + f"<{key_sanitized}>{item}</{key_sanitized}>\n"
         else:
-            xml_lines.append(f"{prefix}  <{key}>{value}</{key}>")
+            xml += "  " * (indent + 1) + f"<{key_sanitized}>{value}</{key_sanitized}>\n"
+    xml += "  " * indent + f"</{root_name}>\n"
+    return xml
 
-    if indent == 0:
-        xml_lines.append(f"</{root_tag}>")
 
-    return xml_lines
 
-# -----------------------------
-# Load binary object
-with open("Schedule.bin", "rb") as f:
-    data = pickle.load(f)
+with open("../data/Schedule.json", 'r', encoding='utf-8') as f:
+    text = f.read()
 
-# Convert to XML
-xml_lines = dict_to_xml(data)
-xml_text = "\n".join(xml_lines)
+data = parse(text)  
 
-# Save XML to file
-with open("Schedule_manual.xml", "w", encoding="utf-8") as f:
-    f.write(xml_text)
+xml_string = dict_to_xml(data, root_name="schedule_data")
 
-print("Saved manual XML to Schedule_manual.xml")
+with open("../output/taskExtra3_Result.xml", "w", encoding="utf-8") as f:
+    f.write(xml_string)
+
+print("XML serialization done! Check taskExtra3_Result.xml")

@@ -1,53 +1,87 @@
-import pickle
+
+def parse(text):
+    text = text.strip()
+    if text.startswith('{'):
+        return parse_object(text)
+    elif text.startswith('['):
+        return parse_list(text)
+    else:
+        raise ValueError("Data must start with { or [")
+    
+def parse_object(text):
+    obj = {}
+    text = text[1:-1].strip()  
+    if not text:
+        return obj
+    pairs = split_top_level(text, ',')
+    for pair in pairs:
+        if ':' not in pair:
+            continue
+        key, value = pair.split(':', 1)
+        key = key.strip().strip('"')
+        value = value.strip()
+        obj[key] = parse_value(value)
+    return obj
+
+def parse_list(text):
+    inside = text[1:-1].strip()
+    if not inside:
+        return []
+    items = split_top_level(inside, ',')
+    return [parse_value(item.strip()) for item in items]
 
 def parse_value(value):
     value = value.strip()
-    if value.startswith("[") and value.endswith("]"):
-        items = value[1:-1].split(",")
-        items = [item.strip() for item in items]
-        return ",".join(items)  # return as comma-separated string
-    return value  # normal string
+    if value.startswith('"') and value.endswith('"'):
+        return value[1:-1]
+    if value == "null":
+        return None
+    if value == "true":
+        return True
+    if value == "false":
+        return False
+    if value.startswith('{') and value.endswith('}'):
+        return parse_object(value)
+    if value.startswith('[') and value.endswith(']'):
+        return parse_list(value)
+    try:
+        if '.' in value:
+            return float(value)
+        return int(value)
+    except:
+        return value
 
-def parse_ini(lines):
-    data = {}
-    current_section = None
+def split_top_level(text, delimiter):
+    result = []
+    current = []
+    depth = 0
+    in_quotes = False
+    for char in text:
+        if char == '"':
+            in_quotes = not in_quotes
+        if not in_quotes:
+            if char in '{[':
+                depth += 1
+            elif char in '}]':
+                depth -= 1
+            elif char == delimiter and depth == 0:
+                result.append(''.join(current).strip())
+                current = []
+                continue
+        current.append(char)
+    if current:
+        result.append(''.join(current).strip())
+    return result
 
-    for line in lines:
-        line = line.strip()
-        if not line or line.startswith(";") or line.startswith("#"):
-            continue
-        
-        if line.startswith("[") and line.endswith("]"):
-            current_section = line[1:-1].strip()
-            data[current_section] = {}
-        elif "=" in line and current_section is not None:
-            key, value = line.split("=", 1)
-            key = key.strip().replace(".", "_")  
-            value = parse_value(value)
-            data[current_section][key] = value
-        else:
-            pass
 
-    return data
 
-def save_dict_to_txt(data, filename):
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(repr(data))  # write dictionary as string
+            
 
-with open("Schedule.ini", "r", encoding="utf-8") as f:
-    lines = f.readlines()
+with open("../data/Schedule.json", 'r', encoding='utf-8') as f:
+    text = f.read()
+data = parse(text)
 
-parsed_data = parse_ini(lines)
-print("Parsed Data:")
-print(parsed_data)
+with open("../output/Task1_Result.txt", "w", encoding="utf-8") as f:
+    f.write(str(data))
 
-with open("Schedule.bin", "wb") as f:
-    pickle.dump(parsed_data, f)
-
-save_dict_to_txt(parsed_data, "Schedule.txt")
-
-with open("Schedule.bin", "rb") as f:
-    loaded_data = pickle.load(f)
-
-print("\nLoaded Binary Data:")
-print(loaded_data)
+print(data) 

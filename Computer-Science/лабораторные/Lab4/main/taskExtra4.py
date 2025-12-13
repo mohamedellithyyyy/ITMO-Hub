@@ -1,65 +1,38 @@
-# taskExtra4.py
-import task1          # contains load_schedule function
-import taskExtra12    # manual TOML serialization
-import taskExtra3     # manual XML serialization
-import toml
-import json
-import time
+import task1, taskExtra1, taskExtra3 
+import yaml, json, time
+import os  # for devnull
 
-# -----------------------------
-def measure_handmade_toml(f, repeats=100):
-    times = []
-    for _ in range(repeats):
-        start = time.time()
-        data = task1.load_schedule(f)     # fixed function name
-        taskExtra12.serialize(data)
-        end = time.time()
-        times.append(end - start)
-    return times
 
-def measure_library_toml(filename, repeats=100):
-    times = []
-    for _ in range(repeats):
-        start = time.time()
-        data = toml.load(filename)
-        json.dumps(data)  # simulate serialization
-        end = time.time()
-        times.append(end - start)
-    return times
+with open("../data/schedule.json", "r", encoding="utf-8") as f:
+    json_text = f.read()
 
-def measure_handmade_xml(f, repeats=100):
-    times = []
-    for _ in range(repeats):
-        start = time.time()
-        data = task1.load_schedule(f)     # fixed function name
-        taskExtra3.serialize(data)
-        end = time.time()
-        times.append(end - start)
-    return times
+with open("../output/taskExtra2Result.yaml", "r", encoding="utf-8") as f:
+    yaml_text = f.read()
 
-# -----------------------------
-# Read TOML file once for deserialization
-with open('Schedule.toml', 'r', encoding='utf-8') as file:
-    f = file.readlines()
 
-# -----------------------------
-# Measure times
-handmade_toml_times = measure_handmade_toml(f)
-library_toml_times = measure_library_toml('Schedule.toml')
-handmade_xml_times = measure_handmade_xml(f)
+# 1. Manual parser + YAML
+start = time.time()
+for _ in range(100):
+    data_manual_yaml = task1.parse(json_text)
+    with open(os.devnull, "w", encoding="utf-8") as f:
+        taskExtra1.to_yaml(data_manual_yaml, f)
+end = time.time()
+print("Manual parser + YAML:", end - start, "sec")
 
-# -----------------------------
-# Function to print statistics
-def print_stats(times, label):
-    avg_time = sum(times) / len(times)
-    max_time = max(times)
-    min_time = min(times)
-    print(f"\n{label}:")
-    print(f"  Average time: {avg_time:.6f} s")
-    print(f"  Maximum time: {max_time:.6f} s")
-    print(f"  Minimum time: {min_time:.6f} s")
 
-# -----------------------------
-print_stats(handmade_toml_times, "Handmade TOML")
-print_stats(library_toml_times, "Library TOML + JSON")
-print_stats(handmade_xml_times, "Handmade XML")
+# 2. YAML library (PyYAML)
+start = time.time()
+for _ in range(100):
+    data_lib_yaml = yaml.safe_load(yaml_text)
+    json.dumps(data_lib_yaml)
+end = time.time()
+print("YAML library:", end - start, "sec")
+
+
+# 3. Manual parser + XML
+start = time.time()
+for _ in range(100):
+    data_manual_xml = task1.parse(json_text)
+    xml_string = taskExtra3.dict_to_xml(data_manual_xml, "schedule_data")
+end = time.time()
+print("Manual parser + XML:", end - start, "sec")
