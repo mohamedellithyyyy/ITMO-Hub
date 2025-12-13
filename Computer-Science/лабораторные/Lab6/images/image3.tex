@@ -1,0 +1,23 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+    % Draw circle
+    \draw[thick] (0,0) circle (5cm);
+
+    % Draw radius in red
+    \draw[->, red, thick] (0,0) -- (5,0) node[midway, above] {$r$};
+
+    % Label radius length
+    \node at (2.5,-0.5) {5 cm};
+
+    % Center point
+    \fill (0,0) circle (3pt) node[below left] {O};
+
+    % Optional: label a point on circumference
+    \fill (5,0) circle (2pt) node[below right] {A};
+\end{tikzpicture}
+
+\end{document}

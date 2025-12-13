@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.5} % increases row height
+
+\begin{center}
+\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{2cm}|}
+\hline
+ & & \multicolumn{4}{c|}{Value} & Total \\ \cline{3-6}
+ & & A & B & C & D & \\  
+\hline
+Range & Min & 4 & 8 & 15 & 16 & 43 \\ 
+\cline{2-7}
+ & Max & 23 & 42 & 25 & 34 & 124 \\ 
+\hline
+\multicolumn{2}{|c|}{Another total} & 27 & 50 & 40 & 50 & \textbf{167} \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\title{Презентация по Информатике}
+\author{Эллити Мохамед}
+\institute{Университет ИТМО, Факультет ПиКТ}
+\date{\today}
+
+\begin{document}
+
+% Титульный слайд с логотипом слева и заголовком справа
+\begin{frame}
+\begin{minipage}{0.2\textwidth}
+    \includegraphics[height=1.5cm]{TaskExtre2/images/logo.png} % Логотип слева
+\end{minipage}%
+\begin{minipage}{0.8\textwidth}
+    \begin{flushright} % Выравнивание заголовка справа
+        \LARGE \textbf{\inserttitle} \\[0.3cm]
+        \normalsize \insertauthor \\ 
+        \small \insertinstitute
+    \end{flushright}
+\end{minipage}
+
+\end{frame}
+
+% Пример обычного слайда
+\begin{frame}{Пример слайда}
+
+\end{frame}
+
+\end{document}
