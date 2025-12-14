@@ -1,4 +1,3 @@
-
 def parse(text):
     text = text.strip()
     if text.startswith('{'):
@@ -7,7 +6,7 @@ def parse(text):
         return parse_list(text)
     else:
         raise ValueError("Data must start with { or [")
-    
+
 def parse_object(text):
     obj = {}
     text = text[1:-1].strip()  
@@ -72,10 +71,6 @@ def split_top_level(text, delimiter):
     if current:
         result.append(''.join(current).strip())
     return result
-
-
-
-            
 
 with open("../data/Schedule.json", 'r', encoding='utf-8') as f:
     text = f.read()

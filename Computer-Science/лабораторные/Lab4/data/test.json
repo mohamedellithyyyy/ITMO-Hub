@@ -1,0 +1,27 @@
+{
+    "person1":{
+        "type":"object",
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York",
+        "is_student": false,
+        "hobbies": ["reading", "traveling", "swimming"],
+        "address": {
+            "street": "123 Main St",
+            "zip_code": "10001"
+        }
+    },
+    "person2":{
+        "type":"object",
+        "name": "Jane Smith",
+        "age": 25,
+        "city": "Los Angeles",
+        "is_student": true,
+        "hobbies": ["painting", "cycling"],
+        "address": {
+            "street": "456 Elm St",
+            "zip_code": "90001"
+        }
+    }
+
+}
