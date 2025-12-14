@@ -1,0 +1,2 @@
+(base) Lithy-MacBook-Air:RGR mohamed$ python method1.py
+Точка внутри

@@ -1,0 +1,6 @@
+(base) Lithy-MacBook-Air:RGR mohamed$ python method2.py
+P_inside: Внутри
+P_on_face: На грани
+P_on_edge: На ребре
+P_on_vertex: Совпадение с вершиной
+P_outside: Снаружи

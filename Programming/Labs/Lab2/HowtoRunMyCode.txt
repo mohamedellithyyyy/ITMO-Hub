@@ -1,8 +1,0 @@
-java -cp "build/Lab2.jar:app/vendor/Pokemon.jar" Main
-
-I should in Lab2
-
-or 
-
-chmod +x run_lab2.sh   # first time only
-./run_lab2.sh
