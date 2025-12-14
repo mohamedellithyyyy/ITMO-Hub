@@ -9,7 +9,7 @@ This repo is maintained by [@mohamedellithyyyy](https://github.com/mohamedellith
 - [**Computer-Science**](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/Computer-Science)
 - [**OPD** ](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/OPD)
 - [**Programming**](https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/Programming) 
-- **README.md**  
+- [**README.md**](https://github.com/mohamedellithyyyy/ITMO-Hub/edit/main/README.md)
 
 ## 🎯 Purpose
 
