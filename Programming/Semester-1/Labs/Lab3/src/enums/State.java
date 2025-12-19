@@ -1,0 +1,5 @@
+package enums;
+
+public enum State {
+    WALKING, FLYING, FALLEN, STANDING, LOOKING_AROUND, CONFUSED, DISAPPEARED
+}
