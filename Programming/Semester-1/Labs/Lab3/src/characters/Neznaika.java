@@ -15,8 +15,6 @@ public class Neznaika extends Human {
     public void act(Context context) {
         changeState(State.WALKING);
         System.out.println("Незнайка гуляет по окрестностям");
-
-        // Random chance to look around
         if (Math.random() < 0.5) {
             lookAround();
         }

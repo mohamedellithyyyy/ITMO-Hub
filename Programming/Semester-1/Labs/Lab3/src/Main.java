@@ -12,8 +12,6 @@ public class Main {
         Context context = new Context();
         World world = new World(context);
         Random random = new Random();
-
-        // Random starting positions
         Neznaika neznaika = new Neznaika(
             new Position(random.nextInt(10), random.nextInt(10), LocationType.FIELD)
         );
