@@ -18,7 +18,7 @@ vector<int> getStoneWeights(int n) {
 }
 int findMinimalDifference(const vector<int>& stones, int index = 0, int sumPile1 = 0, int sumPile2 = 0) {
     if (index == stones.size()) {
-        return abs(sumPile1 - sumPile2); 
+        return abs(sumPile1 - sumPile2);
     }
     int diff1 = findMinimalDifference(stones, index + 1, sumPile1 + stones[index], sumPile2);
     int diff2 = findMinimalDifference(stones, index + 1, sumPile1, sumPile2 + stones[index]);

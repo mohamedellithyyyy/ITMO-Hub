@@ -9,7 +9,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== Начинается симуляция сказочного мира ===\n");
+        // The simulation of a fairy-tale world begins
+        System.out.println("=== Начинается симуляция сказочного мира ===\n"); 
 
         World world = new World();
 
@@ -66,8 +67,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
-        System.out.println("=== Добро пожаловать в интерактивный мир сказок ===");
-        System.out.println("Введите 'help', чтобы увидеть команды.");
+        System.out.println("=== Добро пожаловать в интерактивный мир сказок ==="); // Welcome to the interactive world of fairy tales
+        System.out.println("Введите 'help', чтобы увидеть команды."); // Type 'help' to see the commands.
 
         while (running) {
             System.out.print("\n> ");
@@ -76,17 +77,17 @@ public class Main {
 
             switch (parts[0]) {
                 case "help":
-                    System.out.println("Доступные команды:");
-                    System.out.println("act - выполнять действие всех персонажей");
-                    System.out.println("divide - разделить павшую лошадь");
-                    System.out.println("transform falcon - превратить Ивана в сокола");
-                    System.out.println("transform ant - превратить Ивана в муравья");
-                    System.out.println("revert - вернуть Ивана в человека");
-                    System.out.println("interact chest - открыть сундук");
-                    System.out.println("burn seed - сжечь семечко");
-                    System.out.println("melt mountain - растопить хрустальную гору");
-                    System.out.println("fight dragon - сражаться со змеем");
-                    System.out.println("exit - выйти из игры");
+                    System.out.println("Доступные команды:"); // Display "Available commands:"
+                    System.out.println("act - выполнять действие всех персонажей"); // "act" - make all characters perform their action
+                    System.out.println("divide - разделить павшую лошадь"); // "divide" - split the fallen horse
+                    System.out.println("transform falcon - превратить Ивана в сокола"); // "transform falcon" - turn Ivan into a falcon
+                    System.out.println("transform ant - превратить Ивана в муравья"); // "transform ant" - turn Ivan into an ant
+                    System.out.println("revert - вернуть Ивана в человека"); // "revert" - turn Ivan back into a human
+                    System.out.println("interact chest - открыть сундук"); // "interact chest" - open the chest
+                    System.out.println("burn seed - сжечь семечко"); // "burn seed" - burn the seed
+                    System.out.println("melt mountain - растопить хрустальную гору"); // "melt mountain" - melt the crystal mountain
+                    System.out.println("fight dragon - сражаться со змеем"); // "fight dragon" - fight the dragon
+                    System.out.println("exit - выйти из игры"); // "exit" - exit the game
                     break;
 
                 case "act":
@@ -148,13 +149,14 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Неизвестная команда. Введите 'help'.");
+                    System.out.println("Неизвестная команда. Введите 'help'."); 
             }
         }
 
         scanner.close();
-        System.out.println("\n=== История логов ===");
+        // System.out.println("\n=== История логов ===");
         world.getLogger().printHistory();
         System.out.println("\n=== Симуляция завершена ===");
     }
 }
+// Урааааааааааааааааааааааааа
