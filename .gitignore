@@ -1,0 +1,18 @@
+# macOS system files
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Node.js
+node_modules/
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
