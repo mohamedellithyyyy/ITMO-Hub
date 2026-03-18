@@ -1,0 +1,332 @@
+@startuml
+' ======= ENUMS =======
+enum State {
+  WALKING
+  FLYING
+  FALLEN
+  STANDING
+  PLAYING_MUSIC
+  PAINTING
+  TRANSFORMED
+  CONFUSED
+  +State()
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  +Gender()
+}
+
+enum Direction {
+  LEFT
+  RIGHT
+  FORWARD
+  BACKWARD
+  +Direction()
+}
+
+enum LocationType {
+  FIELD
+  CITY
+  HOUSE
+  MOUNTAIN
+  RIVER
+  +LocationType()
+}
+
+enum Color {
+  BLUE_HAT
+  YELLOW_PANTS
+  ORANGE_SHIRT
+  RED_DRESS
+  GREEN_DRESS
+  +Color()
+}
+
+' ======= RECORDS =======
+class Position <<record>> {
+  +x: int
+  +y: int
+  +type: LocationType
+  +Position(x:int, y:int, type:LocationType)
+}
+
+class DivisionResult <<record>> {
+  +bonesTo: String
+  +meatTo: String
+  +skinTo: String
+  +headTo: String
+  +DivisionResult(bonesTo:String, meatTo:String, skinTo:String, headTo:String)
+}
+
+' ======= INTERFACES =======
+interface Movable {
+  +move(dir: Direction): void
+}
+
+interface Attackable {
+  +receiveHit(attacker: Entity): void
+}
+
+interface Aggressor {
+  +attack(target: Entity): void
+}
+
+interface Painter {
+  +drawPortrait(target: Character): void
+  +default cleanBrush(): void
+  +static sharpenBrush(): void
+  -private preparePaint(): void
+}
+
+interface Musician {
+  +playMusic(instrument: Instrument): void
+}
+
+interface Transformable {
+  +transformToFalcon(): void
+  +transformToAnt(): void
+  +revertTransformation(): void
+}
+
+interface Dividable {
+  +divideHorse(): DivisionResult
+}
+
+' ======= ABSTRACT CLASSES =======
+abstract class Entity {
+  -id: UUID
+  -position: Position
+  +Entity(position: Position)
+  +getPosition(): Position
+  +equals(Object): boolean
+  +hashCode(): int
+  +toString(): String
+}
+
+abstract class Character {
+  -name: String
+  -state: State
+  +Character(name: String, position: Position)
+  +getState(): State
+  +setState(state: State): void
+  +{abstract} act(ctx: Context): void
+}
+
+abstract class Animal {
+  -species: String
+  -position: Position
+  +Animal(species: String, position: Position)
+  +act(ctx: Context): void
+}
+
+abstract class MagicalObject {
+  -name: String
+  +MagicalObject(name: String)
+  +interact(character: Character): void
+}
+
+' ======= HUMAN CLASSES =======
+class Neznaika {
+  +Neznaika(position: Position)
+  +act(ctx: Context): void
+}
+
+class Znayka {
+  +Znayka(position: Position)
+  +act(ctx: Context): void
+}
+
+class DoctorPilulkin {
+  +DoctorPilulkin(position: Position)
+  +act(ctx: Context): void
+}
+
+class Tyubik {
+  +Tyubik(position: Position)
+  +act(ctx: Context): void
+}
+
+class Guslya {
+  +Guslya(position: Position)
+  +act(ctx: Context): void
+}
+
+class Ponchik {
+  +Ponchik(position: Position)
+  +act(ctx: Context): void
+}
+
+class Pulka {
+  +Pulka(position: Position)
+  +act(ctx: Context): void
+}
+
+class IvanTsarevich {
+  +IvanTsarevich(position: Position)
+  +act(ctx: Context): void
+  +transformToFalcon(): void
+  +transformToAnt(): void
+  +revertTransformation(): void
+}
+
+class Princess {
+  +Princess(name:String, position: Position)
+}
+
+class King {
+  +King(name:String, position: Position)
+}
+
+' ======= ANIMAL / MAGICAL CLASSES =======
+class Falcon {
+  +Falcon(position: Position)
+  +act(ctx: Context): void
+}
+
+class Horse {
+  +Horse(position: Position)
+  +divide(): DivisionResult
+}
+
+class Goat {
+  +Goat(position: Position)
+  +act(ctx: Context): void
+}
+
+class MultiHeadedDragon {
+  +MultiHeadedDragon(heads: int, position: Position)
+  +attack(character: Character): void
+}
+
+' Nested container pattern
+class Chest {
+  -content: Hare
+  +Chest(position: Position)
+  +interact(character: Character): void
+}
+
+class Hare {
+  -content: Duck
+  +Hare(position: Position)
+  +interact(character: Character): void
+}
+
+class Duck {
+  -content: Egg
+  +Duck(position: Position)
+  +interact(character: Character): void
+}
+
+class Egg {
+  -content: Seed
+  +Egg(position: Position)
+  +interact(character: Character): void
+}
+
+class Seed {
+  +Seed(position: Position)
+  +interact(character: Character): void
+}
+
+class CrystalMountain {
+  +CrystalMountain(position: Position)
+  +melt(): void
+}
+
+' ======= ENVIRONMENT / SCENARIO =======
+class Location {
+  -name: String
+  -type: LocationType
+  +Location(name:String, type:LocationType)
+}
+
+class Context {
+  -locations: ArrayList<Location>
+  -random: Random
+  +Context()
+  +getRandomEvent(): void
+}
+
+class Logger {
+  +Logger()
+  +log(event: String): void
+}
+
+class World {
+  -characters: ArrayList<Character>
+  -animals: ArrayList<Animal>
+  -magicalObjects: ArrayList<MagicalObject>
+  +World()
+  +addCharacter(c: Character): void
+  +addAnimal(a: Animal): void
+  +addMagicalObject(m: MagicalObject): void
+  +run(): void
+}
+
+class Instrument {
+  -name: String
+  +Instrument(name:String)
+  +play(): void
+}
+
+' ======= EXCEPTIONS =======
+class CollisionException {
+  +CollisionException(message: String)
+  +getMessage(): String
+}
+
+class InvalidActionException {
+  +InvalidActionException(message: String)
+}
+
+class RuntimeCollisionException <<unchecked>> {
+  +RuntimeCollisionException(message: String)
+}
+
+' ======= INHERITANCE =======
+Entity <|-- Character
+Character <|-- Neznaika
+Character <|-- Znayka
+Character <|-- DoctorPilulkin
+Character <|-- Tyubik
+Character <|-- Guslya
+Character <|-- Ponchik
+Character <|-- Pulka
+Character <|-- IvanTsarevich
+Character <|-- Princess
+Character <|-- King
+
+Entity <|-- Animal
+Animal <|-- Falcon
+Animal <|-- Horse
+Animal <|-- Goat
+Animal <|-- MultiHeadedDragon
+
+' ======= INTERFACES IMPLEMENTATION =======
+Character ..|> Movable
+Character ..|> Painter
+Character ..|> Musician
+IvanTsarevich ..|> Transformable
+Horse ..|> Dividable
+Animal ..|> Movable
+Animal ..|> Attackable
+MultiHeadedDragon ..|> Aggressor
+
+' ======= ASSOCIATIONS =======
+World "1" o-- "*" Character
+World "1" o-- "*" Animal
+World "1" o-- "*" MagicalObject
+Context "1" o-- "*" Location
+Logger "1" o-- "1" World
+
+Falcon "1" --> "1" Character : sitsOn
+Horse "1" --> "1" Character : riddenBy
+
+Chest "1" --> "1" Hare : content
+Hare "1" --> "1" Duck : content
+Duck "1" --> "1" Egg : content
+Egg "1" --> "1" Seed : content
+
+@enduml
