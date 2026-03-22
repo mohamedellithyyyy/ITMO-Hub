@@ -1,0 +1,7 @@
+package exceptions;
+
+public class FileLoadException extends Exception {
+    public FileLoadException(String message) {
+        super(message);
+    }
+}
