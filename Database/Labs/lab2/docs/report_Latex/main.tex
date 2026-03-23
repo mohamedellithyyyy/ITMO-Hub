@@ -1,0 +1,118 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=1.5cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{listingsutf8} % add this in preamble
+\usepackage{minted} % put in preamble
+
+% --- SQL listing style ---
+\lstdefinestyle{sql}{
+    language=SQL,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\itshape\color{gray},
+    stringstyle=\color{red!60!black},
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=single,
+    numbers=none,
+    showstringspaces=false,
+    tabsize=2,
+    morekeywords={SERIAL, VARCHAR, BOOLEAN, TIMESTAMPTZ, DOMAIN, TYPE,
+                  ENUM, POINT, GENERATED, ALWAYS, STORED, uint2, BEGIN,
+                  COMMIT, CREATE, INSERT, INTO, VALUES, REFERENCES,
+                  PRIMARY, KEY, CONSTRAINT, NOT, NULL, DEFAULT, CHECK,
+                  AS, AND, INT, INT4, TIME, DATE, INDEX, ON, UNIQUE,
+                  DELETE, UPDATE, CASCADE, CURRENT_DATE, TRIM, INTEGER}
+}
+
+\begin{document}
+
+% ========== TITLE PAGE ==========
+\begin{titlepage}
+    \centering
+    \textbf{Санкт-Петербургский Национальный Исследовательский Университет ИТМО}\\
+    \textbf{Факультет Программной Инженерии и Компьютерной Техники}
+
+    \vspace{2cm}
+    \includegraphics[width=0.4\textwidth]{ITMOLogo.png}\\[1cm]
+
+    \vspace{3cm}
+    {\Large Вариант №XXXXX\\[0.4em]
+    Лабораторная работа №2\\[0.4em]
+    По дисциплине Базы Данных\\[0.4em]
+    }
+
+    \vfill
+    \begin{flushright}
+        Выполнил студент:\\
+        Эллити Мохамед Эмад Ахмед Авад\\[1em]
+        Группы:\\ P3131 \\[1em]
+        Преподаватель:\\
+        Коновалов Арсений Антонович\\
+        Николаев Владимир Вячеславович
+    \end{flushright}
+
+    \vspace{2cm}
+    Санкт-Петербург 2026 г.
+\end{titlepage}
+
+% ========== SECTION 1 ==========
+\section{Текст задания}
+
+\text{По варианту, выданному преподавателем, составить и выполнить запросы к \\ базе данных "Учебный
+процесс} \\
+
+\text{Составить запросы на языке SQL (пункты 1-7).}
+
+\begin{enumerate}
+
+
+    \item task1
+    \item task2 
+    \item task3
+    \item task4
+    \item task5
+    \item task6
+    \item task7
+\end{enumerate}
+
+% ========== SECTION 2 ==========
+\section{Реализация даталогической модели на SQL}
+
+
+\lstset{
+    language=SQL,
+    basicstyle=\ttfamily\scriptsize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true,
+    breakatwhitespace=true,
+    columns=fullflexible,
+    keepspaces=true,
+    showstringspaces=false,
+    frame=single,
+    inputencoding=utf8
+}
+
+
+\begin{minted}[fontsize=\scriptsize, breaklines, linenos]{sql}
+-- Write the code here 
+\end{minted}
+
+% ========== SECTION 3 ==========
+\section{Вывод}
+
+В ходе выполнения лабораторной работы я ознакомился с основными возможностями языка SQL и его диалекта PostgreSQL. Освоил написание запросов для получения, агрегирования, фильтрации и сортировки данных с использованием различных синтаксических конструкций. В результате был приобретён практический опыт работы с языком DML SQL, предназначенным для управления данными внутри базы данных.
+
+\end{document}
