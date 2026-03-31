@@ -34,4 +34,9 @@ public class Location {
                 ", z=" + z +
                 '}';
     }
+    public Location(Float x, Long y, Integer z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<musicBands>
+  <musicBand>
+    <id>1</id>
+    <name>MOhamed</name>
+    <coordinates>
+      <x>3.0</x>
+      <y>232</y>
+    </coordinates>
+    <creationDate>2026-03-31T15:26:31.853754+03:00[Europe/Moscow]</creationDate>
+    <numberOfParticipants>3</numberOfParticipants>
+    <albumsCount>6</albumsCount>
+    <genre>BLUES</genre>
+    <frontMan>
+      <name>Name</name>
+      <birthday>2024-11-20</birthday>
+      <passportID>A23232</passportID>
+      <hairColor>BLACK</hairColor>
+    </frontMan>
+  </musicBand>
+</musicBands>

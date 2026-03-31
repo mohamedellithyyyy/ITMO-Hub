@@ -1,6 +1,5 @@
 package managers;
 
-import exceptions.InvalidInputException;
 import models.*;
 import utility.ValidationUtils;
 
@@ -31,7 +30,7 @@ public class InputManager {
                 String name = scanner.nextLine().trim();
                 ValidationUtils.validateNotEmpty(name, "name");
                 return name;
-            } catch (InvalidInputException e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
@@ -50,9 +49,7 @@ public class InputManager {
                 long value = Long.parseLong(scanner.nextLine().trim());
                 ValidationUtils.validatePositive(value, "numberOfParticipants");
                 return value;
-            } catch (NumberFormatException e) {
-                System.out.println("Error: enter a valid number");
-            } catch (InvalidInputException e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
@@ -65,9 +62,7 @@ public class InputManager {
                 long value = Long.parseLong(scanner.nextLine().trim());
                 ValidationUtils.validatePositive(value, "albumsCount");
                 return value;
-            } catch (NumberFormatException e) {
-                System.out.println("Error: enter a valid number");
-            } catch (InvalidInputException e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
@@ -81,7 +76,7 @@ public class InputManager {
                 String input = scanner.nextLine().trim();
                 if (input.isEmpty()) return null;
                 return MusicGenre.valueOf(input.toUpperCase());
-            } catch (IllegalArgumentException e) {
+            } catch (Exception e) {
                 System.out.println("Error: invalid genre");
             }
         }
@@ -104,7 +99,7 @@ public class InputManager {
                 String name = scanner.nextLine().trim();
                 ValidationUtils.validateNotEmpty(name, "frontMan name");
                 return name;
-            } catch (InvalidInputException e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
@@ -129,7 +124,7 @@ public class InputManager {
                 String id = scanner.nextLine().trim();
                 ValidationUtils.validateNotEmpty(id, "passportID");
                 return id;
-            } catch (InvalidInputException e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
@@ -143,7 +138,7 @@ public class InputManager {
                 String input = scanner.nextLine().trim();
                 if (input.isEmpty()) return null;
                 return Color.valueOf(input.toUpperCase());
-            } catch (IllegalArgumentException e) {
+            } catch (Exception e) {
                 System.out.println("Error: invalid color");
             }
         }
@@ -165,7 +160,7 @@ public class InputManager {
             try {
                 System.out.print(prompt);
                 return Double.parseDouble(scanner.nextLine().trim());
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Error: enter a valid number");
             }
         }
@@ -181,7 +176,7 @@ public class InputManager {
                     continue;
                 }
                 return value;
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Error: enter a valid number");
             }
         }
@@ -192,7 +187,7 @@ public class InputManager {
             try {
                 System.out.print(prompt);
                 return Long.parseLong(scanner.nextLine().trim());
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Error: enter a valid number");
             }
         }
@@ -203,7 +198,7 @@ public class InputManager {
             try {
                 System.out.print(prompt);
                 return Float.parseFloat(scanner.nextLine().trim());
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Error: enter a valid number");
             }
         }
@@ -214,7 +209,7 @@ public class InputManager {
             try {
                 System.out.print(prompt);
                 return Integer.parseInt(scanner.nextLine().trim());
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 System.out.println("Error: enter a valid number");
             }
         }

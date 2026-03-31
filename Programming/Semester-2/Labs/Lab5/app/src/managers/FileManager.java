@@ -3,9 +3,7 @@ package managers;
 import exceptions.FileLoadException;
 import java.io.*;
 
-/**
- * Manages reading and writing the collection to a file.
- */
+
 public class FileManager {
     /** Path to the data file from environment variable. */
     private String filePath;
@@ -13,10 +11,11 @@ public class FileManager {
     /**
      * Constructs a FileManager using the MUSIC_FILE environment variable.
      */
+
     public FileManager() {
         this.filePath = System.getenv("MUSIC_FILE");
         if (filePath == null) {
-            throw new FileLoadException("Environment variable MUSIC_FILE is not set");
+            throw new RuntimeException("Environment variable MUSIC_FILE is not set");
         }
     }
 

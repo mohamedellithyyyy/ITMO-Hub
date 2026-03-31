@@ -8,12 +8,12 @@ public class Coordinates {
         setY(y);
     }
     public double getX() { return x; }
-    public double getY() { return y; }
+    public Long getY() { return y; }
     public void setX(double x) { this.x = x; }
 
-    public void setY(long y) {
-        if (y == null)  throw new IllegalArgumentException("Coordinates.y cannot be null");
-        if (y > 433)    throw new IllegalArgumentException("Coordinates.y must be <= 433, got: " + y);
+    public void setY(Long y) {
+        if (y == null) throw new IllegalArgumentException("Coordinates.y cannot be null");
+        if (y > 433)   throw new IllegalArgumentException("Coordinates.y must be <= 433");
         this.y = y;
     }
     @Override
