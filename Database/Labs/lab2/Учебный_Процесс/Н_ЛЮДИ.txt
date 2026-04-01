@@ -1,0 +1,25 @@
+                                       Таблица "public.Н_ЛЮДИ"
+    Столбец     |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+----------------+-----------------------------+--------------------+-------------------+--------------
+ ИД             | integer                     |                    |                   | 
+ ФАМИЛИЯ        | character varying(25)       |                    |                   | 
+ ИМЯ            | character varying(15)       |                    |                   | 
+ ОТЧЕСТВО       | character varying(20)       |                    |                   | 
+ ПИН            | character varying(20)       |                    |                   | 
+ ИНН            | character varying(20)       |                    |                   | 
+ ДАТА_РОЖДЕНИЯ  | timestamp without time zone |                    |                   | 
+ ПОЛ            | character(1)                |                    |                   | 
+ МЕСТО_РОЖДЕНИЯ | character varying(200)      |                    |                   | 
+ ИНОСТРАН       | character varying(3)        |                    |                   | 
+ КТО_СОЗДАЛ     | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ   | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ    | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ  | timestamp without time zone |                    |                   | 
+ ДАТА_СМЕРТИ    | timestamp without time zone |                    |                   | 
+ ФИО            | character varying(80)       |                    |                   | 
+Индексы:
+    "ИНН_UK" UNIQUE, btree ("ИНН")
+    "ПИН_UK" UNIQUE, btree ("ПИН")
+    "ФАМ_ЛЮД" btree ("ФАМИЛИЯ")
+    "ЧЛВК_PK" UNIQUE, btree ("ИД")
+

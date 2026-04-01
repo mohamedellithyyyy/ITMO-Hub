@@ -1,0 +1,24 @@
+                                        Таблица "public.Н_ОТДЕЛЫ"
+      Столбец      |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+-------------------+-----------------------------+--------------------+-------------------+--------------
+ ИД                | integer                     |                    |                   | 
+ КОРОТКОЕ_ИМЯ      | character varying(20)       |                    |                   | 
+ ИМЯ_В_ИМИН_ПАДЕЖЕ | character varying(200)      |                    |                   | 
+ ИМЯ_В_РОД_ПАДЕЖЕ  | character varying(200)      |                    |                   | 
+ ИМЯ_В_ДАТ_ПАДЕЖЕ  | character varying(200)      |                    |                   | 
+ ИМЯ_В_ВИН_ПАДЕЖЕ  | character varying(200)      |                    |                   | 
+ ИМЯ_В_ТВОР_ПАДЕЖЕ | character varying(200)      |                    |                   | 
+ ИМЯ_В_ПРЕД_ПАДЕЖЕ | character varying(200)      |                    |                   | 
+ ОТД_ИД            | integer                     |                    |                   | 
+ ДАТА_СОЗДАНИЯ     | timestamp without time zone |                    |                   | 
+ ДАТА_ЛИКВИДАЦИИ   | timestamp without time zone |                    |                   | 
+ КТО_СОЗДАЛ        | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ      | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ       | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ     | timestamp without time zone |                    |                   | 
+Индексы:
+    "ОТД_PK" UNIQUE, btree ("ИД")
+    "ОТД_ОТД_FK_I" btree ("ОТД_ИД")
+    "ОТД_УОТД_UK" UNIQUE, btree ("КОРОТКОЕ_ИМЯ")
+
+

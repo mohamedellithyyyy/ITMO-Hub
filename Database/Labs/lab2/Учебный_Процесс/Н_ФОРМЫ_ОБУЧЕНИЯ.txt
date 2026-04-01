@@ -1,0 +1,19 @@
+                                    Таблица "public.Н_ФОРМЫ_ОБУЧЕНИЯ"
+      Столбец      |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+-------------------+-----------------------------+--------------------+-------------------+--------------
+ ИД                | integer                     |                    |                   | 
+ НАИМЕНОВАНИЕ      | character varying(200)      |                    |                   | 
+ КТО_СОЗДАЛ        | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ      | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ       | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ     | timestamp without time zone |                    |                   | 
+ ИМЯ_В_ИМИН_ПАДЕЖЕ | character varying(200)      |                    |                   | 
+ ИМЯ_В_РОД_ПАДЕЖЕ  | character varying(200)      |                    |                   | 
+ ИМЯ_В_ДАТ_ПАДЕЖЕ  | character varying(200)      |                    |                   | 
+ ИМЯ_В_ВИН_ПАДЕЖЕ  | character varying(200)      |                    |                   | 
+ ИМЯ_В_ТВОР_ПАДЕЖЕ | character varying(200)      |                    |                   | 
+ ИМЯ_В_ПРЕД_ПАДЕЖЕ | character varying(200)      |                    |                   | 
+Индексы:
+    "ФО_PK" UNIQUE, btree ("ИД")
+
+

@@ -1,0 +1,17 @@
+                                      Таблица "public.Н_ЛЮДИ_ПО_ПАДЕЖАМ"
+    Столбец    |             Тип             | Правило сортировки | Допустимость NULL |      По умолчанию      
+---------------+-----------------------------+--------------------+-------------------+------------------------
+ ЧЛВК_ИД       | integer                     |                    |                   | 
+ ПАДЕЖ         | character varying(1)        |                    |                   | 'И'::character varying
+ ФАМИЛИЯ       | character varying(25)       |                    |                   | 
+ ИМЯ           | character varying(25)       |                    |                   | 
+ ОТЧЕСТВО      | character varying(20)       |                    |                   | 
+ КТО_СОЗДАЛ    | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ  | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ   | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ | timestamp without time zone |                    |                   | 
+Индексы:
+    "ЧЛВК_ПАДЕЖ_FK_IFK" btree ("ЧЛВК_ИД")
+    "ЧЛВК_ПАДЕЖ_U" UNIQUE, btree ("ЧЛВК_ИД", "ПАДЕЖ")
+
+

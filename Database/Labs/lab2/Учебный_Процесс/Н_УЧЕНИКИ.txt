@@ -1,0 +1,35 @@
+                                       Таблица "public.Н_УЧЕНИКИ"
+     Столбец      |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+------------------+-----------------------------+--------------------+-------------------+--------------
+ ИД               | integer                     |                    |                   | 
+ ЧЛВК_ИД          | integer                     |                    |                   | 
+ ПРИЗНАК          | character varying(10)       |                    |                   | 
+ СОСТОЯНИЕ        | character varying(9)        |                    |                   | 
+ НАЧАЛО           | timestamp without time zone |                    |                   | 
+ КОНЕЦ            | timestamp without time zone |                    |                   | 
+ ПЛАН_ИД          | integer                     |                    |                   | 
+ ГРУППА           | character varying(4)        |                    |                   | 
+ П_ПРКОК_ИД       | integer                     |                    |                   | 
+ ВИД_ОБУЧ_ИД      | integer                     |                    |                   | 
+ ПРИМЕЧАНИЕ       | character varying(200)      |                    |                   | 
+ КТО_СОЗДАЛ       | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ     | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ      | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ    | timestamp without time zone |                    |                   | 
+ КОНЕЦ_ПО_ПРИКАЗУ | timestamp without time zone |                    |                   | 
+ ВМЕСТО           | integer                     |                    |                   | 
+ В_СВЯЗИ_С        | integer                     |                    |                   | 
+ ТЕКСТ            | character varying(200)      |                    |                   | 
+Индексы:
+    "УЧЕН_PK" UNIQUE, btree ("ИД")
+    "УЧЕН_В_СВЯЗИ_С_I" btree ("В_СВЯЗИ_С")
+    "УЧЕН_ГП_FK_I" btree ("ГРУППА", "ПЛАН_ИД")
+    "УЧЕН_КОН_I" btree ("КОНЕЦ")
+    "УЧЕН_НАЧ_I" btree ("НАЧАЛО")
+    "УЧЕН_ОБУЧ_FK_I" btree ("ЧЛВК_ИД", "ВИД_ОБУЧ_ИД")
+    "УЧЕН_П_ПРКОК_FK_I" btree ("П_ПРКОК_ИД")
+    "УЧЕН_ПЛАН_FK_I" btree ("ПЛАН_ИД")
+    "УЧЕН_ПРИЗНАК_I" btree ("ПРИЗНАК")
+    "УЧЕН_СОСТОЯНИЕ_I" btree ("СОСТОЯНИЕ")
+
+

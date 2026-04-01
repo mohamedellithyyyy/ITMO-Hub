@@ -1,0 +1,20 @@
+                                     Таблица "public.Н_ИЗМ_ЛЮДИ"
+    Столбец    |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+---------------+-----------------------------+--------------------+-------------------+--------------
+ ЧЛВК_ИД       | integer                     |                    |                   | 
+ ДАТА          | timestamp without time zone |                    |                   | 
+ ФАМИЛИЯ       | character varying(25)       |                    |                   | 
+ ИМЯ           | character varying(20)       |                    |                   | 
+ ОТЧЕСТВО      | character varying(20)       |                    |                   | 
+ ДАТА_РОЖДЕНИЯ | timestamp without time zone |                    |                   | 
+ ПОЛ           | character(1)                |                    |                   | 
+ ПИН           | character varying(20)       |                    |                   | 
+ ИНН           | character varying(20)       |                    |                   | 
+ КТО_СОЗДАЛ    | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ  | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ   | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ | timestamp without time zone |                    |                   | 
+Индексы:
+    "ИЗМЛ_PK" UNIQUE, btree ("ЧЛВК_ИД", "ДАТА")
+    "ИЗЧЕЛ_ЧЛВК_FK_I" btree ("ЧЛВК_ИД")
+

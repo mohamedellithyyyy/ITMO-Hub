@@ -1,0 +1,31 @@
+                                     Таблица "public.Н_ВЕДОМОСТИ"
+     Столбец     |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+-----------------+-----------------------------+--------------------+-------------------+--------------
+ ИД              | integer                     |                    |                   | 
+ ЧЛВК_ИД         | integer                     |                    |                   | 
+ НОМЕР_ДОКУМЕНТА | character varying(40)       |                    |                   | 
+ ОЦЕНКА          | character varying(8)        |                    |                   | 
+ СРОК_СДАЧИ      | timestamp without time zone |                    |                   | 
+ ДАТА            | timestamp without time zone |                    |                   | 
+ СЭС_ИД          | integer                     |                    |                   | 
+ ТВ_ИД           | integer                     |                    |                   | 
+ КТО_СОЗДАЛ      | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ    | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ     | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ   | timestamp without time zone |                    |                   | 
+ ВЕД_ИД          | integer                     |                    |                   | 
+ СОСТОЯНИЕ       | character varying(12)       |                    |                   | 
+ ОТД_ИД          | integer                     |                    |                   | 
+ БУКВА           | character varying(8)        |                    |                   | 
+ ПРИМЕЧАНИЕ      | character varying(200)      |                    |                   | 
+ БАЛЛЫ           | numeric(5,2)                |                    |                   | 
+Индексы:
+    "ВЕД_PK" UNIQUE, btree ("ИД")
+    "ВЕД_ДАТА_I" btree ("ДАТА")
+    "ВЕД_ИП_FK_I" btree ("СЭС_ИД")
+    "ВЕД_ОТД_I" btree ("ОТД_ИД")
+    "ВЕД_ОЦЕНКА_I" btree ("ОЦЕНКА")
+    "ВЕД_ТВ_FK_I" btree ("ТВ_ИД")
+    "ВЕД_ЧЛВК_FK_IFK" btree ("ЧЛВК_ИД")
+
+

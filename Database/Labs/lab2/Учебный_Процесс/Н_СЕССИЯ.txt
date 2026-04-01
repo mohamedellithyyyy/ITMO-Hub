@@ -1,0 +1,24 @@
+                                      Таблица "public.Н_СЕССИЯ"
+    Столбец    |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+---------------+-----------------------------+--------------------+-------------------+--------------
+ ИД            | integer                     |                    |                   | 
+ СЭС_ИД        | integer                     |                    |                   | 
+ ЧЛВК_ИД       | integer                     |                    |                   | 
+ ДАТА          | timestamp without time zone |                    |                   | 
+ ВРЕМЯ         | timestamp without time zone |                    |                   | 
+ АУДИТОРИЯ     | character varying(8)        |                    |                   | 
+ ДАТА_К        | timestamp without time zone |                    |                   | 
+ ВРЕМЯ_К       | timestamp without time zone |                    |                   | 
+ АУДИТОРИЯ_К   | character varying(8)        |                    |                   | 
+ УЧГОД         | character varying(9)        |                    |                   | 
+ ГРУППА        | integer                     |                    |                   | 
+ СЕМЕСТР       | integer                     |                    |                   | 
+ КТО_СОЗДАЛ    | character varying(20)       |                    |                   | 
+ КОГДА_СОЗДАЛ  | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ   | character varying(20)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ | timestamp without time zone |                    |                   | 
+Индексы:
+    "SYS_C003500_IFK" btree ("ЧЛВК_ИД")
+    "СЕС_СЭС_FK" btree ("СЭС_ИД")
+
+

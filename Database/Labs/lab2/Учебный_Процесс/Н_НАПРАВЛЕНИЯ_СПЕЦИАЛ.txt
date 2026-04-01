@@ -1,0 +1,23 @@
+                               Таблица "public.Н_НАПРАВЛЕНИЯ_СПЕЦИАЛ"
+    Столбец    |             Тип             | Правило сортировки | Допустимость NULL | По умолчанию 
+---------------+-----------------------------+--------------------+-------------------+--------------
+ ИД            | integer                     |                    |                   | 
+ УРОВЕНЬ       | integer                     |                    |                   | 
+ ДАТА_ГОС      | timestamp without time zone |                    |                   | 
+ КВАЛ_ИД       | integer                     |                    |                   | 
+ НС_ИД         | integer                     |                    |                   | 
+ ТС_ИД         | integer                     |                    |                   | 
+ НАПС_ИД       | integer                     |                    |                   | 
+ КТО_СОЗДАЛ    | character varying(40)       |                    |                   | 
+ КОГДА_СОЗДАЛ  | timestamp without time zone |                    |                   | 
+ КТО_ИЗМЕНИЛ   | character varying(40)       |                    |                   | 
+ КОГДА_ИЗМЕНИЛ | timestamp without time zone |                    |                   | 
+ ПРИМЕЧАНИЕ    | character varying(200)      |                    |                   | 
+Индексы:
+    "НАПС_PK" UNIQUE, btree ("ИД")
+    "НАПС_КВАЛ_FK_I" btree ("КВАЛ_ИД")
+    "НАПС_НАПС_FK_I" btree ("НАПС_ИД")
+    "НАПС_НС_FK_I" btree ("НС_ИД")
+    "НАПС_ТС_FK_I" btree ("ТС_ИД")
+
+
