@@ -1,0 +1,22 @@
+public enum CommandType {
+
+    INFO,
+    SHOW,
+    ADD,
+    UPDATE,
+
+    REMOVE_BY_ID,
+    CLEAR,
+    EXECUTE_SCRIPT,
+    EXIT,
+
+    HEAD,
+    REMOVE_HEAD,
+    REMOVE_LOWER,
+
+    SUM_OF_NUMBER_OF_PARTICIPANTS,
+
+    FILTER_STARTS_WITH_NAME,
+
+    PRINT_UNIQUE_NUMBER_OF_PARTICIPANTS
+}
