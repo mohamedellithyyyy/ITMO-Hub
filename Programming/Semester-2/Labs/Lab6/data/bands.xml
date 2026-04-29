@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<musicBands>
+  <musicBand>
+    <id>1</id>
+    <name>CairoKee</name>
+    <coordinates>
+      <x>1.0</x>
+      <y>2</y>
+    </coordinates>
+    <creationDate>2026-04-29T11:46:53.259947+03:00[Europe/Moscow]</creationDate>
+    <numberOfParticipants>3</numberOfParticipants>
+    <albumsCount>4</albumsCount>
+    <genre>JAZZ</genre>
+    <frontMan>
+      <name>Amir Eid</name>
+      <birthday>2000-11-11</birthday>
+      <passportID>3122</passportID>
+      <hairColor>RED</hairColor>
+    </frontMan>
+  </musicBand>
+</musicBands>

@@ -50,6 +50,12 @@ public class Coordinates implements Serializable{
         if (y > 433)   throw new IllegalArgumentException("Coordinates.y must be <= 433");
         this.y = y;
     }
+
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString(){
         return "Coordinates{x=" + x + ", y=" + y + "}";

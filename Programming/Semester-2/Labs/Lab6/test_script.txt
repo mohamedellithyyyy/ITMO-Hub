@@ -1,0 +1,5 @@
+einfo
+info
+save
+head
+execute_script test_script.txt

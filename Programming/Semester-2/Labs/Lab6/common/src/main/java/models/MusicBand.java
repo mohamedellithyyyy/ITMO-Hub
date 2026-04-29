@@ -153,11 +153,23 @@ public class MusicBand implements Comparable<MusicBand>, Serializable {
      * @param frontMan the front man
      */
     public void setFrontMan(Person frontMan) { this.frontMan = frontMan; }
+
+    /**
+     * Compare to int.
+     *
+     * @param other the other
+     * @return the int
+     */
     @Override
     public int compareTo(MusicBand other) {
         return Long.compare(this.numberOfParticipants, other.numberOfParticipants);
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return "MusicBand{" +

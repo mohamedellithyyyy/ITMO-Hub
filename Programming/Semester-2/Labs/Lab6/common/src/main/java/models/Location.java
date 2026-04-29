@@ -1,5 +1,6 @@
 package models;
 import java.io.Serializable;
+
 /**
  * The type Location.
  */
@@ -63,6 +64,11 @@ public class Location implements Serializable{
         this.z = z;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return "Location{" +

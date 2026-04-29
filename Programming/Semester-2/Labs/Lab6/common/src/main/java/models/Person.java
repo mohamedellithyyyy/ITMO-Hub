@@ -112,6 +112,11 @@ public class Person implements Serializable {
         this.location = location;
     }
 
+    /**
+     * To string string.
+     *
+     * @return the string
+     */
     @Override
     public String toString() {
         return "Person{" +
