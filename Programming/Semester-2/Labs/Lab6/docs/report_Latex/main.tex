@@ -1,0 +1,142 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- ENCODING (оставляем только один раз!) ---
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% --- PACKAGES ---
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\setlength{\parindent}{1.25cm}
+\onehalfspacing
+
+% --- COLORS ---
+\definecolor{pink}{RGB}{200,0,120}
+\definecolor{blue}{RGB}{0,0,180}
+
+% --- LISTINGS SETTINGS ---
+\lstset{
+    language=Java,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{green!50!black},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=single,
+    tabsize=4,
+    captionpos=b
+}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+
+\textbf{Санкт-Петербургский Национальный Исследовательский Университет ИТМО}\\
+\textbf{Факультет Программной Инженерии и Компьютерной Техники}
+
+\vspace{2cm}
+
+\includegraphics[width=0.4\textwidth]{ITMOLogo.png}
+
+\vspace{3cm}
+
+{\Large
+Вариант №1440\\[0.4em]
+Лабораторная работа №6\\[0.4em]
+По дисциплине Программирование\\[0.4em]
+}
+
+\vfill
+
+\begin{flushright}
+Выполнил студент:\\
+Эллити Мохамед Эмад Ахмед Авад\\[1em]
+
+Группы:\\ P3131 \\[1em]
+
+Преподаватель:\\
+Бобрусь Александр Владимирович\\
+Гаврилов Антон Валерьевич
+\end{flushright}
+
+\vspace{2cm}
+
+Санкт-Петербург 2026 г.
+
+\end{titlepage}
+
+\newpage
+
+\section{Необходимо выполнить следующие требования}
+\begin{itemize}
+\item Операции обработки объектов коллекции должны быть реализованы с помощью Stream API с использованием лямбда-выражений.
+\item Объекты между клиентом и сервером должны передаваться в сериализованном виде.
+\item Объекты в коллекции, передаваемой клиенту, должны быть отсортированы по местоположению
+\item Клиент должен корректно обрабатывать временную недоступность сервера.
+\item Обмен данными между клиентом и сервером должен осуществляться по протоколу TCP
+\item Для обмена данными на сервере необходимо использовать сетевой канал
+\item Для обмена данными на клиенте необходимо использовать потоки ввода-вывода
+\item Сетевые каналы должны использоваться в неблокирующем режиме.
+\end{itemize}
+
+
+\section{Обязанности серверного приложения}
+\begin{itemize}
+\item Работа с файлом, хранящим коллекцию.
+\item Управление коллекцией объектов.
+\item Назначение автоматически генерируемых полей объектов в коллекции.
+\item Ожидание подключений и запросов от клиента.
+\item Обработка полученных запросов (команд).
+\item Сохранение коллекции в файл при завершении работы приложения.
+\item Сохранение коллекции в файл при исполнении специальной команды,
+\item доступной только серверу (клиент такую команду отправить не может)
+\end{itemize
+
+\newpage
+
+\section{Серверное приложение должно состоять из следующих модулей (реализованных в виде одного или нескольких классов)}
+\begin{itemize}
+\item Модуль приёма подключений.
+\item Модуль чтения запроса.
+\item Модуль обработки полученных команд.
+\item Модуль отправки ответов клиенту.
+\text{Сервер должен работать в однопоточном режиме.}
+\end{itemize}
+
+\section{Обязанности клиентского приложения}
+\begin{itemize}
+    \item Чтение команд из консоли.
+    \item Валидация вводимых данных.
+    \item Сериализация введённой команды и её аргументов.
+    \item Отправка полученной команды и её аргументов на сервер.
+    \item Обработка ответа от сервера (вывод результата исполнения команды в консоль).
+    \item Команду \textbf{`save`} из клиентского приложения необходимо убрать.
+    \item Команда \textbf{`exit`} завершает работу клиентского приложения. \newline
+    \textbf{Важно!} \text{Команды и их аргументы должны представлять из себя объекты классов. Недопустим обмен "простыми" строками. Так, для команды add или её аналога необходимо сформировать объект, содержащий тип команды и объект, который должен храниться в вашей коллекции.}
+
+\end{itemize}
+
+\newpage
+\section{Исходный код программы.}
+\href{https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/Programming/Semester-2/Labs/Lab6}{Lab6 -  Networked Music Band Collection Management System}
+
+
+\section{Диаграмма классов реализованной объектной модели.}
+\href{https://github.com/mohamedellithyyyy/ITMO-Hub/tree/main/Programming/Semester-2/Labs/Lab6/docs/UML}{UML-диаграмма классов проекта}
+\section{Вывод}
+В ходе лабораторной работы была разработана клиент-серверная система на Java с использованием NIO. Реализована обработка команд, работа с коллекцией объектов и обмен данными между клиентом и сервером. Дополнительно внедрено логирование с помощью Java Util Logging для отслеживания основных этапов работы сервера.
+\end{document}
