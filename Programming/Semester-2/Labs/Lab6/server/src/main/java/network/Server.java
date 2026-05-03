@@ -2,19 +2,19 @@ package network;
 
 import commands.CommandProcessor;
 import managers.CollectionManager;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.SimpleFormatter;
 
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 /**
- * The type Server.
+ * Stable NIO Server for Lab6 (Helios-safe version)
  */
 public class Server {
 
@@ -25,19 +25,13 @@ public class Server {
 
     private final CommandProcessor commandProcessor;
 
-    // ================= LOGGER =================
     private static final Logger logger = Logger.getLogger(Server.class.getName());
 
-    /**
-     * Instantiates a new Server.
-     *
-     * @param collectionManager the collection manager
-     */
     public Server(CollectionManager collectionManager) {
         this.commandProcessor = new CommandProcessor(collectionManager);
     }
 
-    // ================= LOG SETUP =================
+    // ================= LOGGING =================
     private void setupLogging() {
         ConsoleHandler handler = new ConsoleHandler();
         handler.setFormatter(new SimpleFormatter());
@@ -46,57 +40,72 @@ public class Server {
         logger.setUseParentHandlers(false);
     }
 
-    /**
-     * Start.
-     */
+    // ================= START SERVER =================
     public void start() {
-        try {
-            setupLogging();
+        setupLogging();
 
+        try {
             selector = Selector.open();
 
             serverChannel = ServerSocketChannel.open();
             serverChannel.configureBlocking(false);
+
+            // IMPORTANT: bind properly (external access allowed)
             serverChannel.bind(new InetSocketAddress(PORT));
 
             serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
             logger.info("Server started on port " + PORT);
 
-            while (true) {
+            // IMPORTANT: keep server alive forever
+            while (serverChannel.isOpen()) {
+
                 selector.select();
 
-                Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
+                Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
 
-                while (keys.hasNext()) {
-                    SelectionKey key = keys.next();
-                    keys.remove();
+                while (iterator.hasNext()) {
+                    SelectionKey key = iterator.next();
+                    iterator.remove();
 
-                    if (key.isAcceptable()) {
-                        acceptClient();
-                    }
+                    try {
+                        if (key.isAcceptable()) {
+                            acceptClient();
+                        }
 
-                    if (key.isReadable()) {
-                        readRequest(key);
+                        if (key.isReadable()) {
+                            readRequest(key);
+                        }
+                    } catch (Exception e) {
+                        logger.log(Level.SEVERE, "Key processing error", e);
+                        try {
+                            key.channel().close();
+                        } catch (IOException ignored) {}
                     }
                 }
             }
 
-        } catch (IOException e) {
-            logger.log(Level.SEVERE, "Server error", e);
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Fatal server error", e);
+            e.printStackTrace();
+        } finally {
+            shutdown();
         }
     }
 
-    // ---------------- ACCEPT ----------------
+    // ================= ACCEPT CLIENT =================
     private void acceptClient() throws IOException {
         SocketChannel client = serverChannel.accept();
+
+        if (client == null) return;
+
         client.configureBlocking(false);
         client.register(selector, SelectionKey.OP_READ);
 
         logger.info("Client connected: " + client.getRemoteAddress());
     }
 
-    // ---------------- READ REQUEST ----------------
+    // ================= READ REQUEST =================
     private void readRequest(SelectionKey key) {
         SocketChannel client = (SocketChannel) key.channel();
 
@@ -112,6 +121,8 @@ public class Server {
                 return;
             }
 
+            if (read < 4) return;
+
             sizeBuffer.flip();
             int size = sizeBuffer.getInt();
 
@@ -120,11 +131,13 @@ public class Server {
 
             while (totalRead < size) {
                 int r = client.read(dataBuffer);
+
                 if (r == -1) {
                     client.close();
                     logger.info("Client disconnected during request");
                     return;
                 }
+
                 totalRead += r;
             }
 
@@ -141,14 +154,14 @@ public class Server {
             sendResponse(client, response);
 
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Client error", e);
+            logger.log(Level.SEVERE, "Client handling error", e);
             try {
                 client.close();
             } catch (IOException ignored) {}
         }
     }
 
-    // ---------------- SEND RESPONSE ----------------
+    // ================= SEND RESPONSE =================
     private void sendResponse(SocketChannel client, Response response) throws IOException {
 
         logger.info("Sending response to client");
@@ -167,7 +180,7 @@ public class Server {
         logger.info("Response sent");
     }
 
-    // ---------------- SERIALIZATION ----------------
+    // ================= SERIALIZATION =================
     private byte[] serialize(Object obj) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -183,5 +196,16 @@ public class Server {
         ObjectInputStream ois = new ObjectInputStream(bis);
 
         return (Request) ois.readObject();
+    }
+
+    // ================= CLEAN SHUTDOWN =================
+    private void shutdown() {
+        try {
+            if (serverChannel != null) serverChannel.close();
+            if (selector != null) selector.close();
+            logger.info("Server shutdown complete");
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Shutdown error", e);
+        }
     }
 }

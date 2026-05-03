@@ -72,7 +72,7 @@ public class CommandProcessor {
                                             : ""
                             ))
                             .collect(Collectors.toList());
-                    return new Response("OK", sorted);
+                    return new Response("Empty", sorted);
 
                 case ADD:
                     return new Response(collectionManager.add(arg), null);

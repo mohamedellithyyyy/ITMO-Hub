@@ -7,15 +7,38 @@
       <x>1.0</x>
       <y>2</y>
     </coordinates>
-    <creationDate>2026-04-29T11:46:53.259947+03:00[Europe/Moscow]</creationDate>
-    <numberOfParticipants>3</numberOfParticipants>
-    <albumsCount>4</albumsCount>
+    <creationDate>2026-05-02T11:48:03.825440+03:00[Europe/Moscow]</creationDate>
+    <numberOfParticipants>34</numberOfParticipants>
+    <albumsCount>2</albumsCount>
     <genre>JAZZ</genre>
     <frontMan>
-      <name>Amir Eid</name>
-      <birthday>2000-11-11</birthday>
-      <passportID>3122</passportID>
+      <name>Lithium</name>
+      <birthday>2004-11-12</birthday>
+      <passportID>12</passportID>
       <hairColor>RED</hairColor>
+    </frontMan>
+  </musicBand>
+  <musicBand>
+    <id>2</id>
+    <name>Masar</name>
+    <coordinates>
+      <x>1.0</x>
+      <y>2</y>
+    </coordinates>
+    <creationDate>2026-05-02T11:58:08.266814+03:00[Europe/Moscow]</creationDate>
+    <numberOfParticipants>34</numberOfParticipants>
+    <albumsCount>12</albumsCount>
+    <genre>SOUL</genre>
+    <frontMan>
+      <name>AMir AId</name>
+      <birthday>2000-11-11</birthday>
+      <passportID>12345</passportID>
+      <hairColor></hairColor>
+      <location>
+        <x>12.0</x>
+        <y>3</y>
+        <z>3</z>
+      </location>
     </frontMan>
   </musicBand>
 </musicBands>

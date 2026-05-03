@@ -1,0 +1,12 @@
+## Java
+# Compiled class file
+*.class
+*.jar
+
+## IntelliJ IDEA
+.idea/
+.idea_modules/
+.iws
+
+## Misc
+*.DS_Store

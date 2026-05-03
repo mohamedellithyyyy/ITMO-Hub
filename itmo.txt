@@ -1,0 +1,1218 @@
+.
+├── Algebra and algorithms
+│   ├── Semester-1
+│   │   ├── Homeworks
+│   │   │   └── Homework_3-4
+│   │   │       ├── cover.tex
+│   │   │       ├── method1.py
+│   │   │       ├── method1Output.txt
+│   │   │       ├── method2.py
+│   │   │       ├── method2Output.txt
+│   │   │       ├── method3.py
+│   │   │       ├── method3Output.txt
+│   │   │       ├── method4.py
+│   │   │       ├── RGR.tex
+│   │   │       ├── tetrahedron_visualization.png
+│   │   │       ├── tetrahedron_visualization.py
+│   │   │       ├── ЛА_проектная работа 2.pdf
+│   │   │       └── Отчёт.pdf
+│   │   └── Lectures
+│   │       ├── лекция№1.pdf
+│   │       ├── лекция№10.pdf
+│   │       ├── лекция№11.pdf
+│   │       ├── лекция№12.pdf
+│   │       ├── лекция№2.pdf
+│   │       ├── лекция№3.pdf
+│   │       ├── лекция№4.pdf
+│   │       ├── лекция№5.pdf
+│   │       ├── лекция№6.pdf
+│   │       ├── лекция№7.pdf
+│   │       ├── лекция№8.pdf
+│   │       └── лекция№9.pdf
+│   └── Semester-2
+│       └── README.md
+├── Algorithms and data structures
+│   ├── 1005_Stone_Pile
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1067_Disk_Tree
+│   │   ├── explanation.docx
+│   │   ├── output
+│   │   │   ├── solution
+│   │   │   └── solution.dSYM
+│   │   │       └── Contents
+│   │   │           ├── Info.plist
+│   │   │           └── Resources
+│   │   │               ├── DWARF
+│   │   │               │   └── solution
+│   │   │               └── Relocations
+│   │   │                   └── aarch64
+│   │   │                       └── solution.yml
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   ├── solution
+│   │   └── solution.cpp
+│   ├── 1080_Map_Coloring
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1155_Troubleduons
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1160_Network
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1162_Currency_Exchange
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1207_Median_on_the_Plane
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1296_Hyperjump
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1322_Spy
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1401_Gamers
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1444_Elephpotamus
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1450_Russian_Pipelines
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1494_Monobilliards
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1521_War_Games_2
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1604_Country_of_Fools
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1628_White_Streaks
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1650_Billionaires
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1726_Visits
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 1806_Mobile_Telegraphs
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── 2025_Line_Fighting
+│   │   ├── explanation.docx
+│   │   ├── README.md
+│   │   ├── report.tex
+│   │   └── solution.cpp
+│   ├── cmake-build-debug
+│   │   ├── build.ninja
+│   │   ├── cmake_install.cmake
+│   │   ├── CMakeCache.txt
+│   │   ├── CMakeFiles
+│   │   │   ├── 4.1.2
+│   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   ├── CompilerIdC
+│   │   │   │   │   ├── a.out
+│   │   │   │   │   ├── apple-sdk.c
+│   │   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   │   └── tmp
+│   │   │   │   └── CompilerIdCXX
+│   │   │   │       ├── a.out
+│   │   │   │       ├── apple-sdk.cpp
+│   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │       └── tmp
+│   │   │   ├── Algorithms_and_data_structures.dir
+│   │   │   │   ├── 1005_Stone_Pile
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1067_Disk_Tree
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1080_Map_Coloring
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1155_Troubleduons
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1160_Network
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1162_Currency_Exchange
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1207_Median_on_the_Plane
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1296_Hyperjump
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1322_Spy
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1401_Gamers
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1444_Elephpotamus
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1450_Russian_Pipelines
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1494_Monobilliards
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1521_War_Games_2
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1604_Country_of_Fools
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1628_White_Streaks
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1650_Billionaires
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1726_Visits
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   ├── 1806_Mobile_Telegraphs
+│   │   │   │   │   └── solution.cpp.o
+│   │   │   │   └── 2025_Line_Fighting
+│   │   │   │       └── solution.cpp.o
+│   │   │   ├── clion-Debug-log.txt
+│   │   │   ├── clion-environment.txt
+│   │   │   ├── cmake.check_cache
+│   │   │   ├── CMakeConfigureLog.yaml
+│   │   │   ├── Disk_Tree.dir
+│   │   │   │   └── 1067_Disk_Tree
+│   │   │   ├── InstallScripts.json
+│   │   │   ├── pkgRedirects
+│   │   │   ├── rules.ninja
+│   │   │   ├── Stone_Pile.dir
+│   │   │   │   └── 1005_Stone_Pile
+│   │   │   └── TargetDirectories.txt
+│   │   ├── compile_commands.json
+│   │   └── Testing
+│   │       └── Temporary
+│   │           └── LastTest.log
+│   ├── CMakeLists.txt
+│   └── README.md
+├── Computer Science
+│   ├── Annotations
+│   │   ├── аннотация-Лекция_1.doc
+│   │   ├── аннотация-Лекция_1.pdf
+│   │   ├── аннотация-Лекция_2.doc
+│   │   ├── аннотация-Лекция_2.pdf
+│   │   ├── аннотация-Лекция_3.doc
+│   │   ├── аннотация-Лекция_3.pdf
+│   │   ├── аннотация-Лекция_4.doc
+│   │   ├── аннотация-Лекция_4.pdf
+│   │   ├── аннотация-Лекция_5.doc
+│   │   ├── аннотация-Лекция_5.pdf
+│   │   ├── аннотация-Лекция_6.doc
+│   │   ├── аннотация-Лекция_6.pdf
+│   │   ├── аннотация-Лекция_7.doc
+│   │   ├── аннотация-Лекция_7.pdf
+│   │   └── Шаблон
+│   │       ├── 2025_Шаблон аннотации (MS Office).doc
+│   │       └── 2025_Шаблон аннтоации (LibreOffice).odt
+│   ├── Labs
+│   │   ├── Lab1
+│   │   │   ├── docs
+│   │   │   │   ├── Домашнее задание на 20 октября  .pdf
+│   │   │   │   ├── Информатика_ЛР_1_2023.pdf
+│   │   │   │   ├── Информатика_ЛР_1_2025_Варианты.pdf
+│   │   │   │   ├── Лабораторная работа №1-Report.docx
+│   │   │   │   └── Лабораторная работа №1-Report.pdf
+│   │   │   └── Lab1.java
+│   │   ├── Lab2
+│   │   │   ├── docs
+│   │   │   │   ├── imges
+│   │   │   │   │   ├── заданий1.1.png
+│   │   │   │   │   ├── заданий1.2.png
+│   │   │   │   │   ├── заданий2.1.png
+│   │   │   │   │   ├── заданий2.2.png
+│   │   │   │   │   ├── заданий3.1.png
+│   │   │   │   │   ├── заданий3.2.png
+│   │   │   │   │   ├── заданий4.1.png
+│   │   │   │   │   ├── заданий4.2.png
+│   │   │   │   │   ├── заданий5.1.png
+│   │   │   │   │   └── заданий5.2.png
+│   │   │   │   ├── Lab2-info.docx
+│   │   │   │   ├── Информатика_ЛР_2_2025.pdf
+│   │   │   │   └── Лабораторная работа №2-Report.pdf
+│   │   │   └── main.py
+│   │   ├── Lab3
+│   │   │   ├── docs
+│   │   │   │   ├── Информатика_ЛР_3_2025.pdf
+│   │   │   │   ├── Лабораторная работа №3-Report.docx
+│   │   │   │   └── Лабораторная работа №3-Report.pdf
+│   │   │   ├── Learning.ipynb
+│   │   │   ├── LearningREX.ipynb
+│   │   │   ├── main.py
+│   │   │   ├── tasks
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── Informatics_Lab3_Task1.cpython-313.pyc
+│   │   │   │   │   ├── Informatics_Lab3_Task2.cpython-313.pyc
+│   │   │   │   │   └── Informatics_Lab3_Task3.cpython-313.pyc
+│   │   │   │   ├── Informatics_Lab3_Task1.ipynb
+│   │   │   │   ├── Informatics_Lab3_Task1.py
+│   │   │   │   ├── Informatics_Lab3_Task2.ipynb
+│   │   │   │   ├── Informatics_Lab3_Task2.py
+│   │   │   │   ├── Informatics_Lab3_Task3.ipynb
+│   │   │   │   └── Informatics_Lab3_Task3.py
+│   │   │   ├── Untitled.ipynb
+│   │   │   └── What'reMyTasks.ipynb
+│   │   ├── Lab4
+│   │   │   ├── __pycache__
+│   │   │   │   ├── task1.cpython-313.pyc
+│   │   │   │   ├── taskExtra11.cpython-313.pyc
+│   │   │   │   ├── taskExtra12.cpython-313.pyc
+│   │   │   │   └── taskExtra3.cpython-313.pyc
+│   │   │   ├── data
+│   │   │   │   ├── Schedule.json
+│   │   │   │   └── test.json
+│   │   │   ├── docs
+│   │   │   │   ├── ~$бораторная работа №3-Report.docx
+│   │   │   │   ├── Информатика_ЛР_4_2025 (1).pdf
+│   │   │   │   ├── Лабораторная работа №4-Report.docx
+│   │   │   │   └── Лабораторная работа №4-Report.pdf
+│   │   │   ├── main
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── task1.cpython-313.pyc
+│   │   │   │   │   ├── taskExtra1_2.cpython-313.pyc
+│   │   │   │   │   ├── taskExtra1.cpython-313.pyc
+│   │   │   │   │   └── taskExtra3.cpython-313.pyc
+│   │   │   │   ├── Learning.ipynb
+│   │   │   │   ├── task1.ipynb
+│   │   │   │   ├── taskExtra1.ipynb
+│   │   │   │   ├── taskExtra2.ipynb
+│   │   │   │   ├── taskExtra3.ipynb
+│   │   │   │   └── taskExtra4.ipynb
+│   │   │   ├── output
+│   │   │   │   ├── Task1_Result.txt
+│   │   │   │   ├── taskExtra1Result.yaml
+│   │   │   │   ├── taskExtra2Result.yaml
+│   │   │   │   └── taskExtra3_Result.xml
+│   │   │   └── README.md
+│   │   ├── Lab5
+│   │   │   ├── DeleteFmain.xlsx
+│   │   │   ├── docs
+│   │   │   │   ├── Информатика_ЛР_5_2023.pdf
+│   │   │   │   ├── Информатика_ЛР_5_2025_Доп.pdf
+│   │   │   │   ├── Лабораторная работа №5-Report.docx
+│   │   │   │   └── Лабораторная работа №5-Report.pdf
+│   │   │   ├── JustLearning
+│   │   │   │   ├── CleanF.ipynb
+│   │   │   │   ├── CleanWithSaveFormat.ipynb
+│   │   │   │   └── deleteF.ipynb
+│   │   │   ├── main
+│   │   │   │   ├── ~$lab5.xlsx
+│   │   │   │   ├── lab5.ipynb
+│   │   │   │   ├── lab5.pdf
+│   │   │   │   ├── lab5.xlsx
+│   │   │   │   ├── lab5V2.ipynb
+│   │   │   │   └── V3.ipynb
+│   │   │   ├── output
+│   │   │   │   ├── final_lab5.xlsx
+│   │   │   │   ├── final_lab5V2.xlsx
+│   │   │   │   └── output.xlsx
+│   │   │   └── requirements.txt
+│   │   └── Lab6
+│   │       ├── cover.tex
+│   │       ├── docs
+│   │       │   ├── Book_LaTex.pdf
+│   │       │   ├── book.pdf
+│   │       │   ├── report1.pdf
+│   │       │   ├── report11.pdf
+│   │       │   ├── Лабораторная работа №6-Отчет copy.pdf
+│   │       │   └── Лабораторная работа №6-Отчет.pdf
+│   │       ├── graph.tex
+│   │       ├── images
+│   │       │   ├── image1.tex
+│   │       │   ├── image2.tex
+│   │       │   ├── image3.tex
+│   │       │   ├── image4.tex
+│   │       │   ├── image5.tex
+│   │       │   ├── image6.tex
+│   │       │   ├── ITMO_Logo.png
+│   │       │   ├── pic1.png
+│   │       │   ├── pic2.png
+│   │       │   ├── pic3.png
+│   │       │   ├── pic4.png
+│   │       │   ├── pic5.png
+│   │       │   └── pic6.png
+│   │       ├── main.tex
+│   │       ├── name.tex
+│   │       ├── page.tex
+│   │       ├── table.tex
+│   │       ├── Task
+│   │       │   ├── task.gif
+│   │       │   ├── Task.png
+│   │       │   └── text.txt
+│   │       └── TaskExtre2
+│   │           ├── images
+│   │           │   └── logo.png
+│   │           ├── name.tex
+│   │           └── tesk2.tex
+│   ├── Lectures
+│   │   ├── Информатика_2024_2025_Лекция_2.pdf
+│   │   ├── Информатика_2024_2025_Лекция_7.pdf
+│   │   ├── Информатика_2025_2026_Лекция_1.pdf
+│   │   ├── Информатика_2025_2026_Лекция_3.pdf
+│   │   ├── Информатика_2025_2026_Лекция_4.pdf
+│   │   ├── Информатика_2025_2026_Лекция_5.pdf
+│   │   └── Информатика_2025_2026_Лекция_6.pdf
+│   └── Tests
+│       ├── results.png
+│       ├── Современные методы и средства обработки информации.pdf
+│       └── Теоретические основы информатики.pdf
+├── CSBasics
+│   ├── Semester-1
+│   │   ├── Labs
+│   │   │   ├── Lab1
+│   │   │   │   ├── docs
+│   │   │   │   │   ├── imges
+│   │   │   │   │   │   └── task.png
+│   │   │   │   │   ├── old.pdf
+│   │   │   │   │   ├── Лабораторная работа №1-Report.docx
+│   │   │   │   │   └── ОПД Эллити М.Э.А.А P3131.pdf
+│   │   │   │   ├── README.md
+│   │   │   │   ├── samir.sh
+│   │   │   │   ├── script-v2.sh
+│   │   │   │   └── script.sh
+│   │   │   └── Lab2
+│   │   │       ├── ~$бораторная работа №1-Report.docx
+│   │   │       ├── bcomp-ng.jar
+│   │   │       ├── lab.txt
+│   │   │       ├── program.txt
+│   │   │       ├── README.md
+│   │   │       ├── Task.docx
+│   │   │       ├── Методические указания к выполнению лабораторных работ и рубежного контроля БЭВМ 2019 bcomp-ng v.1.45.pdf
+│   │   │       ├── ОПД Эллити М.Э.А.А P3131.pdf
+│   │   │       └── Отчет.docx
+│   │   ├── Lectures
+│   │   │   ├── Презентация лекций 2019 часть 1.pdf
+│   │   │   └── Презентация лекций 2019 часть 2.pdf
+│   │   └── Sources
+│   │       └── Методические указания к выполнению лабораторных работ и рубежного контроля БЭВМ 2019 bcomp-ng v.1.45-4.pdf
+│   └── Semester-2
+│       ├── labs
+│       │   ├── bcomp-ng.jar
+│       │   └── lab3
+│       │       ├── program 2.txt
+│       │       ├── program.txt
+│       │       ├── README.md
+│       │       ├── task.png
+│       │       └── Отчет.docx
+│       ├── Lectures
+│       │   ├── Презентация лекций 2019 часть 2.pdf
+│       │   ├── Презентация лекций 2019 часть 3.pdf
+│       │   └── Презентация лекций 2019 часть 4.pdf
+│       ├── README.md
+│       └── Sources
+│           └── Методические указания к выполнению лабораторных работ и рубежного контроля БЭВМ 2019 bcomp-ng v.1.45-4.pdf
+├── Database
+│   ├── Labs
+│   │   ├── lab1
+│   │   │   ├── docs
+│   │   │   │   ├── README.md
+│   │   │   │   ├── report_Latex
+│   │   │   │   │   ├── Datalogical:Logical Model.png
+│   │   │   │   │   ├── Infological Model.png
+│   │   │   │   │   ├── ITMOLogo.png
+│   │   │   │   │   └── main.tex
+│   │   │   │   ├── task.txt
+│   │   │   │   └── отчёт.pdf
+│   │   │   ├── drop.sql
+│   │   │   ├── heilos.txt
+│   │   │   ├── models
+│   │   │   │   ├── All.drawio
+│   │   │   │   ├── Datalogical:Logical Model.drawio
+│   │   │   │   ├── Datalogical:Logical Model.png
+│   │   │   │   ├── Infological Model.drawio
+│   │   │   │   └── Infological Model.png
+│   │   │   ├── README.md
+│   │   │   └── schema.sql
+│   │   ├── lab2
+│   │   │   ├── docs
+│   │   │   │   ├── report_Latex
+│   │   │   │   │   ├── ITMOLogo.png
+│   │   │   │   │   └── main.tex
+│   │   │   │   ├── task.txt
+│   │   │   │   ├── БД Учебный Процесс.pdf
+│   │   │   │   └── отчёт.pdf
+│   │   │   ├── heilos.txt
+│   │   │   ├── result_Task3_List_of_ID.txt
+│   │   │   ├── script.sql
+│   │   │   ├── task1.sql
+│   │   │   ├── task2.sql
+│   │   │   ├── Task3_List_of_ID.sql
+│   │   │   ├── task3.sql
+│   │   │   ├── task4.sql
+│   │   │   ├── task5.sql
+│   │   │   ├── task6.sql
+│   │   │   ├── task7.sql
+│   │   │   ├── Без названия.sql
+│   │   │   └── Учебный_Процесс
+│   │   │       ├── somethingRelatedTask3.txt
+│   │   │       ├── tables.txt
+│   │   │       ├── Н_ВЕДОМОСТИ.txt
+│   │   │       ├── Н_ВИДЫ_ОБУЧЕНИЯ.txt
+│   │   │       ├── Н_ВИДЫ_РАБОТ.txt
+│   │   │       ├── Н_ГРУППЫ_ПЛАНОВ.txt
+│   │   │       ├── Н_ДИСЦИПЛИНЫ.txt
+│   │   │       ├── Н_ИЗМ_ЛЮДИ.txt
+│   │   │       ├── Н_КВАЛИФИКАЦИИ.txt
+│   │   │       ├── Н_КОМПОНЕНТЫ.txt
+│   │   │       ├── Н_ЛЮДИ_ПО_ПАДЕЖАМ.txt
+│   │   │       ├── Н_ЛЮДИ.txt
+│   │   │       ├── Н_НАПР_СПЕЦ.txt
+│   │   │       ├── Н_НАПРАВЛЕНИЯ_СПЕЦИАЛ.txt
+│   │   │       ├── Н_ОБУЧЕНИЯ.txt
+│   │   │       ├── Н_ОТДЕЛЫ.txt
+│   │   │       ├── Н_ОЦЕНКИ.txt
+│   │   │       ├── Н_ПЛАНЫ.txt
+│   │   │       ├── Н_СВОЙСТВА_ВР.txt
+│   │   │       ├── Н_СВОЙСТВА_ОТДЕЛОВ.txt
+│   │   │       ├── Н_СЕССИЯ.txt
+│   │   │       ├── Н_СОДЕРЖАНИЯ_ЭЛЕМЕНТОВ_СТРОК.txt
+│   │   │       ├── Н_СТРОКИ_ПЛАНОВ.txt
+│   │   │       ├── Н_ТИПЫ_ВЕДОМОСТЕЙ.txt
+│   │   │       ├── Н_ТИПЫ_ПЛАНОВ.txt
+│   │   │       ├── Н_ТИПЫ_СТАНДАРТОВ.txt
+│   │   │       ├── Н_УЧЕБНЫЕ_ГОДА.txt
+│   │   │       ├── Н_УЧЕНИКИ.txt
+│   │   │       ├── Н_ФОРМЫ_ОБУЧЕНИЯ.txt
+│   │   │       ├── Н_ХАРАКТЕРИСТИКИ_ВИДОВ_РАБОТ.txt
+│   │   │       ├── Н_ХАРАКТЕРИСТИКИ_ОТДЕЛОВ.txt
+│   │   │       ├── Н_ЦИКЛЫ_ДИСЦИПЛИН.txt
+│   │   │       └── Н_ЭЛЕМЕНТЫ_СТРОК.txt
+│   │   └── lab3
+│   │       └── docs
+│   ├── Lectures
+│   │   ├── 1.pdf
+│   │   ├── 2.pdf
+│   │   ├── 3.pdf
+│   │   ├── 4.pdf
+│   │   ├── 5.pdf
+│   │   ├── 6.pdf
+│   │   └── 7.pdf
+│   └── other
+│       ├── БД Учебный Процесс.pdf
+│       └── Учебный_Процесс
+├── itmo.txt
+├── LICENSE
+├── Mathematical analysis
+├── Programming
+│   ├── Semester-1
+│   │   ├── Labs
+│   │   │   ├── Lab1
+│   │   │   │   ├── bin
+│   │   │   │   │   └── Lab1.class
+│   │   │   │   ├── docs
+│   │   │   │   │   ├── task.png
+│   │   │   │   │   ├── Лабораторная работа №1-Report.docx
+│   │   │   │   │   └── Лабораторная работа №1-Report.pdf
+│   │   │   │   ├── jar
+│   │   │   │   │   └── app.jar
+│   │   │   │   ├── Lab1.iml
+│   │   │   │   ├── MANIFEST.mf
+│   │   │   │   ├── README.md
+│   │   │   │   ├── run_lab1.sh
+│   │   │   │   └── src
+│   │   │   │       └── lab1.java
+│   │   │   ├── Lab2
+│   │   │   │   ├── app
+│   │   │   │   │   ├── bin
+│   │   │   │   │   │   ├── attacks
+│   │   │   │   │   │   │   ├── physical
+│   │   │   │   │   │   │   │   ├── BodySlam.class
+│   │   │   │   │   │   │   │   ├── CrushClaw.class
+│   │   │   │   │   │   │   │   ├── Facade.class
+│   │   │   │   │   │   │   │   ├── Nuzzle.class
+│   │   │   │   │   │   │   │   └── StoneEdge.class
+│   │   │   │   │   │   │   ├── special
+│   │   │   │   │   │   │   │   ├── ChargeBeam.class
+│   │   │   │   │   │   │   │   ├── DreamEater.class
+│   │   │   │   │   │   │   │   ├── FireBlast.class
+│   │   │   │   │   │   │   │   ├── Psychic.class
+│   │   │   │   │   │   │   │   └── test.class
+│   │   │   │   │   │   │   └── status
+│   │   │   │   │   │   │       ├── DoubleTeam.class
+│   │   │   │   │   │   │       └── ThunderWave.class
+│   │   │   │   │   │   ├── Main.class
+│   │   │   │   │   │   └── pokemons
+│   │   │   │   │   │       ├── Igglybuff.class
+│   │   │   │   │   │       ├── Jigglypuff.class
+│   │   │   │   │   │       ├── Pachirisu.class
+│   │   │   │   │   │       ├── Sandshrew.class
+│   │   │   │   │   │       ├── Sandslash.class
+│   │   │   │   │   │       └── Wigglytuff.class
+│   │   │   │   │   ├── src
+│   │   │   │   │   │   ├── attacks
+│   │   │   │   │   │   │   ├── physical
+│   │   │   │   │   │   │   │   ├── BodySlam.java
+│   │   │   │   │   │   │   │   ├── CrushClaw.java
+│   │   │   │   │   │   │   │   ├── Facade.java
+│   │   │   │   │   │   │   │   ├── Nuzzle.java
+│   │   │   │   │   │   │   │   └── StoneEdge.java
+│   │   │   │   │   │   │   ├── special
+│   │   │   │   │   │   │   │   ├── ChargeBeam.java
+│   │   │   │   │   │   │   │   ├── DreamEater.java
+│   │   │   │   │   │   │   │   ├── FireBlast.java
+│   │   │   │   │   │   │   │   ├── Psychic.java
+│   │   │   │   │   │   │   │   └── test.java
+│   │   │   │   │   │   │   └── status
+│   │   │   │   │   │   │       ├── DoubleTeam.java
+│   │   │   │   │   │   │       └── ThunderWave.java
+│   │   │   │   │   │   ├── Main.java
+│   │   │   │   │   │   └── pokemons
+│   │   │   │   │   │       ├── Igglybuff.java
+│   │   │   │   │   │       ├── Jigglypuff.java
+│   │   │   │   │   │       ├── Pachirisu.java
+│   │   │   │   │   │       ├── Sandshrew.java
+│   │   │   │   │   │       ├── Sandslash.java
+│   │   │   │   │   │       └── Wigglytuff.java
+│   │   │   │   │   └── vendor
+│   │   │   │   │       └── Pokemon.jar
+│   │   │   │   ├── build
+│   │   │   │   │   └── Lab2.jar
+│   │   │   │   ├── docs
+│   │   │   │   │   ├── diagrams
+│   │   │   │   │   │   ├── diagram.jpg
+│   │   │   │   │   │   └── diagram.pdf
+│   │   │   │   │   ├── imges
+│   │   │   │   │   │   └── покемоны.jpg
+│   │   │   │   │   ├── Лабораторная работа №2-Report.docx
+│   │   │   │   │   ├── Лабораторная работа №2-Report.pdf
+│   │   │   │   │   └── ЛР.2 мохамед н.э.pdf
+│   │   │   │   ├── HowtoRunMyCode.txt
+│   │   │   │   ├── lab2
+│   │   │   │   │   ├── BodySlam.java
+│   │   │   │   │   ├── ChargeBeam.java
+│   │   │   │   │   ├── CrushClaw.java
+│   │   │   │   │   ├── DoubleTeam.java
+│   │   │   │   │   ├── DreamEater.java
+│   │   │   │   │   ├── Facade.java
+│   │   │   │   │   ├── FireBlast.java
+│   │   │   │   │   ├── Igglybuff.java
+│   │   │   │   │   ├── Jigglypuff.java
+│   │   │   │   │   ├── Main.java
+│   │   │   │   │   ├── Nuzzle.java
+│   │   │   │   │   ├── Pachirisu.java
+│   │   │   │   │   ├── Psychic.java
+│   │   │   │   │   ├── Sandshrew.java
+│   │   │   │   │   ├── Sandslash.java
+│   │   │   │   │   ├── StoneEdge.java
+│   │   │   │   │   ├── ThunderWave.java
+│   │   │   │   │   └── Wigglytuff.java
+│   │   │   │   ├── MANIFEST.mf
+│   │   │   │   ├── pokemon_attacks.txt
+│   │   │   │   ├── README.md
+│   │   │   │   ├── result.txt
+│   │   │   │   ├── run_lab2.sh
+│   │   │   │   └── tempCodeRunnerFile.sh
+│   │   │   ├── Lab3
+│   │   │   │   ├── bin
+│   │   │   │   │   ├── characters
+│   │   │   │   │   │   ├── Human.class
+│   │   │   │   │   │   └── Neznaika.class
+│   │   │   │   │   ├── entity
+│   │   │   │   │   │   ├── Character.class
+│   │   │   │   │   │   ├── Entity.class
+│   │   │   │   │   │   └── Insect.class
+│   │   │   │   │   ├── enums
+│   │   │   │   │   │   ├── Direction.class
+│   │   │   │   │   │   ├── Gender.class
+│   │   │   │   │   │   ├── LocationType.class
+│   │   │   │   │   │   └── State.class
+│   │   │   │   │   ├── exceptions
+│   │   │   │   │   │   ├── CollisionException.class
+│   │   │   │   │   │   └── RuntimeCollisionException.class
+│   │   │   │   │   ├── insects
+│   │   │   │   │   │   ├── Butterfly.class
+│   │   │   │   │   │   └── MayBug.class
+│   │   │   │   │   ├── interfaces
+│   │   │   │   │   │   ├── Aggressor.class
+│   │   │   │   │   │   ├── Attackable.class
+│   │   │   │   │   │   └── Movable.class
+│   │   │   │   │   ├── Main.class
+│   │   │   │   │   ├── model
+│   │   │   │   │   │   └── Position.class
+│   │   │   │   │   └── world
+│   │   │   │   │       ├── Context.class
+│   │   │   │   │       ├── Logger.class
+│   │   │   │   │       └── World.class
+│   │   │   │   ├── docs
+│   │   │   │   │   ├── diagrams
+│   │   │   │   │   │   ├── Datalogical:Logical Model.png
+│   │   │   │   │   │   ├── Infological Model.png
+│   │   │   │   │   │   ├── UML.drawio
+│   │   │   │   │   │   ├── UML.jpeg
+│   │   │   │   │   │   ├── UML.png
+│   │   │   │   │   │   └── UML.svg
+│   │   │   │   │   └── report
+│   │   │   │   │       ├── отчет.docx
+│   │   │   │   │       └── отчет.pdf
+│   │   │   │   ├── lab3
+│   │   │   │   │   ├── Aggressor.java
+│   │   │   │   │   ├── Attackable.java
+│   │   │   │   │   ├── Butterfly.java
+│   │   │   │   │   ├── Character.java
+│   │   │   │   │   ├── CollisionException.java
+│   │   │   │   │   ├── Context.java
+│   │   │   │   │   ├── Direction.java
+│   │   │   │   │   ├── Entity.java
+│   │   │   │   │   ├── Gender.java
+│   │   │   │   │   ├── Human.java
+│   │   │   │   │   ├── Insect.java
+│   │   │   │   │   ├── LocationType.java
+│   │   │   │   │   ├── Logger.java
+│   │   │   │   │   ├── Main.java
+│   │   │   │   │   ├── MayBug.java
+│   │   │   │   │   ├── Movable.java
+│   │   │   │   │   ├── Neznaika.java
+│   │   │   │   │   ├── Position.java
+│   │   │   │   │   ├── RuntimeCollisionException.java
+│   │   │   │   │   ├── State.java
+│   │   │   │   │   └── World.java
+│   │   │   │   ├── README.md
+│   │   │   │   ├── setupLab3.sh
+│   │   │   │   └── src
+│   │   │   │       ├── characters
+│   │   │   │       │   ├── Human.java
+│   │   │   │       │   └── Neznaika.java
+│   │   │   │       ├── entity
+│   │   │   │       │   ├── Character.java
+│   │   │   │       │   ├── Entity.java
+│   │   │   │       │   └── Insect.java
+│   │   │   │       ├── enums
+│   │   │   │       │   ├── Direction.java
+│   │   │   │       │   ├── Gender.java
+│   │   │   │       │   ├── LocationType.java
+│   │   │   │       │   └── State.java
+│   │   │   │       ├── exceptions
+│   │   │   │       │   ├── CollisionException.java
+│   │   │   │       │   └── RuntimeCollisionException.java
+│   │   │   │       ├── insects
+│   │   │   │       │   ├── Butterfly.java
+│   │   │   │       │   └── MayBug.java
+│   │   │   │       ├── interfaces
+│   │   │   │       │   ├── Aggressor.java
+│   │   │   │       │   ├── Attackable.java
+│   │   │   │       │   └── Movable.java
+│   │   │   │       ├── Main.java
+│   │   │   │       ├── model
+│   │   │   │       │   └── Position.java
+│   │   │   │       └── world
+│   │   │   │           ├── Context.java
+│   │   │   │           ├── Logger.java
+│   │   │   │           └── World.java
+│   │   │   ├── Lab3.md
+│   │   │   ├── Lab4
+│   │   │   │   ├── bin
+│   │   │   │   │   ├── animals
+│   │   │   │   │   │   ├── Falcon.class
+│   │   │   │   │   │   ├── Goat.class
+│   │   │   │   │   │   ├── Horse.class
+│   │   │   │   │   │   └── MultiHeadedDragon.class
+│   │   │   │   │   ├── characters
+│   │   │   │   │   │   ├── Character.class
+│   │   │   │   │   │   ├── DoctorPilulkin.class
+│   │   │   │   │   │   ├── Guslya.class
+│   │   │   │   │   │   ├── IvanTsarevich.class
+│   │   │   │   │   │   ├── King.class
+│   │   │   │   │   │   ├── Neznaika.class
+│   │   │   │   │   │   ├── Ponchik.class
+│   │   │   │   │   │   ├── Princess.class
+│   │   │   │   │   │   ├── Pulka.class
+│   │   │   │   │   │   ├── Tyubik.class
+│   │   │   │   │   │   └── Znayka.class
+│   │   │   │   │   ├── entity
+│   │   │   │   │   │   ├── Animal.class
+│   │   │   │   │   │   ├── Entity.class
+│   │   │   │   │   │   └── MagicalObject.class
+│   │   │   │   │   ├── enums
+│   │   │   │   │   │   ├── Color.class
+│   │   │   │   │   │   ├── Direction.class
+│   │   │   │   │   │   ├── Gender.class
+│   │   │   │   │   │   ├── LocationType.class
+│   │   │   │   │   │   └── State.class
+│   │   │   │   │   ├── exceptions
+│   │   │   │   │   │   ├── CollisionException.class
+│   │   │   │   │   │   ├── InvalidActionException.class
+│   │   │   │   │   │   └── RuntimeCollisionException.class
+│   │   │   │   │   ├── interfaces
+│   │   │   │   │   │   ├── Aggressor.class
+│   │   │   │   │   │   ├── Attackable.class
+│   │   │   │   │   │   ├── Dividable.class
+│   │   │   │   │   │   ├── Movable.class
+│   │   │   │   │   │   ├── Musician.class
+│   │   │   │   │   │   ├── Painter.class
+│   │   │   │   │   │   └── Transformable.class
+│   │   │   │   │   ├── magical
+│   │   │   │   │   │   ├── Chest.class
+│   │   │   │   │   │   ├── CrystalMountain.class
+│   │   │   │   │   │   ├── Duck.class
+│   │   │   │   │   │   ├── Egg.class
+│   │   │   │   │   │   ├── Hare.class
+│   │   │   │   │   │   └── Seed.class
+│   │   │   │   │   ├── Main.class
+│   │   │   │   │   ├── model
+│   │   │   │   │   │   ├── DivisionResult.class
+│   │   │   │   │   │   └── Position.class
+│   │   │   │   │   ├── utils
+│   │   │   │   │   │   └── Instrument.class
+│   │   │   │   │   └── world
+│   │   │   │   │       ├── Context.class
+│   │   │   │   │       ├── Location.class
+│   │   │   │   │       ├── Logger.class
+│   │   │   │   │       └── World.class
+│   │   │   │   ├── docs
+│   │   │   │   │   ├── diagrams
+│   │   │   │   │   │   ├── UML.drawio
+│   │   │   │   │   │   ├── UML.pdf
+│   │   │   │   │   │   ├── UML.svg
+│   │   │   │   │   │   └── UML.txt
+│   │   │   │   │   └── report
+│   │   │   │   │       ├── отчет.docx
+│   │   │   │   │       └── отчет.pdf
+│   │   │   │   ├── lab4
+│   │   │   │   │   ├── Aggressor.java
+│   │   │   │   │   ├── Animal.java
+│   │   │   │   │   ├── Attackable.java
+│   │   │   │   │   ├── Character.java
+│   │   │   │   │   ├── Chest.java
+│   │   │   │   │   ├── CollisionException.java
+│   │   │   │   │   ├── Color.java
+│   │   │   │   │   ├── Context.java
+│   │   │   │   │   ├── CrystalMountain.java
+│   │   │   │   │   ├── Direction.java
+│   │   │   │   │   ├── Dividable.java
+│   │   │   │   │   ├── DivisionResult.java
+│   │   │   │   │   ├── DoctorPilulkin.java
+│   │   │   │   │   ├── Duck.java
+│   │   │   │   │   ├── Egg.java
+│   │   │   │   │   ├── Entity.java
+│   │   │   │   │   ├── Falcon.java
+│   │   │   │   │   ├── Gender.java
+│   │   │   │   │   ├── Goat.java
+│   │   │   │   │   ├── Guslya.java
+│   │   │   │   │   ├── Hare.java
+│   │   │   │   │   ├── Horse.java
+│   │   │   │   │   ├── Instrument.java
+│   │   │   │   │   ├── InvalidActionException.java
+│   │   │   │   │   ├── IvanTsarevich.java
+│   │   │   │   │   ├── King.java
+│   │   │   │   │   ├── Location.java
+│   │   │   │   │   ├── LocationType.java
+│   │   │   │   │   ├── Logger.java
+│   │   │   │   │   ├── MagicalObject.java
+│   │   │   │   │   ├── Main.java
+│   │   │   │   │   ├── Movable.java
+│   │   │   │   │   ├── MultiHeadedDragon.java
+│   │   │   │   │   ├── Musician.java
+│   │   │   │   │   ├── Neznaika.java
+│   │   │   │   │   ├── Painter.java
+│   │   │   │   │   ├── Ponchik.java
+│   │   │   │   │   ├── Position.java
+│   │   │   │   │   ├── Princess.java
+│   │   │   │   │   ├── Pulka.java
+│   │   │   │   │   ├── RuntimeCollisionException.java
+│   │   │   │   │   ├── Seed.java
+│   │   │   │   │   ├── State.java
+│   │   │   │   │   ├── Transformable.java
+│   │   │   │   │   ├── Tyubik.java
+│   │   │   │   │   ├── World.java
+│   │   │   │   │   └── Znayka.java
+│   │   │   │   ├── Lab4.iml
+│   │   │   │   ├── Lab4.jar
+│   │   │   │   ├── MANIFEST.MF
+│   │   │   │   ├── README.md
+│   │   │   │   ├── setupLab4.sh
+│   │   │   │   └── src
+│   │   │   │       ├── animals
+│   │   │   │       │   ├── Falcon.java
+│   │   │   │       │   ├── Goat.java
+│   │   │   │       │   ├── Horse.java
+│   │   │   │       │   └── MultiHeadedDragon.java
+│   │   │   │       ├── characters
+│   │   │   │       │   ├── Character.java
+│   │   │   │       │   ├── DoctorPilulkin.java
+│   │   │   │       │   ├── Guslya.java
+│   │   │   │       │   ├── IvanTsarevich.java
+│   │   │   │       │   ├── King.java
+│   │   │   │       │   ├── Neznaika.java
+│   │   │   │       │   ├── Ponchik.java
+│   │   │   │       │   ├── Princess.java
+│   │   │   │       │   ├── Pulka.java
+│   │   │   │       │   ├── Tyubik.java
+│   │   │   │       │   └── Znayka.java
+│   │   │   │       ├── entity
+│   │   │   │       │   ├── Animal.java
+│   │   │   │       │   ├── Entity.java
+│   │   │   │       │   └── MagicalObject.java
+│   │   │   │       ├── enums
+│   │   │   │       │   ├── Color.java
+│   │   │   │       │   ├── Direction.java
+│   │   │   │       │   ├── Gender.java
+│   │   │   │       │   ├── LocationType.java
+│   │   │   │       │   └── State.java
+│   │   │   │       ├── exceptions
+│   │   │   │       │   ├── CollisionException.java
+│   │   │   │       │   ├── InvalidActionException.java
+│   │   │   │       │   └── RuntimeCollisionException.java
+│   │   │   │       ├── interfaces
+│   │   │   │       │   ├── Aggressor.java
+│   │   │   │       │   ├── Attackable.java
+│   │   │   │       │   ├── Dividable.java
+│   │   │   │       │   ├── Movable.java
+│   │   │   │       │   ├── Musician.java
+│   │   │   │       │   ├── Painter.java
+│   │   │   │       │   └── Transformable.java
+│   │   │   │       ├── magical
+│   │   │   │       │   ├── Chest.java
+│   │   │   │       │   ├── CrystalMountain.java
+│   │   │   │       │   ├── Duck.java
+│   │   │   │       │   ├── Egg.java
+│   │   │   │       │   ├── Hare.java
+│   │   │   │       │   └── Seed.java
+│   │   │   │       ├── Main.java
+│   │   │   │       ├── model
+│   │   │   │       │   ├── DivisionResult.java
+│   │   │   │       │   └── Position.java
+│   │   │   │       ├── utils
+│   │   │   │       │   └── Instrument.java
+│   │   │   │       └── world
+│   │   │   │           ├── Context.java
+│   │   │   │           ├── Location.java
+│   │   │   │           ├── Logger.java
+│   │   │   │           └── World.java
+│   │   │   └── setupLab3.sh
+│   │   └── Lectures
+│   │       ├── лекция_1.pdf
+│   │       ├── лекция_2.pdf
+│   │       ├── лекция_3.pdf
+│   │       ├── лекция_4.pdf
+│   │       └── лекция_5.pdf
+│   └── Semester-2
+│       ├── Labs
+│       │   ├── Lab5
+│       │   │   ├── app
+│       │   │   │   ├── app.iml
+│       │   │   │   └── src
+│       │   │   │       ├── commands
+│       │   │   │       │   ├── AddCommand.java
+│       │   │   │       │   ├── ClearCommand.java
+│       │   │   │       │   ├── Command.java
+│       │   │   │       │   ├── CommandManager.java
+│       │   │   │       │   ├── ExecuteScriptCommand.java
+│       │   │   │       │   ├── ExitCommand.java
+│       │   │   │       │   ├── FilterStartsWithNameCommand.java
+│       │   │   │       │   ├── HeadCommand.java
+│       │   │   │       │   ├── HelpCommand.java
+│       │   │   │       │   ├── InfoCommand.java
+│       │   │   │       │   ├── PrintUniqueParticipantsCommand.java
+│       │   │   │       │   ├── RemoveByIdCommand.java
+│       │   │   │       │   ├── RemoveHeadCommand.java
+│       │   │   │       │   ├── RemoveLowerCommand.java
+│       │   │   │       │   ├── SaveCommand.java
+│       │   │   │       │   ├── ShowCommand.java
+│       │   │   │       │   ├── SumOfParticipantsCommand.java
+│       │   │   │       │   └── UpdateCommand.java
+│       │   │   │       ├── exceptions
+│       │   │   │       │   ├── CommandExecutionException.java
+│       │   │   │       │   ├── DuplicateIdException.java
+│       │   │   │       │   ├── FileLoadException.java
+│       │   │   │       │   └── InvalidInputException.java
+│       │   │   │       ├── Main.java
+│       │   │   │       ├── managers
+│       │   │   │       │   ├── CollectionManager.java
+│       │   │   │       │   ├── FileManager.java
+│       │   │   │       │   ├── IdGenerator.java
+│       │   │   │       │   └── InputManager.java
+│       │   │   │       ├── models
+│       │   │   │       │   ├── Color.java
+│       │   │   │       │   ├── Coordinates.java
+│       │   │   │       │   ├── Location.java
+│       │   │   │       │   ├── MusicBand.java
+│       │   │   │       │   ├── MusicGenre.java
+│       │   │   │       │   └── Person.java
+│       │   │   │       └── utility
+│       │   │   │           ├── ConsoleUtils.java
+│       │   │   │           ├── ValidationUtils.java
+│       │   │   │           └── XmlParser.java
+│       │   │   ├── data
+│       │   │   │   └── bands.xml
+│       │   │   ├── docs
+│       │   │   │   ├── javadoc
+│       │   │   │   └── report.tex
+│       │   │   ├── out
+│       │   │   │   └── production
+│       │   │   │       └── app
+│       │   │   │           ├── commands
+│       │   │   │           │   ├── AddCommand.class
+│       │   │   │           │   ├── ClearCommand.class
+│       │   │   │           │   ├── Command.class
+│       │   │   │           │   ├── CommandManager.class
+│       │   │   │           │   ├── ExecuteScriptCommand.class
+│       │   │   │           │   ├── ExitCommand.class
+│       │   │   │           │   ├── FilterStartsWithNameCommand.class
+│       │   │   │           │   ├── HeadCommand.class
+│       │   │   │           │   ├── HelpCommand.class
+│       │   │   │           │   ├── InfoCommand.class
+│       │   │   │           │   ├── PrintUniqueParticipantsCommand.class
+│       │   │   │           │   ├── RemoveByIdCommand.class
+│       │   │   │           │   ├── RemoveHeadCommand.class
+│       │   │   │           │   ├── RemoveLowerCommand.class
+│       │   │   │           │   ├── SaveCommand.class
+│       │   │   │           │   ├── ShowCommand.class
+│       │   │   │           │   ├── SumOfParticipantsCommand.class
+│       │   │   │           │   └── UpdateCommand.class
+│       │   │   │           ├── exceptions
+│       │   │   │           │   ├── CommandExecutionException.class
+│       │   │   │           │   ├── DuplicateIdException.class
+│       │   │   │           │   ├── FileLoadException.class
+│       │   │   │           │   └── InvalidInputException.class
+│       │   │   │           ├── Main.class
+│       │   │   │           ├── managers
+│       │   │   │           │   ├── CollectionManager.class
+│       │   │   │           │   ├── FileManager.class
+│       │   │   │           │   ├── IdGenerator.class
+│       │   │   │           │   └── InputManager.class
+│       │   │   │           ├── models
+│       │   │   │           │   ├── Color.class
+│       │   │   │           │   ├── Coordinates.class
+│       │   │   │           │   ├── Location.class
+│       │   │   │           │   ├── MusicBand.class
+│       │   │   │           │   ├── MusicGenre.class
+│       │   │   │           │   └── Person.class
+│       │   │   │           └── utility
+│       │   │   │               ├── ConsoleUtils.class
+│       │   │   │               ├── ValidationUtils.class
+│       │   │   │               └── XmlParser.class
+│       │   │   └── README.md
+│       │   ├── Lab6
+│       │   │   ├── client
+│       │   │   │   └── src
+│       │   │   │       └── main
+│       │   │   │           └── java
+│       │   │   │               ├── ClientMain.java
+│       │   │   │               ├── console
+│       │   │   │               │   ├── CommandBuilder.java
+│       │   │   │               │   └── ConsoleReader.java
+│       │   │   │               └── network
+│       │   │   │                   ├── Client.java
+│       │   │   │                   └── ServerConnection.java
+│       │   │   ├── common
+│       │   │   │   └── src
+│       │   │   │       └── main
+│       │   │   │           └── java
+│       │   │   │               ├── models
+│       │   │   │               │   ├── Color.java
+│       │   │   │               │   ├── Coordinates.java
+│       │   │   │               │   ├── Location.java
+│       │   │   │               │   ├── MusicBand.java
+│       │   │   │               │   ├── MusicGenre.java
+│       │   │   │               │   └── Person.java
+│       │   │   │               └── network
+│       │   │   │                   ├── CommandType.java
+│       │   │   │                   ├── Request.java
+│       │   │   │                   ├── Response.java
+│       │   │   │                   └── UpdateRequest.java
+│       │   │   ├── data
+│       │   │   │   └── bands.xml
+│       │   │   ├── docs
+│       │   │   │   ├── report_Latex
+│       │   │   │   │   ├── ITMOLogo.png
+│       │   │   │   │   └── main.tex
+│       │   │   │   ├── UML
+│       │   │   │   │   └── uml.png
+│       │   │   │   └── отчет.pdf
+│       │   │   ├── init-project.sh
+│       │   │   ├── learning
+│       │   │   │   └── main.java
+│       │   │   ├── out
+│       │   │   │   ├── client
+│       │   │   │   │   ├── ClientMain.class
+│       │   │   │   │   ├── console
+│       │   │   │   │   │   ├── CommandBuilder.class
+│       │   │   │   │   │   └── ConsoleReader.class
+│       │   │   │   │   └── network
+│       │   │   │   │       ├── Client.class
+│       │   │   │   │       └── ServerConnection.class
+│       │   │   │   ├── ClientMain.class
+│       │   │   │   ├── commands
+│       │   │   │   │   ├── CommandProcessor.class
+│       │   │   │   │   └── CommandProcessor$1.class
+│       │   │   │   ├── common
+│       │   │   │   │   ├── models
+│       │   │   │   │   │   ├── Color.class
+│       │   │   │   │   │   ├── Coordinates.class
+│       │   │   │   │   │   ├── Location.class
+│       │   │   │   │   │   ├── MusicBand.class
+│       │   │   │   │   │   ├── MusicGenre.class
+│       │   │   │   │   │   └── Person.class
+│       │   │   │   │   └── network
+│       │   │   │   │       ├── CommandType.class
+│       │   │   │   │       ├── Request.class
+│       │   │   │   │       ├── Response.class
+│       │   │   │   │       └── UpdateRequest.class
+│       │   │   │   ├── console
+│       │   │   │   │   ├── CommandBuilder.class
+│       │   │   │   │   └── ConsoleReader.class
+│       │   │   │   ├── exceptions
+│       │   │   │   │   ├── CommandExecutionException.class
+│       │   │   │   │   ├── DuplicateIdException.class
+│       │   │   │   │   ├── FileLoadException.class
+│       │   │   │   │   └── InvalidInputException.class
+│       │   │   │   ├── managers
+│       │   │   │   │   ├── CollectionManager.class
+│       │   │   │   │   ├── FileManager.class
+│       │   │   │   │   └── IdGenerator.class
+│       │   │   │   ├── models
+│       │   │   │   │   ├── Color.class
+│       │   │   │   │   ├── Coordinates.class
+│       │   │   │   │   ├── Location.class
+│       │   │   │   │   ├── MusicBand.class
+│       │   │   │   │   ├── MusicGenre.class
+│       │   │   │   │   └── Person.class
+│       │   │   │   ├── network
+│       │   │   │   │   ├── Client.class
+│       │   │   │   │   ├── CommandType.class
+│       │   │   │   │   ├── ConnectionAcceptor.class
+│       │   │   │   │   ├── Request.class
+│       │   │   │   │   ├── RequestReader.class
+│       │   │   │   │   ├── Response.class
+│       │   │   │   │   ├── ResponseSender.class
+│       │   │   │   │   ├── Server.class
+│       │   │   │   │   ├── ServerConnection.class
+│       │   │   │   │   └── UpdateRequest.class
+│       │   │   │   ├── production
+│       │   │   │   │   └── Lab6
+│       │   │   │   │       ├── ClientMain.class
+│       │   │   │   │       ├── commands
+│       │   │   │   │       │   ├── CommandProcessor.class
+│       │   │   │   │       │   └── CommandProcessor$1.class
+│       │   │   │   │       ├── console
+│       │   │   │   │       │   ├── CommandBuilder.class
+│       │   │   │   │       │   └── ConsoleReader.class
+│       │   │   │   │       ├── exceptions
+│       │   │   │   │       │   ├── CommandExecutionException.class
+│       │   │   │   │       │   ├── DuplicateIdException.class
+│       │   │   │   │       │   ├── FileLoadException.class
+│       │   │   │   │       │   └── InvalidInputException.class
+│       │   │   │   │       ├── managers
+│       │   │   │   │       │   ├── CollectionManager.class
+│       │   │   │   │       │   ├── FileManager.class
+│       │   │   │   │       │   └── IdGenerator.class
+│       │   │   │   │       ├── models
+│       │   │   │   │       │   ├── Color.class
+│       │   │   │   │       │   ├── Coordinates.class
+│       │   │   │   │       │   ├── Location.class
+│       │   │   │   │       │   ├── MusicBand.class
+│       │   │   │   │       │   ├── MusicGenre.class
+│       │   │   │   │       │   └── Person.class
+│       │   │   │   │       ├── network
+│       │   │   │   │       │   ├── Client.class
+│       │   │   │   │       │   ├── CommandType.class
+│       │   │   │   │       │   ├── ConnectionAcceptor.class
+│       │   │   │   │       │   ├── Request.class
+│       │   │   │   │       │   ├── RequestReader.class
+│       │   │   │   │       │   ├── Response.class
+│       │   │   │   │       │   ├── ResponseSender.class
+│       │   │   │   │       │   ├── Server.class
+│       │   │   │   │       │   ├── ServerConnection.class
+│       │   │   │   │       │   └── UpdateRequest.class
+│       │   │   │   │       ├── ServerMain.class
+│       │   │   │   │       └── utility
+│       │   │   │   │           └── XmlParser.class
+│       │   │   │   ├── server
+│       │   │   │   │   ├── commands
+│       │   │   │   │   │   ├── CommandProcessor.class
+│       │   │   │   │   │   └── CommandProcessor$1.class
+│       │   │   │   │   ├── exceptions
+│       │   │   │   │   │   ├── CommandExecutionException.class
+│       │   │   │   │   │   ├── DuplicateIdException.class
+│       │   │   │   │   │   ├── FileLoadException.class
+│       │   │   │   │   │   └── InvalidInputException.class
+│       │   │   │   │   ├── managers
+│       │   │   │   │   │   ├── CollectionManager.class
+│       │   │   │   │   │   ├── FileManager.class
+│       │   │   │   │   │   └── IdGenerator.class
+│       │   │   │   │   ├── network
+│       │   │   │   │   │   ├── ConnectionAcceptor.class
+│       │   │   │   │   │   ├── RequestReader.class
+│       │   │   │   │   │   ├── ResponseSender.class
+│       │   │   │   │   │   └── Server.class
+│       │   │   │   │   ├── ServerMain.class
+│       │   │   │   │   └── utility
+│       │   │   │   │       └── XmlParser.class
+│       │   │   │   ├── ServerMain.class
+│       │   │   │   └── utility
+│       │   │   │       └── XmlParser.class
+│       │   │   ├── README.md
+│       │   │   ├── run.sh
+│       │   │   ├── server
+│       │   │   │   └── src
+│       │   │   │       └── main
+│       │   │   │           └── java
+│       │   │   │               ├── commands
+│       │   │   │               │   └── CommandProcessor.java
+│       │   │   │               ├── exceptions
+│       │   │   │               │   ├── CommandExecutionException.java
+│       │   │   │               │   ├── DuplicateIdException.java
+│       │   │   │               │   ├── FileLoadException.java
+│       │   │   │               │   └── InvalidInputException.java
+│       │   │   │               ├── managers
+│       │   │   │               │   ├── CollectionManager.java
+│       │   │   │               │   ├── FileManager.java
+│       │   │   │               │   └── IdGenerator.java
+│       │   │   │               ├── network
+│       │   │   │               │   ├── ConnectionAcceptor.java
+│       │   │   │               │   ├── RequestReader.java
+│       │   │   │               │   ├── ResponseSender.java
+│       │   │   │               │   └── Server.java
+│       │   │   │               ├── ServerMain.java
+│       │   │   │               └── utility
+│       │   │   │                   └── XmlParser.java
+│       │   │   ├── test_script.txt
+│       │   │   └── test.sh
+│       │   ├── Lab7
+│       │   │   └── README.md
+│       │   ├── Lab8
+│       │   │   └── README.md
+│       │   └── Lab9
+│       │       └── README.md
+│       └── README.md
+└── README.md
+
+292 directories, 924 files
