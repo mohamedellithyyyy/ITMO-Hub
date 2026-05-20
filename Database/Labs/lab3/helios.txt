@@ -1,0 +1,20 @@
+ssh -p 2222 s473329@se.ifmo.ru
+CMLf>6665
+psql -h pg -d studs -U 473329
+scp -P 2222 function.sql s473329@helios.se.ifmo.ru:~/
+
+
+SELECT * FROM campus;
+SELECT * FROM door;
+SELECT * FROM hall;
+SELECT * FROM mentorship;
+SELECT * FROM person;
+SELECT * FROM person_hall;
+SELECT * FROM subject;
+SELECT * FROM teaching;
+
+
+scp -P 2222 drop.sql s473329@helios.se.ifmo.ru:~/
+scp -P 2222 schema.sql s473329@helios.se.ifmo.ru:~/
+scp -P 2222 function.sql s473329@helios.se.ifmo.ru:~/
+scp -P 2222 tests.sql s473329@helios.se.ifmo.ru:~/

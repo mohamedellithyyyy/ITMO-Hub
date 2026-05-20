@@ -1,0 +1,389 @@
+% !TeX program = xelatex
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{FreeSerif}[
+  BoldFont       = FreeSerifBold,
+  ItalicFont     = FreeSerifItalic,
+  BoldItalicFont = FreeSerifBoldItalic
+]
+\setmonofont{DejaVu Sans Mono}[Scale=0.82]
+
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% Spacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{4pt plus 1pt}
+\onehalfspacing
+
+% Section headings
+\titleformat{\section}
+  {\normalfont\fontsize{14}{17}\bfseries}
+  {\thesection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{20pt plus 3pt}{10pt plus 2pt}
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{15}\bfseries}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{14pt plus 2pt}{6pt plus 1pt}
+
+% Colours
+\definecolor{codebg}{RGB}{250,250,250}
+\definecolor{codeframe}{RGB}{210,210,210}
+\definecolor{kwcolor}{RGB}{0,0,160}
+\definecolor{commentcolor}{RGB}{60,128,60}
+\definecolor{strcolor}{RGB}{160,30,30}
+\definecolor{tblred}{RGB}{160,0,0}
+
+% Code listings
+\lstdefinelanguage{plpgsql}{
+  morekeywords={CREATE,OR,REPLACE,FUNCTION,RETURNS,AS,BEGIN,END,
+    DECLARE,SELECT,INTO,FROM,WHERE,IF,THEN,ELSE,ELSIF,RETURN,
+    LANGUAGE,plpgsql,RAISE,EXCEPTION,NOT,FOUND,IS,NULL,AND,UPDATE,
+    SET,INSERT,DELETE,OLD,NEW,TG_OP,INTEGER,FLOAT,VARCHAR,DATE,
+    TRIGGER,AFTER,ON,FOR,EACH,ROW,EXECUTE,ALTER,TABLE,ADD,COLUMN,
+    MATERIALIZED,VIEW,REFRESH,COUNT,DEFAULT,DISTINCT},
+  sensitive=false,
+  morecomment=[l]{--},
+  morestring=[b]',
+}
+
+\lstset{
+  language          = plpgsql,
+  basicstyle        = \small\ttfamily\setstretch{1.1},
+  keywordstyle      = \color{kwcolor}\bfseries,
+  commentstyle      = \color{commentcolor}\itshape,
+  stringstyle       = \color{strcolor},
+  backgroundcolor   = \color{codebg},
+  frame             = single,
+  framesep          = 4pt,
+  rulecolor         = \color{codeframe},
+  breaklines        = true,
+  breakatwhitespace = true,
+  columns           = flexible,
+  postbreak         = \mbox{\textcolor{codeframe}{$\hookrightarrow$}\space},
+  showstringspaces  = false,
+  tabsize           = 4,
+  xleftmargin       = 8pt,
+  xrightmargin      = 8pt,
+  aboveskip         = 10pt,
+  belowskip         = 8pt,
+}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Allow slightly loose lines to avoid overfull hboxes from long \texttt tokens
+\setlength{\emergencystretch}{4em}
+\hfuzz=3pt
+\hbadness=10000
+
+\begin{document}
+
+% ════════════════════════════════════════════════════════
+%  TITLE PAGE
+% ════════════════════════════════════════════════════════
+% ========== TITLE PAGE ==========
+\begin{titlepage}
+    \centering
+    \textbf{Санкт-Петербургский Национальный Исследовательский Университет ИТМО}\\
+    \textbf{Факультет Программной Инженерии и Компьютерной Техники}
+
+    \vspace{2cm}
+    \includegraphics[width=0.4\textwidth]{ITMOLogo.png}\\[1cm]
+
+    \vspace{3cm}
+    Лабораторная работа №3\\[0.4em]
+    По дисциплине Базы Данных\\[0.4em]
+    }
+
+    \vfill
+    \begin{flushright}
+        Выполнил студент:\\
+        Эллити Мохамед Эмад Ахмед Авад\\[1em]
+        Группы:\\ P3131 \\[1em]
+        Преподаватель:\\
+        Коновалов Арсений Антонович\\
+        Николаев Владимир Вячеславович
+    \end{flushright}
+
+    \vspace{2cm}
+    Санкт-Петербург 2026 г.
+\end{titlepage}
+
+
+% ════════════════════════════════════════════════════════
+%  1. ТЕКСТ ЗАДАНИЯ
+% ════════════════════════════════════════════════════════
+\section{Текст задания}
+
+Для отношений, полученных при построении предметной области из лабораторной
+работы No1, выполните следующие действия:
+
+\begin{itemize}[itemsep=3pt,topsep=4pt]
+  \item опишите функциональные зависимости для отношений
+        полученной схемы (минимальное множество);
+  \item приведите отношения в 3NF (как минимум). Постройте схему на основе
+        3NF. Постройте схему на основе полученных отношений;
+  \item опишите изменения в функциональных зависимостях, произошедшие после
+        преобразования в 3NF (как минимум). Постройте схему на основе 3NF;
+  \item преобразуйте отношения в BCNF. Докажите, что полученные отношения
+        представлены в BCNF.
+\end{itemize}
+
+Если ваша схема находится уже в BCNF, докажите это.
+
+Какие денормализации будут полезны для вашей схемы?
+Приведите подробное описание.
+
+Придумайте функцию, связанную с вашей предметной областью, согласуйте
+её с преподавателем и реализуйте на языке PL/pgSQL.
+
+% ════════════════════════════════════════════════════════
+%  2. ФУНКЦИОНАЛЬНЫЕ ЗАВИСИМОСТИ
+% ════════════════════════════════════════════════════════
+\newpage
+\section{Функциональные зависимости}
+
+Ниже приведено минимальное покрытие функциональных зависимостей для каждого
+отношения исходной схемы. Каждая зависимость записана в строгой канонической
+форме: правая часть содержит ровно один атрибут.
+
+\vspace{8pt}
+\renewcommand{\arraystretch}{1.35}
+\noindent
+\begin{tabular}{@{} L{3.6cm} @{\hspace{6pt}} L{9.8cm} @{}}
+  \toprule
+  \textbf{Отношение} & \textbf{Функциональные зависимости} \\
+  \midrule
+
+  \textcolor{tblred}{\texttt{person}}
+    & \texttt{person\_id} $\to$ \texttt{name} \\[2pt]
+
+  \textcolor{tblred}{\texttt{campus}}
+    & \texttt{campus\_id} $\to$ \texttt{name} \\[2pt]
+
+  \textcolor{tblred}{\texttt{hall}}
+    & \texttt{hall\_id} $\to$ \texttt{name} \\
+    & \texttt{hall\_id} $\to$ \texttt{type} \\
+    & \texttt{hall\_id} $\to$ \texttt{campus\_id} \\[2pt]
+
+  \textcolor{tblred}{\texttt{door}}
+    & \texttt{door\_id} $\to$ \texttt{size} \\
+    & \texttt{door\_id} $\to$ \texttt{state} \\
+    & \texttt{door\_id} $\to$ \texttt{hall\_id} \\[2pt]
+
+  \textcolor{tblred}{\texttt{subject}}
+    & \texttt{subject\_id} $\to$ \texttt{name} \\[2pt]
+
+  \textcolor{tblred}{\texttt{mentorship}}
+    & \texttt{mentorship\_id} $\to$ \texttt{mentor\_id} \\
+    & \texttt{mentorship\_id} $\to$ \texttt{ward\_id} \\
+    & \texttt{mentorship\_id} $\to$ \texttt{start\_date} \\
+    & \texttt{(mentor\_id, ward\_id)} $\to$ \texttt{mentorship\_id} \\[2pt]
+
+  \textcolor{tblred}{\texttt{teaching}}
+    & \texttt{teaching\_id} $\to$ \texttt{person\_id} \\
+    & \texttt{teaching\_id} $\to$ \texttt{subject\_id} \\
+    & \texttt{(person\_id, subject\_id)} $\to$ \texttt{teaching\_id} \\[2pt]
+
+  \textcolor{tblred}{\texttt{person\_hall}}
+    & \footnotesize\textit{нетривиальных ФЗ нет; составной ключ
+      \texttt{(person\_id, hall\_id)} покрывает все атрибуты} \\
+
+  \bottomrule
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\vspace{4pt}
+
+% ════════════════════════════════════════════════════════
+%  3. НОРМАЛЬНЫЕ ФОРМЫ
+% ════════════════════════════════════════════════════════
+\newpage
+\section{Нормальные формы}
+
+
+\textbf{1NF.} Отношение находится в 1NF, если все его атрибуты содержат только
+атомарные значения и каждая строка уникальна. Все атрибуты схемы атомарны
+(\texttt{VARCHAR}, \texttt{INTEGER}, \texttt{DATE}), повторяющихся групп нет,
+каждая таблица имеет первичный ключ. Схема находится в~\textbf{1NF}.
+
+
+\vspace{5pt}
+\textbf{2NF.} Отношение находится во 2NF, если оно находится в 1NF и
+отсутствуют частичные зависимости неключевых атрибутов от первичного ключа.
+Частичная зависимость возможна только при составном ключе. Единственное
+отношение с составным ключом ---
+\texttt{person\_hall(person\_id,\,hall\_id)} ---
+не имеет неключевых атрибутов, поэтому частичная зависимость невозможна.
+Во всех остальных отношениях ключ простой (суррогатный \texttt{SERIAL}),
+что исключает частичные зависимости по определению.
+Схема находится в~\textbf{2NF}.
+
+\vspace{5pt}
+\textbf{3NF.} Отношение находится в 3NF, если оно находится во 2NF и
+отсутствуют транзитивные зависимости неключевых атрибутов от первичного
+ключа. Транзитивная зависимость означает: $K \to A \to B$, где $A$ не
+является ключом. В данной схеме ни один неключевой атрибут не детерминирует
+другой неключевой атрибут: внешние ключи (\texttt{campus\_id},
+\texttt{hall\_id}, \texttt{mentor\_id} и~др.) являются атомарными ссылками
+и не порождают цепочек зависимостей внутри своих отношений.
+Схема \textbf{уже удовлетворяет 3NF}, поэтому декомпозиция не потребовалась.
+Состав функциональных зависимостей по сравнению с исходной схемой
+не изменился.
+
+% ════════════════════════════════════════════════════════
+%  4. BCNF
+% ════════════════════════════════════════════════════════
+\section{BCNF}
+
+Отношение находится в BCNF, если для каждой нетривиальной функциональной зависимости X → Y, X является суперключом.
+
+Все таблицы моей схемы удовлетворяют BCNF. Большинство таблиц имеют один кандидатный ключ (id), поэтому BCNF выполняется автоматически.
+
+Особого внимания требуют mentorship и teaching, они имеют по два кандидатных ключа. В mentorship детерминанты mentorship_id и (mentor_id, ward_id) — оба являются суперключами. В teaching детерминанты teaching_id и (person_id, subject_id)  оба являются суперключами. Нетривиальных ФЗ с детерминантом, не являющимся суперключом, нет. Схема находится в BCNF.
+% ════════════════════════════════════════════════════════
+%  5. ДЕНОРМАЛИЗАЦИЯ
+% ════════════════════════════════════════════════════════
+\section{Денормализация}
+
+\noindent\textbf{Добавление счётчика дверей в таблицу} \texttt{hall}.
+Если часто запрашивается количество дверей в конкретном зале, можно добавить
+атрибут \texttt{door\_count INTEGER DEFAULT~0} в таблицу \texttt{hall}.
+Это позволит избежать операции \texttt{COUNT(*)} при каждом запросе.
+Необходимо обновлять этот атрибут при добавлении или удалении дверей ---
+это решается триггером (реализован в разделе~6).
+
+\vspace{5pt}
+\noindent\textbf{Добавление названия кампуса в таблицу} \texttt{hall}.
+Запросы вида <<список залов с названием кампуса>> встречаются часто.
+Без денормализации они требуют соединения \texttt{hall\,JOIN\,campus}.
+Добавление поля \texttt{campus\_name} \texttt{VARCHAR(100)} в \texttt{hall}
+позволяет обойтись одним сканированием таблицы. При переименовании
+кампуса значение должно обновляться в обеих таблицах.
+
+\vspace{5pt}
+\noindent\textbf{Материализованное представление для аналитики.}
+Для отчётных запросов <<кто, в каком зале и в каком кампусе находится>>
+% можно создать материализованное представление:
+
+% \begin{lstlisting}
+% CREATE MATERIALIZED VIEW person_location AS
+%   SELECT ph.person_id,
+%          p.name   AS person_name,
+%          h.hall_id,
+%          h.name   AS hall_name,
+%          c.campus_id,
+%          c.name   AS campus_name
+%   FROM   person_hall ph
+%   JOIN   person p ON p.person_id = ph.person_id
+%   JOIN   hall   h ON h.hall_id   = ph.hall_id
+%   JOIN   campus c ON c.campus_id = h.campus_id;
+% \end{lstlisting}
+
+Представление обновляется командой
+\texttt{REFRESH MATERIALIZED VIEW person\_location} при изменении данных.
+
+% ════════════════════════════════════════════════════════
+%  6. ФУНКЦИЯ НА ЯЗЫКЕ PL/pgSQL
+% ════════════════════════════════════════════════════════
+\section{Функция на языке PL/pgSQL}
+
+Функция автоматически поддерживает счётчик \texttt{door\_count} в таблице
+\texttt{hall}: при добавлении двери счётчик увеличивается на~1, при
+удалении --- уменьшается на~1, при переносе двери в другой зал ---
+корректируется у обоих залов.
+
+\vspace{4pt}
+\noindent\textit{Подготовка: добавление столбца и инициализация.}
+
+\begin{lstlisting}
+ALTER TABLE hall ADD COLUMN IF NOT EXISTS door_count INTEGER DEFAULT 0;
+
+UPDATE hall h
+SET    door_count = (
+           SELECT COUNT(*)
+           FROM   door d
+           WHERE  d.hall_id = h.hall_id
+       );
+\end{lstlisting}
+
+\noindent\textit{Триггерная функция.}
+
+\begin{lstlisting}
+CREATE OR REPLACE FUNCTION trg_update_door_count()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        UPDATE hall
+        SET    door_count = door_count + 1
+        WHERE  hall_id = NEW.hall_id;
+        RETURN NEW;
+
+    ELSIF TG_OP = 'DELETE' THEN
+        UPDATE hall
+        SET    door_count = door_count - 1
+        WHERE  hall_id = OLD.hall_id;
+        RETURN OLD;
+
+    ELSIF TG_OP = 'UPDATE' THEN
+        IF OLD.hall_id IS DISTINCT FROM NEW.hall_id THEN
+            UPDATE hall
+            SET    door_count = door_count - 1
+            WHERE  hall_id = OLD.hall_id;
+
+            UPDATE hall
+            SET    door_count = door_count + 1
+            WHERE  hall_id = NEW.hall_id;
+        END IF;
+        RETURN NEW;
+    END IF;
+
+    RETURN NULL;
+END;
+$$;
+// Создание триггера
+CREATE OR REPLACE TRIGGER trg_door_count
+AFTER INSERT OR UPDATE OR DELETE
+ON door
+FOR EACH ROW
+EXECUTE FUNCTION trg_update_door_count();
+\end{lstlisting}
+
+% ════════════════════════════════════════════════════════
+%  7. ВЫВОД
+% ════════════════════════════════════════════════════════
+\section{Вывод}
+
+При выполнении лабораторной работы я познакомился с понятием нормализации
+и денормализации. Научился определять функциональные зависимости модели,
+а также анализировать её на соответствие различным нормальным формам.
+Познакомился с процедурным языком PL/pgSQL.
+
+Было установлено, что исходная схема уже находится в BCNF благодаря
+использованию суррогатных первичных ключей и явных ограничений
+\texttt{UNIQUE}. Были изучены эффективные способы денормализации схемы
+базы данных --- добавление счётчиков, избыточных атрибутов и
+материализованных представлений, --- а также ситуации, в которых
+возможно их применение.
+
+
+
+\end{document}
