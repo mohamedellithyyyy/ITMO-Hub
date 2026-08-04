@@ -1,0 +1,38 @@
+# Maven build output
+target/
+*.jar
+!lib/postgresql.jar
+
+# Compiled classes
+*.class
+
+# IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Sensitive configuration files (uncomment if needed)
+# server/src/main/resources/database.properties
+# config/database.properties
+# database.properties
+
+# Upload/deploy directory (generated JARs and copies)
+upload/
+
+# Temporary scripts / notes (add as needed)
+helios.txt
+test.sh
+sources.txt
+package
+init-lab7.sh
+database.properties
