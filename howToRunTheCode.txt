@@ -1,0 +1,7 @@
+java -Dmode=cli -jar bcomp-ng.jar
+1- Add asm
+2- copy paste the code
+3- add end 
+4- entre c
+5- entre c
+
