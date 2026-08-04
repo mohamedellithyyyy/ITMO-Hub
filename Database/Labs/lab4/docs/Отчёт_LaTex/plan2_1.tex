@@ -1,0 +1,66 @@
+%!TEX program = xelatex
+\documentclass[border=10pt]{standalone}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setmainfont{FreeSerif}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric}
+\tikzset{
+  base/.style={
+    rectangle, rounded corners=3pt,
+    draw=black!40, thick,
+    align=center, font=\small,
+    inner xsep=8pt, inner ysep=5pt,
+    minimum height=0.75cm,
+  },
+  result/.style  ={base, fill=black!8,  draw=black!55, font=\small\bfseries},
+  proj/.style    ={base, fill=blue!7,   draw=blue!50},
+  sel/.style     ={base, fill=teal!10,  draw=teal!55},
+  joinnode/.style={base, fill=violet!8, draw=violet!50},
+  table/.style   ={base, fill=orange!8, draw=orange!50, font=\small\itshape},
+  edge/.style    ={->, thick, color=black!50, shorten >=2pt, shorten <=2pt},
+  lbl/.style     ={font=\normalsize\bfseries},
+}
+\begin{document}
+\begin{tikzpicture}[node distance=7mm and 14mm]
+
+\node[lbl]    (t1)                           {План №1};
+\node[result] (r1)  [below=5mm of t1]        {result};
+\node[proj]   (p1)  [below=of r1]
+  {$\pi$\ Н\_ЛЮДИ.ИД, Н\_ВЕДОМОСТИ.ДАТА, Н\_СЕССИЯ.ЧЛВК\_ИД};
+
+% Outer join: ЛЮДИ+ВЕДОМОСТИ result joined with СЕССИЯ
+\node[joinnode] (j1b) [below=of p1]
+  {Nested Loop Join\\Н\_ВЕДОМОСТИ.СЭС\_ИД = Н\_СЕССИЯ.СЭС\_ИД};
+
+% Left subtree: inner NL join ЛЮДИ x ВЕДОМОСТИ
+\node[joinnode] (j1a) [below left=10mm and 26mm of j1b]
+  {Nested Loop Join\\Н\_ЛЮДИ.ИД = Н\_ВЕДОМОСТИ.ЧЛВК\_ИД};
+
+% Right: full scan СЕССИЯ
+\node[table]  (tses) [below right=10mm and 10mm of j1b] {Н\_СЕССИЯ};
+
+% Left of inner join: full scan ЛЮДИ with filter
+\node[sel]    (sl)  [below left=10mm and 16mm of j1a]
+  {$\sigma$\ Н\_ЛЮДИ.ИМЯ $<$ 'Роман'};
+\node[table]  (tl)  [below=9mm of sl]  {Н\_ЛЮДИ};
+
+% Right of inner join: full scan ВЕДОМОСТИ with filter
+\node[sel]    (sr)  [below right=10mm and 16mm of j1a]
+  {$\sigma$\ Н\_ВЕДОМОСТИ.ИД $<$ 1426978};
+\node[table]  (tv)  [below=9mm of sr]  {Н\_ВЕДОМОСТИ};
+
+\draw[edge] (p1)   -- (r1);
+\draw[edge] (j1b)  -- (p1);
+\draw[edge] (j1a)  -- (j1b);
+\draw[edge] (tses) -- (j1b);
+\draw[edge] (sl)   -- (j1a);
+\draw[edge] (sr)   -- (j1a);
+\draw[edge] (tl)   -- (sl);
+\draw[edge] (tv)   -- (sr);
+
+\node[above=3mm of t1, font=\footnotesize, text=black!50]
+  {Полный перебор: сложность $O(N_\text{люди} \cdot N_\text{вед} \cdot N_\text{сес})$ — неоптимально};
+\end{tikzpicture}
+\end{document}

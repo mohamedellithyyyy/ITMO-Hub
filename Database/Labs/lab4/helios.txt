@@ -1,0 +1,3 @@
+ssh -p 2222 s473329@se.ifmo.ru
+CMLf>6665
+psql -h pg -d ucheb -U s473329

@@ -1,0 +1,53 @@
+%!TEX program = xelatex
+\documentclass[border=10pt]{standalone}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setmainfont{FreeSerif}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric}
+\tikzset{
+  base/.style={
+    rectangle, rounded corners=3pt,
+    draw=black!40, thick,
+    align=center, font=\small,
+    inner xsep=8pt, inner ysep=5pt,
+    minimum height=0.75cm,
+  },
+  result/.style  ={base, fill=black!8,  draw=black!55, font=\small\bfseries},
+  proj/.style    ={base, fill=blue!7,   draw=blue!50},
+  sel/.style     ={base, fill=teal!10,  draw=teal!55},
+  joinnode/.style={base, fill=violet!8, draw=violet!50},
+  table/.style   ={base, fill=orange!8, draw=orange!50, font=\small\itshape},
+  edge/.style    ={->, thick, color=black!50, shorten >=2pt, shorten <=2pt},
+  lbl/.style     ={font=\normalsize\bfseries},
+}
+\begin{document}
+\begin{tikzpicture}[node distance=7mm and 14mm]
+
+\node[lbl]    (t1)                           {План №1};
+\node[result] (r1)  [below=5mm of t1]        {result};
+\node[proj]   (p1)  [below=of r1]
+  {$\pi$\ Н\_ЛЮДИ.ОТЧЕСТВО, Н\_ВЕДОМОСТИ.ЧЛВК\_ИД};
+\node[joinnode] (j1) [below=of p1]
+  {Nested Loop Right Join\\Н\_ЛЮДИ.ИД = Н\_ВЕДОМОСТИ.ЧЛВК\_ИД};
+\node[sel]    (s1l) [below left=10mm and 22mm of j1]
+  {$\sigma$\ Н\_ЛЮДИ.ИД = 100865};
+\node[sel]    (s1r) [below right=10mm and 18mm of j1]
+  {$\sigma$\ Н\_ВЕДОМОСТИ.ЧЛВК\_ИД $<$ 117219\\
+   $\land$\ Н\_ВЕДОМОСТИ.ЧЛВК\_ИД = 117219};
+\node[table]  (tl1) [below=9mm of s1l] {Н\_ЛЮДИ};
+\node[table]  (tv1) [below=9mm of s1r] {Н\_ВЕДОМОСТИ};
+
+\draw[edge] (p1)  -- (r1);
+\draw[edge] (j1)  -- (p1);
+\draw[edge] (s1l) -- (j1);
+\draw[edge] (s1r) -- (j1);
+\draw[edge] (tl1) -- (s1l);
+\draw[edge] (tv1) -- (s1r);
+
+\node[above=3mm of t1, font=\footnotesize, text=black!50]
+  {Логическое противоречие: условие всегда ложно $\to$ One-Time Filter: false};
+
+\end{tikzpicture}
+\end{document}

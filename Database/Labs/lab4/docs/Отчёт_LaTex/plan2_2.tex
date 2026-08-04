@@ -1,0 +1,57 @@
+%!TEX program = xelatex
+\documentclass[border=10pt]{standalone}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setmainfont{FreeSerif}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric}
+\tikzset{
+  base/.style={
+    rectangle, rounded corners=3pt,
+    draw=black!40, thick,
+    align=center, font=\small,
+    inner xsep=8pt, inner ysep=5pt,
+    minimum height=0.75cm,
+  },
+  result/.style  ={base, fill=black!8,  draw=black!55, font=\small\bfseries},
+  proj/.style    ={base, fill=blue!7,   draw=blue!50},
+  sel/.style     ={base, fill=teal!10,  draw=teal!55},
+  joinnode/.style={base, fill=violet!8, draw=violet!50},
+  table/.style   ={base, fill=orange!8, draw=orange!50, font=\small\itshape},
+  edge/.style    ={->, thick, color=black!50, shorten >=2pt, shorten <=2pt},
+  lbl/.style     ={font=\normalsize\bfseries},
+}
+\begin{document}
+\begin{tikzpicture}[node distance=7mm and 14mm]
+
+\node[lbl]    (t2)                           {План №2};
+\node[result] (r2)  [below=5mm of t2]        {result};
+\node[proj]   (p2)  [below=of r2]
+  {$\pi$\ Н\_ЛЮДИ.ИД, Н\_ВЕДОМОСТИ.ДАТА, Н\_СЕССИЯ.ЧЛВК\_ИД};
+\node[joinnode] (j2b) [below=of p2]
+  {Hash Join\\Н\_ВЕДОМОСТИ.СЭС\_ИД = Н\_СЕССИЯ.СЭС\_ИД};
+\node[joinnode] (j2a) [below left=10mm and 22mm of j2b]
+  {Hash Join\\Н\_ЛЮДИ.ИД = Н\_ВЕДОМОСТИ.ЧЛВК\_ИД};
+\node[table]  (ts2) [below right=10mm and 8mm of j2b] {Н\_СЕССИЯ};
+\node[sel]    (s2l) [below left=10mm and 14mm of j2a]
+  {$\sigma$\ Н\_ЛЮДИ.ИМЯ $<$ 'Роман'};
+\node[sel]    (s2r) [below right=10mm and 14mm of j2a]
+  {$\sigma$\ Н\_ВЕДОМОСТИ.ИД $<$ 1426978};
+\node[table]  (tl2) [below=9mm of s2l] {Н\_ЛЮДИ};
+\node[table]  (tv2) [below=9mm of s2r] {Н\_ВЕДОМОСТИ};
+
+\draw[edge] (p2)  -- (r2);
+\draw[edge] (j2b) -- (p2);
+\draw[edge] (j2a) -- (j2b);
+\draw[edge] (ts2) -- (j2b);
+\draw[edge] (s2l) -- (j2a);
+\draw[edge] (s2r) -- (j2a);
+\draw[edge] (tl2) -- (s2l);
+\draw[edge] (tv2) -- (s2r);
+
+\node[above=3mm of t2, font=\footnotesize, text=black!50]
+  {Фильтрация выполняется до соединений (оптимизация выборки)};
+
+\end{tikzpicture}
+\end{document}
