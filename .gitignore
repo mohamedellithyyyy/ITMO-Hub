@@ -1,3 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# Generated output
+output/*
+!output/.gitkee
+
 # macOS system files
 .DS_Store
 
@@ -16,3 +68,17 @@ node_modules/
 # Logs and temp files
 *.log
 *.tmp
+
+# Course documentation/materials
+docs/
+lectures/
+lecture/
+course-materials/
+course_materials/
+
+# Lecture/course PDFs anywhere in the repository
+**/*lecture*.pdf
+**/*Lecture*.pdf
+**/*лекци*.pdf
+**/*Лекци*.pdf
+
