@@ -11,9 +11,9 @@ A comprehensive collection of coursework, laboratory work, and projects from my 
 | Course | Semester 1 | Semester 2 | Status |
 |--------|------------|------------|--------|
 | **Computer Science** | ✅ | - | Completed |
-| **CS Basics** | ✅ | 🚧 | In Progress |
-| **Database** | - | 🚧 | In Progress |
-| **Programming** | ✅ | 🚧 | In Progress |
+| **CS Basics** | ✅ | ✅ | Completed |
+| **Database** | - | ✅ | Completed |
+| **Programming** | ✅ | ✅ | Completed |
 
 ## 📁 Repository Structure
 
