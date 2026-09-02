@@ -8,12 +8,12 @@ A comprehensive collection of coursework, laboratory work, and projects from my 
 
 ## 🎯 Courses Overview
 
-| Course | Semester 1 | Semester 2 | Status |
+| Course | Semester 1 | Semester 2 | Semester 3 | Semester 4 | Semester 5 | Semester 6 | Semester 7 | Semester 8 | Status |
 |--------|------------|------------|--------|
-| **Computer Science** | ✅ | - | Completed |
-| **CS Basics** | ✅ | ✅ | Completed |
-| **Database** | - | ✅ | Completed |
-| **Programming** | ✅ | ✅ | Completed |
+| **Computer Science** | ✅ | - | - | - | - | - | - | - | Completed |
+| **CS Basics** | ✅ | ✅ | - | - | - | - | - | - | Completed |
+| **Database** | - | ✅ | - | - | - | - | - | - | Completed |
+| **Programming** | ✅ | ✅ | - | - | - | - | - | - | Completed |
 
 ## 📁 Repository Structure
 
