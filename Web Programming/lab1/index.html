@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Лабораторная работа №1</title>
-
     <style>
         /* ALL CSS HERE */
     </style>
@@ -12,12 +11,115 @@
 
 <body>
 
-<table>
-    <!-- Header -->
-    <!-- Canvas -->
-    <!-- Form -->
-    <!-- Results -->
+<table id="page">
+    <!-- ==================== HEADER ==================== -->
+    <tr>
+        <td colspan="2" class="header">
+            <h1>Лабораторная работа №1</h1>
+            <p>
+                Выполнил: студент группы P3131,
+                Эллити Мохамед Эмад Ахмед Авад
+            </p>
+            <p>
+                Вариант: <em>22685</em>
+            </p>
+        </td>
+    </tr>
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <tr>
+        <!-- Canvas -->
+        <td class="canvas-section">
+            <h2>Проверка попадания точки</h2>
+            <canvas
+                id="coordinateCanvas"
+                width="500"
+                height="500">
+            </canvas>
+        </td>
+        <!-- Form -->
+        <td class="form-section">
+            <h2>Ввод данных</h2>
+            <form id="pointForm">
+                <!-- X -->
+                <p>
+                    <label for="x">X:</label>
+                    <select id="x" name="x">
+                        <option value="-3">-3</option>
+                        <option value="-2">-2</option>
+                        <option value="-1">-1</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </p>
+                <!-- Y -->
+                <p>
+                    <label for="y">Y:</label>
+                    <input
+                        id="y"
+                        name="y"
+                        type="text"
+                        placeholder="-5 ... 3"
+                        autocomplete="off">
+                </p>
+                <!-- R -->
+                <fieldset>
+                    <legend>R:</legend>
+                    <label>
+                        <input type="radio" name="r" value="1">
+                        1
+                    </label>
+                    <label>
+                        <input type="radio" name="r" value="2">
+                        2
+                    </label>
+                    <label>
+                        <input type="radio" name="r" value="3">
+                        3
+                    </label>
+                    <label>
+                        <input type="radio" name="r" value="4">
+                        4
+                    </label>
+                    <label>
+                        <input type="radio" name="r" value="5">
+                        5
+                    </label>
+                </fieldset>
+                <!-- Validation message -->
+                <p id="errorMessage"></p>
+                <!-- Submit -->
+                <button type="submit">
+                    Проверить
+                </button>
+            </form>
+        </td>
+    </tr>
+    <!-- ==================== RESULTS ==================== -->
+    <tr>
+        <td colspan="2" class="results">
+            <h2>Результаты</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>R</th>
+                        <th>Результат</th>
+                        <th>Дата и время</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                    <!-- JavaScript adds results here -->
+                </tbody>
+            </table>
+        </td>
+    </tr>
 </table>
+
 
 <script>
     // ALL JAVASCRIPT HERE
