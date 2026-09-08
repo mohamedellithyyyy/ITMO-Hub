@@ -1,0 +1,86 @@
+image: generic-c
+
+stages:
+  - build
+
+seminar-1-build:
+  stage: build
+  script:
+    - cd seminar-1
+    - nasm -f elf64 hello.asm -o hello.o
+    - ld hello.o -o hello
+    - ./hello | grep -q "hello, world!"
+  rules:
+    - changes:
+        - seminar-1/**/*
+
+seminar-2-build:
+  stage: build
+  script:
+    - cd seminar-2
+    - for f in *.asm; do nasm -f elf64 "$f" -o "${f%.asm}.o"; done
+  rules:
+    - changes:
+        - seminar-2/**/*
+  # test_*.py в этой папке — шаблоны тестовых сценариев для практики на занятии
+  # (вызывают parse_uint/print_uint_test и т.п., которые студент пишет сам),
+  # а не готовый к самостоятельному запуску набор тестов на сам seminar-2.
+
+seminar-3-build:
+  stage: build
+  script:
+    - cd seminar-3
+    - nasm -f elf64 print_hex.asm -o print_hex.o
+  rules:
+    - changes:
+        - seminar-3/**/*
+
+seminar-4-build:
+  stage: build
+  script:
+    - cd seminar-4
+    - nasm -felf64 -g -o string.o string.asm
+    - nasm -felf64 -g -o hello_mmap.o hello_mmap.asm
+    - nasm -felf64 -g -o hello_mmap2.o hello_mmap2.asm
+  rules:
+    - changes:
+        - seminar-4/**/*
+  # hello.c намеренно неполный (print_string/world не объявлены) — это
+  # заготовка для упражнения "вызов asm из C" на самом занятии, поэтому
+  # `make hello` в CI не проверяем, только сборку .asm-файлов.
+
+seminar-5-build:
+  stage: build
+  script:
+    - cd seminar-5
+    - for f in *.c; do gcc -std=c11 -Wall -Wextra -c "$f" -o "${f%.c}.o"; done
+  rules:
+    - changes:
+        - seminar-5/**/*
+
+seminar-6-build:
+  stage: build
+  script:
+    - cd seminar-6
+    - for f in *.c; do gcc -std=c11 -Wall -Wextra -c "$f" -o "${f%.c}.o"; done
+  rules:
+    - changes:
+        - seminar-6/**/*
+
+seminar-7-build:
+  stage: build
+  script:
+    - cd seminar-7
+    - for f in *.c; do gcc -std=c11 -Wall -Wextra -c "$f" -o "${f%.c}.o"; done
+  rules:
+    - changes:
+        - seminar-7/**/*
+
+seminar-8-build:
+  stage: build
+  script:
+    - cd seminar-8
+    - for f in *.c; do gcc -std=c11 -D_GNU_SOURCE -Wall -Wextra -pthread -c "$f" -o "${f%.c}.o"; done
+  rules:
+    - changes:
+        - seminar-8/**/*
