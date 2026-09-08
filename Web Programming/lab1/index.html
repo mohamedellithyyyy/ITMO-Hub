@@ -1,129 +1,676 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Лабораторная работа №1</title>
-    <style>
-        /* ALL CSS HERE */
-    </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Лабораторная работа №1 — Вариант 22685</title>
+
+<style>
+
+    body {
+    font-family: Verdana, Geneva, sans-serif;
+    color: #23324a;
+    background: #FFFFFF;
+    margin: 0;
+    padding: 20px;
+    }
+
+    input, select, button {
+    margin: 5px;
+    padding: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid #9aa7bd;
+    border-radius: 4px;
+    }
+
+    #y-input {
+    border: 1px solid #d98c00;
+    background: #fffaf0;
+    }
+
+    input[type="text"] {
+    width: 90px;
+    }
+
+    select[name="x"] {
+    width: 70px;
+    }
+
+    button[type="button"].r-button {
+    width: 34px;
+    cursor: pointer;
+    }
+
+    button[type="submit"] {
+    background: #2c6bd7;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    }
+
+    #layout {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    background: #fff;
+    }
+
+    #layout > tbody > tr > td {
+    padding: 14px 18px;
+    vertical-align: top;
+    }
+
+    #header {
+    font-family: cursive;
+    color: #000000;
+    font-size: 45px;
+    border-bottom: 3px solid #7a1f3d;
+    padding-bottom: 10px;
+    }
+
+    #header .meta {
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-top: 6px;
+    }
+
+    .form-row label::after {
+    content: ":";
+    margin-right: 4px;
+    }
+
+    #control-panel > .form-row {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    }
+
+    #control-panel > .form-row > label {
+    width: 150px;
+    display: inline-block;
+    font-weight: bold;
+    }
+
+    #r-buttons {
+    display: inline-flex;
+    gap: 4px;
+    }
+
+    #r-buttons > button.selected {
+    background: #2c6bd7;
+    color: #fff;
+    border-color: #1a4fa0;
+    }
+
+    #canvas-area {
+    text-align: center;
+    }
+
+    canvas {
+    border: 1px solid #9aa7bd;
+    background: #fff;
+    }
+
+    #error-box {
+    color: #b00020;
+    font-weight: bold;
+    min-height: 20px;
+    margin: 6px 0;
+    }
+
+    #results-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    }
+
+    #results-table caption {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 6px;
+    }
+
+    #results-table th, #results-table td {
+    border: 1px solid #9aa7bd;
+    padding: 6px 10px;
+    text-align: center;
+    }
+
+    #results-table thead th {
+    background: #2c6bd7;
+    color: #fff;
+    }
+
+    #results-table > tbody > tr:nth-child(even) {
+    background: #FFFFFF;
+    }
+
+    .hit-yes {
+    color: #0a7a2f;
+    font-weight: bold;
+    }
+
+    .hit-no {
+    color: #b00020;
+    font-weight: bold;
+    }
+
+    #clear-btn {
+    margin-top: 10px;
+    background: #888;
+    color: #fff;
+    }
+
+</style>
+
 </head>
 
 <body>
 
-<table id="page">
-    <!-- ==================== HEADER ==================== -->
+<table id="layout">
+
+    <tbody>
+
     <tr>
-        <td colspan="2" class="header">
-            <h1>Лабораторная работа №1</h1>
-            <p>
-                Выполнил: студент группы P3131,
-                Эллити Мохамед Эмад Ахмед Авад
-            </p>
-            <p>
-                Вариант: <em>22685</em>
-            </p>
-        </td>
+    <td colspan="2">
+    <div id="header">
+    Лабораторная работа №1
+    <span class="meta">
+    Студент: Эллити Мохамед Эмад Ахмед Авад &nbsp;|&nbsp; Группа: P3231 &nbsp;|&nbsp; Вариант: 22685
+    </span>
+    </div>
+    </td>
     </tr>
-    <!-- ==================== MAIN CONTENT ==================== -->
+
     <tr>
-        <!-- Canvas -->
-        <td class="canvas-section">
-            <h2>Проверка попадания точки</h2>
-            <canvas
-                id="coordinateCanvas"
-                width="500"
-                height="500">
-            </canvas>
-        </td>
-        <!-- Form -->
-        <td class="form-section">
-            <h2>Ввод данных</h2>
-            <form id="pointForm">
-                <!-- X -->
-                <p>
-                    <label for="x">X:</label>
-                    <select id="x" name="x">
-                        <option value="-3">-3</option>
-                        <option value="-2">-2</option>
-                        <option value="-1">-1</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </p>
-                <!-- Y -->
-                <p>
-                    <label for="y">Y:</label>
-                    <input
-                        id="y"
-                        name="y"
-                        type="text"
-                        placeholder="-5 ... 3"
-                        autocomplete="off">
-                </p>
-                <!-- R -->
-                <fieldset>
-                    <legend>R:</legend>
-                    <label>
-                        <input type="radio" name="r" value="1">
-                        1
-                    </label>
-                    <label>
-                        <input type="radio" name="r" value="2">
-                        2
-                    </label>
-                    <label>
-                        <input type="radio" name="r" value="3">
-                        3
-                    </label>
-                    <label>
-                        <input type="radio" name="r" value="4">
-                        4
-                    </label>
-                    <label>
-                        <input type="radio" name="r" value="5">
-                        5
-                    </label>
-                </fieldset>
-                <!-- Validation message -->
-                <p id="errorMessage"></p>
-                <!-- Submit -->
-                <button type="submit">
-                    Проверить
-                </button>
-            </form>
-        </td>
+
+    <td style="width:55%">
+    <h2>Координатная плоскость</h2>
+    <div id="canvas-area">
+    <canvas id="plane" width="440" height="440"></canvas>
+    </div>
+    </td>
+
+    <td style="width:45%">
+    <h2>Проверка точки</h2>
+
+    <form id="point-form" novalidate>
+
+    <div id="control-panel">
+
+    <div class="form-row">
+    <label for="x-select">X</label>
+    <select id="x-select" name="x" required>
+    <option value="-3">-3</option>
+    <option value="-2">-2</option>
+    <option value="-1">-1</option>
+    <option value="0" selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    </select>
+    </div>
+
+    <div class="form-row">
+    <label for="y-input">Y (от -5 до 3)</label>
+    <input type="text" id="y-input" name="y" placeholder="-5…3" autocomplete="off">
+    </div>
+
+    <div class="form-row">
+    <label>R</label>
+    <div id="r-buttons">
+    <button type="button" class="r-button" data-r="1">1</button>
+    <button type="button" class="r-button" data-r="2">2</button>
+    <button type="button" class="r-button" data-r="3">3</button>
+    <button type="button" class="r-button" data-r="4">4</button>
+    <button type="button" class="r-button" data-r="5">5</button>
+    </div>
+    </div>
+
+    </div>
+
+    <div id="error-box"></div>
+
+    <button type="submit">Проверить точку</button>
+
+    </form>
+
+    </td>
+
     </tr>
-    <!-- ==================== RESULTS ==================== -->
+
     <tr>
-        <td colspan="2" class="results">
-            <h2>Результаты</h2>
-            <table id="resultsTable">
-                <thead>
-                    <tr>
-                        <th>X</th>
-                        <th>Y</th>
-                        <th>R</th>
-                        <th>Результат</th>
-                        <th>Дата и время</th>
-                    </tr>
-                </thead>
-                <tbody id="resultsBody">
-                    <!-- JavaScript adds results here -->
-                </tbody>
-            </table>
-        </td>
+
+    <td colspan="2">
+
+    <table id="results-table">
+
+    <caption id="results-heading">Результаты проверок</caption>
+
+    <thead>
+    <tr>
+    <th>X</th>
+    <th>Y</th>
+    <th>R</th>
+    <th>Результат</th>
+    <th>Дата и время</th>
     </tr>
+    </thead>
+
+    <tbody id="results-body">
+    </tbody>
+
+    </table>
+
+    <button id="clear-btn" type="button">Очистить историю</button>
+
+    </td>
+
+    </tr>
+
+    </tbody>
+
 </table>
 
-
 <script>
-    // ALL JAVASCRIPT HERE
+
+const STORAGE_KEY = 'lab1_results_variant_22685';
+
+const canvas = document.getElementById('plane');
+const ctx = canvas.getContext('2d');
+
+const form = document.getElementById('point-form');
+const xSelect = document.getElementById('x-select');
+const yInput = document.getElementById('y-input');
+const rButtons = document.querySelectorAll('.r-button');
+const errorBox = document.getElementById('error-box');
+const resultsBody = document.getElementById('results-body');
+const clearBtn = document.getElementById('clear-btn');
+
+let selectedR = null;
+let results = [];
+
+function isPointInside(x, y, r) {
+
+    if (x >= 0 && y >= 0) {
+    return x <= r && y <= r / 2;
+    }
+
+    if (x >= 0 && y <= 0) {
+    return (x * x + y * y) <= r * r;
+    }
+
+    if (x <= 0 && y <= 0) {
+    return x >= -r / 2 && y >= -r / 2 && (x + y) >= -r / 2;
+    }
+
+    return false;
+}
+
+let viewRange = 6;
+
+function computeViewRange() {
+    const r = selectedR || 5;
+    return Math.max(6, r * 1.3);
+}
+
+function toCanvasX(x) {
+    const half = canvas.width / 2;
+    return half + (x / viewRange) * half;
+}
+
+function toCanvasY(y) {
+    const half = canvas.height / 2;
+    return half - (y / viewRange) * half;
+}
+
+function drawCoordinatePlane() {
+
+    const w = canvas.width, h = canvas.height;
+
+    ctx.clearRect(0, 0, w, h);
+
+    ctx.strokeStyle = '#333';
+    ctx.fillStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.font = '11px Verdana';
+
+    const originX = toCanvasX(0);
+    const originY = toCanvasY(0);
+
+    ctx.beginPath();
+    ctx.moveTo(10, originY);
+    ctx.lineTo(w - 10, originY);
+    ctx.moveTo(originX, h - 10);
+    ctx.lineTo(originX, 10);
+    ctx.stroke();
+
+    drawArrow(w - 10, originY, 'right');
+    drawArrow(originX, 10, 'up');
+
+    ctx.fillText('x', w - 16, originY - 8);
+    ctx.fillText('y', originX + 8, 16);
+
+    const r = selectedR || 1;
+    const marks = [-r, -r / 2, r / 2, r];
+
+    marks.forEach(v => {
+
+    if (v === 0) return;
+
+    const cx = toCanvasX(v);
+    const cy = toCanvasY(v);
+
+    ctx.beginPath();
+    ctx.moveTo(cx, originY - 4);
+    ctx.lineTo(cx, originY + 4);
+    ctx.stroke();
+
+    ctx.fillText(formatTick(v), cx - 8, originY + 16);
+
+    ctx.beginPath();
+    ctx.moveTo(originX - 4, cy);
+    ctx.lineTo(originX + 4, cy);
+    ctx.stroke();
+
+    ctx.fillText(formatTick(v), originX + 6, cy + 4);
+
+    });
+
+}
+
+function formatTick(v) {
+    return (Number.isInteger(v) ? v : v.toFixed(1)).toString();
+}
+
+function drawArrow(x, y, dir) {
+
+    ctx.beginPath();
+
+    if (dir === 'right') {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - 8, y - 4);
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - 8, y + 4);
+    } else {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - 4, y + 8);
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 4, y + 8);
+    }
+
+    ctx.stroke();
+
+}
+
+function drawArea() {
+
+    if (!selectedR) return;
+
+    const r = selectedR;
+
+    ctx.fillStyle = 'rgba(74, 130, 220, 0.55)';
+    ctx.strokeStyle = 'rgba(40, 80, 160, 0.9)';
+    ctx.lineWidth = 1.5;
+
+    ctx.beginPath();
+    ctx.moveTo(toCanvasX(0), toCanvasY(0));
+    ctx.lineTo(toCanvasX(r), toCanvasY(0));
+    ctx.lineTo(toCanvasX(r), toCanvasY(r / 2));
+    ctx.lineTo(toCanvasX(0), toCanvasY(r / 2));
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(toCanvasX(0), toCanvasY(0));
+
+    const steps = 60;
+
+    for (let i = 0; i <= steps; i++) {
+
+    const angle = -(Math.PI / 2) * (i / steps);
+    const px = r * Math.cos(angle);
+    const py = r * Math.sin(angle);
+
+    ctx.lineTo(toCanvasX(px), toCanvasY(py));
+
+    }
+
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(toCanvasX(-r / 2), toCanvasY(0));
+    ctx.lineTo(toCanvasX(0), toCanvasY(0));
+    ctx.lineTo(toCanvasX(0), toCanvasY(-r / 2));
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+}
+
+function drawPoint(x, y, hit) {
+
+    const cx = toCanvasX(x);
+    const cy = toCanvasY(y);
+
+    ctx.beginPath();
+    ctx.arc(cx, cy, 4.5, 0, Math.PI * 2);
+
+    ctx.fillStyle = hit ? '#0a7a2f' : '#b00020';
+    ctx.fill();
+
+    ctx.strokeStyle = '#222';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+}
+
+function redrawAll() {
+
+    viewRange = computeViewRange();
+
+    drawCoordinatePlane();
+    drawArea();
+
+    results.forEach(res => drawPoint(res.x, res.y, res.hit));
+
+}
+
+rButtons.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+    rButtons.forEach(b => b.classList.remove('selected'));
+
+    btn.classList.add('selected');
+
+    selectedR = parseFloat(btn.dataset.r);
+
+    clearError();
+    redrawAll();
+
+    });
+
+});
+
+function validateForm() {
+
+    clearError();
+
+    const xRaw = xSelect.value;
+    const yRaw = yInput.value.trim();
+
+    if (xRaw === '' || isNaN(Number(xRaw))) {
+    showError('Некорректное значение X.');
+    return null;
+    }
+
+    const x = Number(xRaw);
+
+    if (yRaw === '') {
+    showError('Поле Y не может быть пустым.');
+    return null;
+    }
+
+    if (!/^-?\d+(\.\d+)?$/.test(yRaw)) {
+    showError('Y должен быть числом (только цифры, точка и знак «минус»).');
+    return null;
+    }
+
+    const y = Number(yRaw);
+
+    if (y < -5 || y > 3) {
+    showError('Y должен быть в диапазоне от -5 до 3.');
+    return null;
+    }
+
+    if (selectedR === null) {
+    showError('Выберите значение R.');
+    return null;
+    }
+
+    return { x, y, r: selectedR };
+
+}
+
+function showError(msg) {
+    errorBox.textContent = msg;
+}
+
+function clearError() {
+    errorBox.textContent = '';
+}
+
+function saveResult(entry) {
+
+    results.push(entry);
+
+    try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(results));
+    } catch (e) {
+    console.error('Не удалось сохранить результат в localStorage:', e);
+    }
+
+}
+
+function loadResults() {
+
+    let parsed = [];
+
+    try {
+
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (raw) {
+
+    const data = JSON.parse(raw);
+
+    if (Array.isArray(data)) {
+
+    parsed = data.filter(item =>
+    item &&
+    typeof item.x === 'number' &&
+    typeof item.y === 'number' &&
+    typeof item.r === 'number' &&
+    typeof item.hit === 'boolean' &&
+    typeof item.timestamp === 'string'
+    );
+
+    }
+
+    }
+
+    } catch (e) {
+
+    console.error('Повреждённые данные в localStorage, история очищена:', e);
+    parsed = [];
+
+    }
+
+    results = parsed;
+
+}
+
+function renderResults() {
+
+    resultsBody.innerHTML = '';
+
+    results.forEach(entry => {
+
+    const tr = document.createElement('tr');
+
+    const dateStr = new Date(entry.timestamp).toLocaleString('ru-RU');
+
+    tr.innerHTML = `
+    <td>${entry.x}</td>
+    <td>${entry.y}</td>
+    <td>${entry.r}</td>
+    <td class="${entry.hit ? 'hit-yes' : 'hit-no'}">${entry.hit ? 'Попадает' : 'Не попадает'}</td>
+    <td>${dateStr}</td>
+    `;
+
+    resultsBody.appendChild(tr);
+
+    });
+
+}
+
+form.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    const parsed = validateForm();
+
+    if (!parsed) return;
+
+    const hit = isPointInside(parsed.x, parsed.y, parsed.r);
+
+    const entry = {
+    x: parsed.x,
+    y: parsed.y,
+    r: parsed.r,
+    hit: hit,
+    timestamp: new Date().toISOString()
+    };
+
+    saveResult(entry);
+    renderResults();
+    drawPoint(entry.x, entry.y, entry.hit);
+
+});
+
+clearBtn.addEventListener('click', () => {
+
+    results = [];
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    renderResults();
+    redrawAll();
+
+});
+
+loadResults();
+renderResults();
+redrawAll();
+
 </script>
 
 </body>
+
 </html>
