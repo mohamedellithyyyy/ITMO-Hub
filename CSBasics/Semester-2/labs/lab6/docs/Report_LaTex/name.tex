@@ -1,0 +1,375 @@
+% !TeX program = xelatex
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{FreeSerif}[
+  BoldFont       = FreeSerifBold,
+  ItalicFont     = FreeSerifItalic,
+  BoldItalicFont = FreeSerifBoldItalic
+]
+\setmonofont{DejaVu Sans Mono}[Scale=0.82]
+
+\usepackage{longtable}
+\usepackage{threeparttable}   % gives ThreePartTable + TableNotes, for use with longtable
+\usepackage{pdflscape}        % landscape page for the wide table
+
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% Spacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{4pt plus 1pt}
+\onehalfspacing
+
+% Section headings
+\titleformat{\section}
+  {\normalfont\fontsize{14}{17}\bfseries}
+  {\thesection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{20pt plus 3pt}{10pt plus 2pt}
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{15}\bfseries}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{14pt plus 2pt}{6pt plus 1pt}
+
+% Colours
+\definecolor{codebg}{RGB}{250,250,250}
+\definecolor{codeframe}{RGB}{210,210,210}
+\definecolor{kwcolor}{RGB}{0,0,160}
+\definecolor{commentcolor}{RGB}{60,128,60}
+\definecolor{strcolor}{RGB}{160,30,30}
+\definecolor{tblred}{RGB}{160,0,0}
+
+% Code listings
+\lstdefinelanguage{plpgsql}{
+  morekeywords={CREATE,OR,REPLACE,FUNCTION,RETURNS,AS,BEGIN,END,
+    DECLARE,SELECT,INTO,FROM,WHERE,IF,THEN,ELSE,ELSIF,RETURN,
+    LANGUAGE,plpgsql,RAISE,EXCEPTION,NOT,FOUND,IS,NULL,AND,UPDATE,
+    SET,INSERT,DELETE,OLD,NEW,TG_OP,INTEGER,FLOAT,VARCHAR,DATE,
+    TRIGGER,AFTER,ON,FOR,EACH,ROW,EXECUTE,ALTER,TABLE,ADD,COLUMN,
+    MATERIALIZED,VIEW,REFRESH,COUNT,DEFAULT,DISTINCT},
+  sensitive=false,
+  morecomment=[l]{--},
+  morestring=[b]',
+}
+
+\lstset{
+  language          = plpgsql,
+  basicstyle        = \small\ttfamily\setstretch{1.1},
+  keywordstyle      = \color{kwcolor}\bfseries,
+  commentstyle      = \color{commentcolor}\itshape,
+  stringstyle       = \color{strcolor},
+  backgroundcolor   = \color{codebg},
+  frame             = single,
+  framesep          = 4pt,
+  rulecolor         = \color{codeframe},
+  breaklines        = true,
+  breakatwhitespace = true,
+  columns           = flexible,
+  postbreak         = \mbox{\textcolor{codeframe}{$\hookrightarrow$}\space},
+  showstringspaces  = false,
+  tabsize           = 4,
+  xleftmargin       = 8pt,
+  xrightmargin      = 8pt,
+  aboveskip         = 10pt,
+  belowskip         = 8pt,
+}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Allow slightly loose lines to avoid overfull hboxes from long \texttt tokens
+\setlength{\emergencystretch}{4em}
+\hfuzz=3pt
+\hbadness=10000
+
+\begin{document}
+
+% ════════════════════════════════════════════════════════
+%  TITLE PAGE
+% ════════════════════════════════════════════════════════
+% ========== TITLE PAGE ==========
+\begin{titlepage}
+    \centering
+    \textbf{Санкт-Петербургский Национальный Исследовательский Университет ИТМО}\\
+    \textbf{Факультет Программной Инженерии и Компьютерной Техники}
+
+    \vspace{2cm}
+    \includegraphics[width=0.4\textwidth]{ITMOLogo.png}\\[1cm]
+
+    \vspace{3cm}
+    Лабораторная работа №6\\[0.4em]
+    По {\normalsize <<Основы профессиональной деятельности>>}\\[16pt]
+    {\large Вариант №~738}
+
+    \vfill
+    \begin{flushright}
+        Выполнил студент:\\
+        Эллити Мохамед Эмад Ахмед Авад\\[1em]
+        Группы:\\ P3131 \\[1em]
+        Преподаватель:\\
+Клименков Сергей Викторович \\
+Зайцева Ирина Сергеевна
+    \end{flushright}
+
+    \vspace{2cm}
+    Санкт-Петербург 2026 г.
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+% ════════════════════════════════════════════════════════
+%  ТЕКСТ ЗАДАНИЯ
+% ════════════════════════════════════════════════════════
+\section{Текст задания}
+
+По выданному преподавателем варианту разработать и исследовать работу комплекса программ обмена данными в режиме прерывания программы. Основная программа должна изменять содержимое заданной ячейки памяти (X), которое должно быть представлено как знаковое число. Область допустимых значений изменения X должна быть ограничена заданной функцией F(X) и конструктивными особенностями регистра данных ВУ (8-ми битное знаковое представление). Программа обработки прерывания должна выводить на ВУ модифицированное значение X в соответствии с вариантом задания, а также игнорировать все необрабатываемые прерывания.
+
+\begin{enumerate}
+    \item Основная программа должна увеличивать на 3 содержимое X (ячейки памяти с адресом $020_{16}$) в цикле.
+    \item Обработчик прерывания должен по нажатию кнопки готовности ВУ-1 осуществлять вывод результата вычисления функции $F(X) = -3X-8$ на данное ВУ, а по нажатию кнопки готовности ВУ-2 выполнить операцию побитового «ИЛИ» содержимого регистра данных данного ВУ и X, результат записать в X.
+    \item Если X оказывается вне ОДЗ при выполнении любой операции по его изменению, то необходимо в X записать минимальное по ОДЗ число.
+\end{enumerate}
+
+% ════════════════════════════════════════════════════════
+%  ОПИСАНИЕ ПРОГРАММЫ
+% ════════════════════════════════════════════════════════
+\section{Описание программы}
+
+\subsection*{Назначение программы}
+
+\begin{enumerate}
+    \item Основная программа должна увеличивать на 3 содержимое X (ячейки памяти с адресом $020_{16}$) в цикле.
+    \item Обработчик прерывания должен по нажатию кнопки готовности ВУ-1 осуществлять вывод результата вычисления функции $F(X) = -3X-8$ на данное ВУ, а по нажатию кнопки готовности ВУ-2 выполнить операцию побитового «ИЛИ» содержимого регистра данных данного ВУ и X, результат записать в X.
+    \item Если X оказывается вне ОДЗ при выполнении любой операции по его изменению, то необходимо в X записать минимальное по ОДЗ число.
+\end{enumerate}
+
+\subsection*{Текст программы}
+
+\begin{lstlisting}[language={[x86masm]Assembler}]
+        ORG     0x000
+V0:     WORD    $default, 0x180
+V1:     WORD    $int1,    0x180     ; вектор ВУ-1
+V2:     WORD    $int2,    0x180     ; вектор ВУ-2
+V3:     WORD    $default, 0x180
+V4:     WORD    $default, 0x180
+V5:     WORD    $default, 0x180
+V6:     WORD    $default, 0x180
+V7:     WORD    $default, 0x180
+
+        ORG     0x020
+X:      WORD    ?
+max:    WORD    0x0028              ; 40, максимум ОДЗ
+min:    WORD    0xFFD3              ; -45, минимум ОДЗ
+
+default:
+        IRET                        ; необрабатываемые прерывания
+
+START:  DI
+        CLA
+        OUT     0x1                 ; запрет прерываний для неиспользуемых ВУ
+        OUT     0x7
+        LD      #0x9                ; MR: IE=1, вектор 1
+        OUT     3
+        LD      #0xA                ; MR: IE=1, вектор 2
+        OUT     5
+        EI
+
+main:   DI                          ; атомарность на время изменения X
+        LD      X
+        ADD     #3
+        CMP     min
+        BGE     chk1_max
+        JUMP    chk1_ldmin
+chk1_max:
+        CMP     max
+        BLT     chk1_store
+        BEQ     chk1_store
+chk1_ldmin:
+        LD      min
+chk1_store:
+        ST      X
+        EI
+        JUMP    main
+
+int1:   DI                          ; ВУ-1: вывод F(X) = -3X-8
+        PUSH
+        LD      X
+        ADD     X                   ; 2X
+        ADD     X                   ; 3X
+        NEG                         ; -3X
+        SUB     #8                  ; -3X-8
+        OUT     2
+        POP
+        EI
+        IRET
+
+int2:   DI                          ; ВУ-2: X := X | РД(ВУ-2)
+        PUSH
+        CLA
+        IN      4
+        OR      X
+        CMP     min
+        BGE     chk2_max
+        JUMP    chk2_ldmin
+chk2_max:
+        CMP     max
+        BLT     chk2_store
+        BEQ     chk2_store
+chk2_ldmin:
+        LD      min
+chk2_store:
+        ST      X
+        POP
+        EI
+        IRET
+\end{lstlisting}
+
+% ════════════════════════════════════════════════════════
+%  ОДЗ
+% ════════════════════════════════════════════════════════
+\section*{Область допустимых значений}
+
+\[
+-128 \le -3X-8 \le 127
+\]
+\[
+-120 \le -3X \le 135
+\]
+\[
+-45 \le X \le 40
+\]
+
+\[
+40 = 0000.0000.0010.1000 = 0x0028
+\]
+\[
+-45 = 1111.1111.1101.0011 = 0xFFD3
+\]
+
+Число $X \in [\text{FFD3};\ 0028]$.
+
+% ════════════════════════════════════════════════════════
+%  РАСПОЛОЖЕНИЕ ДАННЫХ
+% ════════════════════════════════════════════════════════
+\section*{Расположение данных в памяти}
+
+\begin{itemize}
+    \item Вектор прерываний: 0x000 -- 0x00F
+    \item Переменные (X, max, min): 0x020 -- 0x022
+    \item Программа: 0x023 – 0x054
+\end{itemize}
+
+% ════════════════════════════════════════════════════════
+%  ОБЛАСТЬ ПРЕДСТАВЛЕНИЯ
+% ════════════════════════════════════════════════════════
+\section*{Область представления}
+
+\begin{itemize}
+    \item X, min, max -- знаковое 16-разрядное целое число;
+    \item DR КВУ -- 8-ми разрядное целое знаковое число.
+\end{itemize}
+
+% ════════════════════════════════════════════════════════
+%  ВЫВОД
+% ════════════════════════════════════════════════════════
+\section*{Вывод}
+
+В ходе выполнения лабораторной работы я изучил обмен данными с ВУ-1 и ВУ-2 в режиме прерываний, разобрался с циклом прерывания и порядком сохранения/восстановления состояния процессора при входе и выходе из обработчика. Также закрепил знания в написании программ на ассемблере БЭВМ.
+
+% ════════════════════════════════════════════════════════
+%  МЕТОДИКА ПРОВЕРКИ
+% ════════════════════════════════════════════════════════
+\section*{Методика проверки программы}
+
+\textbf{Проверка обработки прерываний:}
+
+\begin{enumerate}
+    \item Загрузить текст программы в БЭВМ.
+    \item Заменить \texttt{NOP} по нужному адресу на \texttt{HLT} (либо использовать точку останова).
+    \item Запустить программу в режиме РАБОТА.
+    \item Установить «Готовность ВУ-1».
+    \item Дождаться останова.
+    \item Записать текущее значение X из памяти БЭВМ (адрес 0x020).
+    \item Записать результат обработки прерывания -- содержимое DR контроллера ВУ-1 (порт \#2).
+    \item Рассчитать ожидаемое значение $F(X)=-3X-8$ и сравнить с результатом.
+    \item Нажать «Продолжение».
+    \item Ввести в ВУ-2 произвольное число, установить «Готовность ВУ-2».
+    \item Дождаться останова, записать значение X, сравнить с ожидаемым $X\,|\,\text{РД(ВУ-2)}$ (с учётом коррекции по ОДЗ).
+    \item Нажать «Продолжение».
+\end{enumerate}
+
+\textbf{Проверка основной программы:}
+
+\begin{enumerate}
+    \item Загрузить текст программы в БЭВМ.
+    \item Записать в переменную X значение, близкое к максимуму ОДЗ (например, 37).
+    \item Запустить программу в пошаговом режиме.
+    \item Пройти нужное количество шагов, убедиться, что при превышении X значения 40 происходит сброс в минимальное по ОДЗ значение (-45).
+\end{enumerate}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Прерывание ВУ-1}} \\
+\hline
+\textbf{X (AC)} & \textbf{Ожидание $F(X)$} & \textbf{DR ВУ-1} \\
+\hline
+$0A_{16}$ (10) & $DA_{16}$ (-38) & $DA_{16}$ (-38) \\
+$D3_{16}$ (-45) & $7F_{16}$ (127) & $7F_{16}$ (127) \\
+$28_{16}$ (40) & $80_{16}$ (-128) & $80_{16}$ (-128) \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Прерывание ВУ-2}} \\
+\hline
+\textbf{X до} & \textbf{DR ВУ-2} & \textbf{X после ($X\,|\,\text{DR}$, с коррекцией ОДЗ)} \\
+\hline
+$05_{16}$ (5) & $0A_{16}$ (10) & $0F_{16}$ (15) \\
+$28_{16}$ (40) & $0F_{16}$ (15) & $D3_{16}$ (-45) -- коррекция (47$>$40) \\
+$D3_{16}$ (-45) & $01_{16}$ (1) & $D3_{16}$ (-45) \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Основная программа ($X:=X+3$)}} \\
+\hline
+\textbf{X до} & \textbf{X после} \\
+\hline
+$25_{16}$ (37) & $28_{16}$ (40) \\
+$28_{16}$ (40) & $D3_{16}$ (-45) -- коррекция (43$>$40) \\
+$D3_{16}$ (-45) & $D6_{16}$ (-42) \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}
