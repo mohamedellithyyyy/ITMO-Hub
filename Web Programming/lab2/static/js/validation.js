@@ -1,3 +1,4 @@
+// validation.js for Validation client side
 export function scaled(str, scale) {
     const neg = str.startsWith("-");
     const [i, d = ""] = str.replace("-", "").split(".");
@@ -88,7 +89,7 @@ export function validateForm({
         Yb < scaled("-3", scale) ||
         Yb > scaled("3", scale)
     ) {
-        showError("Y должен быть в диапазоне от -3 до 3.");
+        showError("Y должен быть в диапазоне от -3 до 3" + ".");
         return null;
     }
 
